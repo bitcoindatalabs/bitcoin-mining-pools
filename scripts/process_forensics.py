@@ -44,10 +44,28 @@ def main():
         df_raw = pd.merge(df_meta, df_ver, left_on="block_height", right_on="height", how="left")
         df_raw["protocol_version"] = df_raw["version"].fillna(0x20000000).astype("int64")
 
-        # If df_main has heights beyond df_raw (e.g. recent tip blocks above metadata)
-        missing_h = set(df_main["height"]) - set(df_raw["block_height"])
+    # Check if df_main has heights beyond df_raw
+    missing_h = set(df_main["height"]) - set(df_raw["block_height"])
+    if missing_h:
+        print(f"Resolving {len(missing_h)} missing blocks locally from bitcoin_blocks_metadata.parquet ...")
+        meta_path = Path("/data/Lightning/Data/parquet/bitcoin_blocks_metadata.parquet")
+        if meta_path.exists():
+            df_meta = pd.read_parquet(meta_path)
+            df_m = df_meta[df_meta["block_height"].isin(missing_h)].copy()
+            if not df_m.empty:
+                df_m = df_m.rename(columns={
+                    "size": "bytes_total",
+                    "weight": "block_weight",
+                    "transaction_count": "tx_count",
+                    "stripped_size": "bytes_stripped"
+                })
+                df_m["block_time"] = pd.to_datetime(df_m["timestamp"]).astype("int64") // 10**6
+                df_m["protocol_version"] = 0x20000000
+                df_raw = pd.concat([df_raw, df_m], ignore_index=True)
+                missing_h = set(df_main["height"]) - set(df_raw["block_height"])
+
         if missing_h:
-            print(f"Fetching {len(missing_h)} tip blocks metadata via RPC ...")
+            print(f"Fetching remaining {len(missing_h)} tip blocks metadata via RPC fallback ...")
             import sys
             sys.path.insert(0, "/home/sorukumar/dev/python/automation")
             from closed_channel_engine import load_env_credentials

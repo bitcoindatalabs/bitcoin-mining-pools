@@ -122,6 +122,8 @@ def main():
         print("\nLoading bitcoin_blocks_pool.parquet ...")
         df_bp = pd.read_parquet(bp_path, columns=["block_height", "coinbase_tag", "block_time"])
         df_bp = df_bp.rename(columns={"block_height": "height", "block_time": "date"})
+        if not pd.api.types.is_datetime64_any_dtype(df_bp["date"]):
+            df_bp["date"] = pd.to_datetime(df_bp["date"], unit="s", utc=True).dt.as_unit("us")
     else:
         df_bp = pd.DataFrame(columns=["height", "coinbase_tag", "date"])
     df_bp["pool_slug"] = df_bp["coinbase_tag"].apply(resolve_from_tag)
