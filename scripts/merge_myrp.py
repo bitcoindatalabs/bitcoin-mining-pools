@@ -92,7 +92,9 @@ def main():
     # 2. bitcoin_miners_myrp.parquet — high-accuracy, up to myrp's last date
     # -------------------------------------------------------------------------
     print("\nLoading bitcoin_miners_myrp.parquet ...")
-    df_myrp = pd.read_parquet(RAW / "bitcoin_miners_myrp.parquet")
+    miners_p = Path("/data/bitcoin/data/bitcoin_miners.parquet")
+    if not miners_p.exists(): miners_p = RAW / "bitcoin_miners_myrp.parquet"
+    df_myrp = pd.read_parquet(miners_p)
     df_myrp = df_myrp.rename(columns={
         "block_height": "height",
         "mining_pool":  "pool_slug",
@@ -115,16 +117,13 @@ def main():
     post_max_height = int(df_post["height"].max()) if len(df_post) else 0
     bp_cutoff = max(post_max_height, myrp_max_height) if not rebuild else (POST_2021_HEIGHT - 1)
 
-    print("\nLoading bitcoin_blocks_pool.parquet ...")
-    df_bp = pd.read_parquet(
-        RAW / "bitcoin_blocks_pool.parquet",
-        columns=["block_height", "coinbase_tag", "block_time"],
-    )
-    df_bp = df_bp.rename(columns={"block_height": "height", "block_time": "date"})
-    print(f"  bitcoin_blocks_pool.parquet covers heights "
-          f"{df_bp['height'].min()} – {df_bp['height'].max()}")
-
-    # Resolve pool slug from coinbase_tag using enriched lookup
+    bp_path = RAW / "bitcoin_blocks_pool.parquet"
+    if bp_path.exists():
+        print("\nLoading bitcoin_blocks_pool.parquet ...")
+        df_bp = pd.read_parquet(bp_path, columns=["block_height", "coinbase_tag", "block_time"])
+        df_bp = df_bp.rename(columns={"block_height": "height", "block_time": "date"})
+    else:
+        df_bp = pd.DataFrame(columns=["height", "coinbase_tag", "date"])
     df_bp["pool_slug"] = df_bp["coinbase_tag"].apply(resolve_from_tag)
     df_bp = df_bp[["height", "pool_slug", "date"]]
 

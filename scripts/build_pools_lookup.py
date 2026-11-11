@@ -48,8 +48,12 @@ def build():
             continue
         merged_tags[tag] = info
 
-    # --- 4. Keep payout_addresses from upstream only (supplement has none) ---
+    # --- 4. Merge payout_addresses (supplement adds to upstream) -------------
     merged_addrs = dict(upstream.get("payout_addresses", {}))
+    for addr, info in supplement.get("payout_addresses", {}).items():
+        if addr.startswith("_comment"):
+            continue
+        merged_addrs[addr] = info
 
     # --- 5. Build slug -> canonical name lookup ------------------------------
     slug_to_name: dict[str, str] = {}

@@ -63,6 +63,162 @@
       "name": "SoloPool.com",
       "type": "solo",
       "link": "https://solopool.org/"
+    },
+    "/BlockfillsPool/": {
+      "name": "BlockFills",
+      "link": "https://www.blockfills.com/mining"
+    },
+    "cloverpool": {
+      "name": "CloverPool",
+      "link": "https://cloverpool.com"
+    },
+    "EMC:": {
+      "name": "EclipseMC",
+      "link": "https://eclipsemc.com"
+    },
+    "Mined By AntPool": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "/mined by poopbut/": {
+      "name": "MiningKings",
+      "link": "https://miningkings.com"
+    },
+    "/poolin/": {
+      "name": "Poolin",
+      "link": "https://www.poolin.com"
+    },
+    "/tigerpool.net": {
+      "name": "tigerpool.net",
+      "link": ""
+    },
+    "/Mined in the USA by: /Minerium.com/": {
+      "name": "Minerium",
+      "link": "https://www.minerium.com"
+    },
+    "emcd": {
+      "name": "EMCDPool",
+      "link": "https://pool.emcd.io"
+    },
+    "/PureBTC.COM/": {
+      "name": "PureBTC.COM",
+      "link": "https://purebtc.com"
+    },
+    "Entrustus": {
+      "name": "Entrust Charity Pool",
+      "link": "pool.entustus.org"
+    },
+    "ZULUPooL": {
+      "name": "Zulupool",
+      "link": "https://beta.zulupool.com/"
+    },
+    "ZU_test": {
+      "name": "Zulupool",
+      "link": "https://beta.zulupool.com/"
+    },
+    "/@wiz/": {
+      "name": "wiz",
+      "link": "https://wiz.biz/"
+    },
+    "rijndael's toaster": {
+      "name": "rijndael",
+      "link": "https://twitter.com/rot13maxi"
+    },
+    "wizkid057's block": {
+      "name": "wk057",
+      "link": ""
+    },
+    "Apollo": {
+      "name": "FutureBit Apollo Solo",
+      "link": "https://www.futurebit.io"
+    },
+    "/mined by a Solo FutureBit Apollo/": {
+      "name": "FutureBit Apollo Solo",
+      "link": "https://www.futurebit.io"
+    },
+    "Emzy was here.": {
+      "name": "emzy",
+      "link": "https://twitter.com/emzy"
+    },
+    "knorrium": {
+      "name": "knorrium",
+      "link": "https://twitter.com/knorrium"
+    },
+    "Portland.HODL": {
+      "name": "Portland.HODL",
+      "link": ""
+    },
+    "/Neopool/": {
+      "name": "Neopool",
+      "link": "https://neopool.com/"
+    },
+    "DrDetroit": {
+      "name": "DrDetroit",
+      "link": "https://x.com/bankhatin"
+    },
+    "/BitFuFu/": {
+      "name": "BitFuFuPool",
+      "link": "https://www.bitfufu.com/pool"
+    },
+    "Public Pool on Umbrel": {
+      "name": "Public Pool",
+      "link": "https://web.public-pool.io/"
+    },
+    "/bsquared/": {
+      "name": "Mining Squared",
+      "link": "https://pool.bsquared.network/"
+    },
+    "Innopolis.tech": {
+      "name": "Innopolis Tech",
+      "link": "https://innopolis.tech/"
+    },
+    "/@nymkappa/": {
+      "name": "nymkappa",
+      "link": "https://github.com/nymkappa"
+    },
+    "BTCLab": {
+      "name": "BTCLab",
+      "link": "https://btclab.dev/"
+    },
+    "BTCLab.dev": {
+      "name": "BTCLab",
+      "link": "https://btclab.dev/"
+    },
+    "parasite": {
+      "name": "Parasite",
+      "link": "https://parasite.space"
+    },
+    "RedRock": {
+      "name": "RedRock Pool",
+      "link": "https://redrock.pro/"
+    },
+    "/Est3lar/": {
+      "name": "Est3lar",
+      "link": "https://est3lar.io"
+    },
+    "est3lar": {
+      "name": "Est3lar",
+      "link": "https://est3lar.io"
+    },
+    "Est3lar": {
+      "name": "Est3lar",
+      "link": "https://est3lar.io"
+    },
+    "EST3LAR": {
+      "name": "Est3lar",
+      "link": "https://est3lar.io"
+    },
+    "/Mined @ SoloPool.Com/": {
+      "name": "SoloPool.com",
+      "link": "https://solopool.com"
+    },
+    "/DMND/": {
+      "name": "DMND",
+      "link": "https://www.dmnd.work/"
+    },
+    "/trustpool/": {
+      "name": "TrustPool",
+      "link": "https://trustpool.cc"
     }
   },
   "slug_aliases": {
@@ -78,10 +234,198 @@
   },
   "supplement_overrides": {
     "_comment": "When bitcoin_blocks_pool.parquet resolves a block to one of these slugs (via coinbase_tag), it beats myrp's more generic attribution. Format: supplement_slug -> list of myrp slugs it overrides.",
-    "braiinssolo": ["ckpool"],
-    "noderunners": ["ckpool"],
-    "publicpool": ["unknown"],
-    "letsmineit": ["unknown"],
-    "redrockpool": ["unknown"]
+    "braiinssolo": [
+      "ckpool"
+    ],
+    "noderunners": [
+      "ckpool"
+    ],
+    "publicpool": [
+      "unknown"
+    ],
+    "letsmineit": [
+      "unknown"
+    ],
+    "redrockpool": [
+      "unknown"
+    ]
+  },
+  "payout_addresses": {
+    "bc1q39dled8an7enuxtmjql3pk7ny8kzvsxhd924sl": {
+      "name": "Terra Pool",
+      "link": "https://terrapool.io"
+    },
+    "1HTejfsPZQGi3afCMEZTn2xdmoNzp13n3F": {
+      "name": "Bitalo",
+      "link": "https://bitalo.com/mining"
+    },
+    "1B7ZBX2C39b26M9chHLURGSFTJA6DDQkZv": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1CBqo1w3hmm9SCmbu2Yg6Ls4uLfkUqZJsx": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1CZHhV67Qos4xXb8uYqvAGjK8Wq52woPi5": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1D9jw3QHNankXxtcGVihsDK7Z7THN6j7Pg": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1DQaDTefKPjHz3beLuo8KHRZF9t2Sc6foP": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1FrHkVsW7csAYYaRbUUcrKSmv91hcQnsqQ": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1GEG1JR81jvUXs7TMAuo3SPBHZrpJijcjt": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1GT2N4dCufvbnTKMbS61QrQPN4SexCAFiH": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1H6ckqNWikmVT3wpN3X1BQ6b156Xc9nT2L": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1KmgBTL7cFmFFYTD7HcdkMcZXRcTkh2WwS": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1MiQrT5sEKTUGNMbd9WS3yPPkSjWdpYA2r": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1Pzf7qT7bBGouvnjRvtRD8VhTyqjX1NrJT": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "3FaYVQF6wCMUB9NCeRe4tUp1zZx8qqM7H1": {
+      "name": "AntPool",
+      "link": "https://www.antpool.com"
+    },
+    "1BUiW44WuJ2jiJgXiyxJVFMN8bc1GLdXRk": {
+      "name": "TBDice",
+      "link": "https://tbdice.org"
+    },
+    "1FbBbv5oYqFKwiPm4CAqvAy8345n8AQ74b": {
+      "name": "Rawpool",
+      "link": "https://www.rawpool.com"
+    },
+    "bc1q8ej2g5uxdsg0jwl0mpl606qfjxgkyv3p29yf37": {
+      "name": "Rawpool",
+      "link": "https://www.rawpool.com"
+    },
+    "bc1qnnl503n04cqacpwvhr89qr70metxr79ht3n380": {
+      "name": "Rawpool",
+      "link": "https://www.rawpool.com"
+    },
+    "bc1qru8mtv3e3u7ms6ecjmwgeakdakclemvhnw00q9": {
+      "name": "Rawpool",
+      "link": "https://www.rawpool.com"
+    },
+    "bc1qxhmdufsvnuaaaer4ynz88fspdsxq2h9e9cetdj": {
+      "name": "Foundry USA",
+      "link": "https://foundrydigital.com"
+    },
+    "bc1p8k4v4xuz55dv49svzjg43qjxq2whur7ync9tm0xgl5t4wjl9ca9snxgmlt": {
+      "name": "Foundry USA",
+      "link": "https://foundrydigital.com"
+    },
+    "bc1qtm7ye0wm085hhv88japwkalmwkt3amec5z9c7a3unv05tfg6y2pstr3xfz": {
+      "name": "Foundry USA",
+      "link": "https://foundrydigital.com"
+    },
+    "18hvMLisvfc58PvA5rHH7NsLN9CV5ddB2x": {
+      "name": "Telco 214",
+      "link": "https://www.telco214.com"
+    },
+    "1PmRrdp1YSkp1LxPyCfcmBHDEipG5X4eJB": {
+      "name": "BTC Pool Party",
+      "link": "https://btcpoolparty.com"
+    },
+    "1ZULUPooLEQfkrTgynLV4uHyMgQYx71ip": {
+      "name": "Zulupool",
+      "link": "https://beta.zulupool.com/"
+    },
+    "37dvwZZoT3D7RXpTCpN2yKzMmNs2i2Fd1n": {
+      "name": "OCEAN",
+      "link": "https://ocean.xyz/"
+    },
+    "1wizSAYSbuyXbt9d8JV8ytm5acqq2TorC": {
+      "name": "wiz",
+      "link": "https://wiz.biz/"
+    },
+    "tb1q548z58kqvwyjqwy8vc2ntmg33d7s2wyfv7ukq4": {
+      "name": "wiz",
+      "link": "https://wiz.biz/"
+    },
+    "mjP97q5BWtdpdsJLkEJvQWgLe9zw4MMVU6": {
+      "name": "mononaut",
+      "link": "https://twitter.com/mononautical"
+    },
+    "tb1qg8zlznrvns9u46muxamxjh7sa8wry3vutzaujm": {
+      "name": "rijndael",
+      "link": "https://twitter.com/rot13maxi"
+    },
+    "1WizkidqARMLvjGUpfDQFRcEbnHpL55kK": {
+      "name": "wk057",
+      "link": ""
+    },
+    "tb1qmf7xdqc5nvzhturuzc46qtq5kywdf3p76cpq53": {
+      "name": "emzy",
+      "link": "https://twitter.com/emzy"
+    },
+    "tb1qtfqp4g7n7wc3sr6c2cuzsq62px4pfsxgsv2krx": {
+      "name": "knorrium",
+      "link": "https://twitter.com/knorrium"
+    },
+    "37cGvBD4qufoZQHopGS7XstxRUzx5cNuy1": {
+      "name": "Phoenix",
+      "link": "https://phoenixpool.com"
+    },
+    "bc1q2zcenaujmmdv8sqgf723cug4vjnphkvvf8zpst": {
+      "name": "Phoenix",
+      "link": "https://phoenixpool.com"
+    },
+    "1Ld6okoaLNDbSnougAyQTrchxRn9ELnTJg": {
+      "name": "Phoenix",
+      "link": "https://phoenixpool.com"
+    },
+    "1HCAb2h89bUinm6QZrAPpfbk4ySBrT2V4w": {
+      "name": "Neopool",
+      "link": "https://neopool.com/"
+    },
+    "tb1qtcruplnz89xw5f86kw8sj7x9r23d5yffrysx2p": {
+      "name": "DrDetroit",
+      "link": "https://x.com/bankhatin"
+    },
+    "3AvXzTUat4p6Qf6ZLnRNvB3mDLjp3fNmjJ": {
+      "name": "Mining Squared",
+      "link": "https://pool.bsquared.network/"
+    },
+    "tb1qdyy39724wqnqqqduv6zxsf56s2ec9lgypxs59h": {
+      "name": "nymkappa",
+      "link": "https://github.com/nymkappa"
+    },
+    "3554kSaWNnP3B49Xyybert7gmxq2YSnfnx": {
+      "name": "RedRock Pool",
+      "link": "https://redrock.pro/"
+    },
+    "34qGNFx6uQv6SzjYPbYVWtjvuy5DSGugt8": {
+      "name": "Est3lar",
+      "link": "https://est3lar.io"
+    },
+    "bc1qreaftg3lr53nv84dnxhcvchmswevzlp9tdj2jd": {
+      "name": "SoloPool.com",
+      "link": "https://solopool.com"
+    }
   }
 }

@@ -1,11 +1,12 @@
 /* ── Reset & base ─────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-[data-theme="dark"] {
+:root, [data-theme="dark"] {
   --bg-primary: #0B0E14;
   --bg-secondary: #121A26;
   --text-primary: #F8FAFC;
   --text-secondary: #CBD5E1;
+  --muted: #64748B;
   --accent: #E2A34A;
   --border: rgba(255, 255, 255, 0.12);
   --card-bg: #161B22;

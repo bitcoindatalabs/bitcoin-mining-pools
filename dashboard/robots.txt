@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://sorukumar.github.io/bitcoin-mining-pools/sitemap.xml
+Sitemap: https://bitcoindatalabs.github.io/bitcoin-mining-pools/sitemap.xml

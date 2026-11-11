@@ -14,7 +14,61 @@ def main():
     df_main = pd.read_parquet(DASHBOARD_DATA / "blocks_post_2021.parquet")
     
     # 2. Load Raw Forensics Data (The "Metric" Source)
-    df_raw = pd.read_parquet(RAW / "bitcoin_blocks_pool.parquet")
+    raw_bp_file = RAW / "bitcoin_blocks_pool.parquet"
+    if raw_bp_file.exists():
+        df_raw = pd.read_parquet(raw_bp_file)
+    else:
+        print("Loading metrics from bitcoin_blocks_metadata and chain lake parts ...")
+        meta_path = Path("/data/Lightning/Data/parquet/bitcoin_blocks_metadata.parquet")
+        df_meta = pd.read_parquet(meta_path)
+        df_meta = df_meta[df_meta["block_height"] >= 664063].copy()
+        df_meta = df_meta.rename(columns={
+            "size": "bytes_total",
+            "weight": "block_weight",
+            "transaction_count": "tx_count",
+            "stripped_size": "bytes_stripped"
+        })
+        df_meta["block_time"] = pd.to_datetime(df_meta["timestamp"]).astype("int64") // 10**6
+
+        import glob, os, re
+        chain_parts = "/data/bitcoin/data/chain/parts"
+        b_files = sorted(
+            glob.glob(os.path.join(chain_parts, "blocks_*.parquet")),
+            key=lambda f: [int(x) for x in re.findall(r"\d+", os.path.basename(f))]
+        )
+        target_files = [f for f in b_files if [int(x) for x in re.findall(r"\d+", os.path.basename(f))][1] >= 664063]
+        dfs = [pd.read_parquet(f, columns=["height", "version"]) for f in target_files]
+        df_ver = pd.concat(dfs, ignore_index=True)
+        df_ver = df_ver[df_ver["height"] >= 664063]
+
+        df_raw = pd.merge(df_meta, df_ver, left_on="block_height", right_on="height", how="left")
+        df_raw["protocol_version"] = df_raw["version"].fillna(0x20000000).astype("int64")
+
+        # If df_main has heights beyond df_raw (e.g. recent tip blocks above metadata)
+        missing_h = set(df_main["height"]) - set(df_raw["block_height"])
+        if missing_h:
+            print(f"Fetching {len(missing_h)} tip blocks metadata via RPC ...")
+            import sys
+            sys.path.insert(0, "/home/sorukumar/dev/python/automation")
+            from closed_channel_engine import load_env_credentials
+            import requests
+            _rpc = load_env_credentials()
+            url = f"http://{_rpc["BITCOIN_RPC_HOST"]}:{_rpc["BITCOIN_RPC_PORT"]}/"
+            auth = (_rpc["BITCOIN_RPC_USER"], _rpc["BITCOIN_RPC_PASSWORD"])
+            rpc_rows = []
+            for h in sorted(missing_h):
+                res_hash = requests.post(url, auth=auth, json={"method": "getblockhash", "params": [h], "id": h}).json()["result"]
+                res_blk = requests.post(url, auth=auth, json={"method": "getblock", "params": [res_hash, 1], "id": h}).json()["result"]
+                rpc_rows.append({
+                    "block_height": h,
+                    "bytes_total": res_blk.get("size", 0),
+                    "block_weight": res_blk.get("weight", 0),
+                    "tx_count": res_blk.get("nTx", 0),
+                    "block_time": res_blk.get("time", 0),
+                    "protocol_version": res_blk.get("version", 0x20000000),
+                    "bytes_stripped": res_blk.get("strippedsize", 0)
+                })
+            df_raw = pd.concat([df_raw, pd.DataFrame(rpc_rows)], ignore_index=True)
     
     # 3. Join on Height to ensure 100% consistency with main dashboard
     print("Joining datasets on block height ...")

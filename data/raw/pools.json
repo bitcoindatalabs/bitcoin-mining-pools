@@ -368,6 +368,10 @@
       "name": "AntPool",
       "link": "https://www.antpool.com"
     },
+    "1DnPPFQPrfyNTiHPXhDFyqNnW9T62GEhB1": {
+      "name": "GDPool",
+      "link": "https://mempool.space/mining/pool/gdpool"
+    },
     "1DyR7HPQWjM6Zrnk7SzHVY2GEpXRGNNH9o": {
       "name": "AntPool",
       "link": "https://www.antpool.com"
@@ -1134,7 +1138,7 @@
       "name": "okpool.top",
       "link": "https://www.okpool.top"
     },
-    "/八宝池 8baochi.com/": {
+    "/\u516b\u5b9d\u6c60 8baochi.com/": {
       "name": "8baochi",
       "link": "https://8baochi.com"
     },
@@ -1222,6 +1226,10 @@
       "name": "Foundry USA",
       "link": "https://foundrydigital.com"
     },
+    "GDPool": {
+      "name": "GDPool",
+      "link": "https://mempool.space/mining/pool/gdpool"
+    },
     "Give-Me-Coins": {
       "name": "Give Me Coins",
       "link": "https://give-me-coins.com"
@@ -1261,6 +1269,10 @@
     "KuCoinPool": {
       "name": "KuCoin Pool",
       "link": "https://www.kucoin.com/mining-pool"
+    },
+    "Lucky pool": {
+      "name": "GDPool",
+      "link": "https://mempool.space/mining/pool/gdpool"
     },
     "Luxor Tech": {
       "name": "Luxor",
@@ -1482,11 +1494,11 @@
       "name": "Yourbtc.net",
       "link": "https://yourbtc.net"
     },
-    "七彩神仙鱼": {
+    "\u4e03\u5f69\u795e\u4ed9\u9c7c": {
       "name": "F2Pool",
       "link": "https://www.f2pool.com"
     },
-    "🐟": {
+    "\ud83d\udc1f": {
       "name": "F2Pool",
       "link": "https://www.f2pool.com"
     }

@@ -69,7 +69,7 @@ We stand on the shoulders of the community. Our historical and real-time data is
 
 ## 🚀 Getting Started
 
-- **View Live Dashboard**: [Visit the GitHub Pages site](https://sorukumar.github.io/bitcoin-mining-pools/) (or your repo's URL).
+- **View Live Dashboard**: [Visit the GitHub Pages site](https://bitcoindatalabs.github.io/bitcoin-mining-pools/) (or your repo's URL).
 
 ### 🔄 Data Update Loop
 To refresh the dashboard with new block data from a node or pool-lookup registry, run the following sequence:
