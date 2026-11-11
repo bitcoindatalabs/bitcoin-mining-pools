@@ -1,11 +1,11 @@
-import { loadData, loadParquetOnly, loadForensics, filterBlocks, aggregateByPool, aggregateByCountry, aggregateMonthly } from './data-loader.js?v=14';
+import { loadData, loadParquetOnly, loadForensics, filterBlocks, aggregateByPool, aggregateByCountry, aggregateMonthly } from './data-loader.js?v=26';
 import { 
   renderDonut, renderPoolTable, renderCountryShareChart, renderAreaChart, renderEcosystemGrowthChart, renderHhiChart, renderConcentrationChart, renderTopMinersTable, 
   renderStreaksLeaderboard, renderZScoreFunnel, renderEntropyHeatmap, renderSyncHistogram, renderConsecutiveAdvantage, renderEmptyBlockChart, renderEmptyTrendChart,
   renderBip110Signaling, renderBip110Efficiency, renderBip110Overhead,
   renderQuarterlyLift, renderTransitionMatrix,
   resizeAllCharts, donutChart, growthChart 
-} from './charts.js?v=14';
+} from './charts.js?v=26';
 
 let allBlocks   = [];
 let poolMeta    = {};
@@ -508,7 +508,7 @@ async function lazyLoadHistory() {
     const res = await fetch('./data/lookup/lookup_slug_to_name.json');
     const lookup = await res.json();
     
-    const preBlocks = await loadParquetOnly('./data/blocks_pre_2021.parquet', lookup);
+    const preBlocks = await loadParquetOnly('./data/blocks_pre_2021.parquet?v=26', lookup);
     fullHistoryBlocks = [...preBlocks, ...post2021Blocks];
     console.log("Historical data loaded in background.");
   } catch (err) {
