@@ -363,6 +363,9 @@ def main() -> int:
     ap.add_argument("--stale-days", type=float, default=STALE_DAYS)
     ap.add_argument("--workers", type=int, default=min(8, os.cpu_count() or 1))
     ap.add_argument("--no-block-check", action="store_true", help="dry run: skip the blocks-would-change count")
+    ap.add_argument("--report-out", default=None,
+                    help=f"write the run report here (default {RUN_REPORT.relative_to(ROOT)}; a dry run writes one "
+                         f"only when this is given)")
     a = ap.parse_args()
 
     from build_pools_lookup import build
@@ -489,6 +492,8 @@ def main() -> int:
             if (changed or pins) and not a.no_block_check:
                 print("Resolving every block with the candidate registry ...")
                 report["blocks_would_change"] = blocks_that_would_change(cand_registry, a.workers)
+            if a.report_out:
+                write_json_atomic(Path(a.report_out), report)
             print_report(report)
             return 0
 
@@ -502,8 +507,8 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001 - anything here is a real failure: report it and exit 1
         report["error"] = f"{type(e).__name__}: {e}"
         report["alerts"].append(f"refresh failed: {report['error']}")
-        if not a.dry_run:
-            write_json_atomic(RUN_REPORT, report)
+        if a.report_out or not a.dry_run:
+            write_json_atomic(Path(a.report_out) if a.report_out else RUN_REPORT, report)
         print_report(report)
         return 1
     finally:
@@ -531,7 +536,7 @@ def main() -> int:
                                     f"still on {src['sha'][:7]}")
     status["checked_at"] = min(s["checked_at"] for s in status["sources"].values())[:10]
     write_json_atomic(STATUS, status)
-    write_json_atomic(RUN_REPORT, report)
+    write_json_atomic(Path(a.report_out) if a.report_out else RUN_REPORT, report)
     print_report(report)
     return 0
 

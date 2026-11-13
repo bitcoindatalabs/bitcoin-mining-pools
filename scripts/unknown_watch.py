@@ -22,7 +22,7 @@ It never edits the pool list. A human or agent adds a cited entry to data/raw/po
 Inputs:  data/processed/block_attribution.parquet (resolve_blocks.py), data/raw/coinbase_blocks.parquet
 Output:  data/status/unknown_clusters.json (not with --dry-run)
 
-Usage: python3 scripts/unknown_watch.py [--dry-run] [--days 7] [--min-blocks 3] [--end-height H]
+Usage: python3 scripts/unknown_watch.py [--dry-run [--out PATH]] [--days 7] [--min-blocks 3] [--end-height H]
 """
 
 from __future__ import annotations
@@ -97,7 +97,9 @@ def iso_day(ts: int) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Cluster recent unknown blocks and flag new clusters.")
-    ap.add_argument("--dry-run", action="store_true", help="print the result; write nothing")
+    ap.add_argument("--dry-run", action="store_true",
+                    help=f"do not update {OUT.relative_to(ROOT)} (with --out, write the result there instead)")
+    ap.add_argument("--out", default=None, help="write the result to this path")
     ap.add_argument("--days", type=float, default=7)
     ap.add_argument("--min-blocks", type=int, default=3)
     ap.add_argument("--max-unknown-share", type=float, default=0.01)
@@ -226,12 +228,13 @@ def main() -> int:
               f"payout {[p['address'] or p['script'][:20] for p in c['payout_scripts'][:2]]}")
     for al in alerts:
         print(f"  ALERT: {al}")
-    if not a.dry_run:
-        OUT.parent.mkdir(parents=True, exist_ok=True)
-        tmp = OUT.with_name(OUT.name + ".tmp")
+    out = Path(a.out) if a.out else (None if a.dry_run else OUT)
+    if out:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        tmp = out.with_name(out.name + ".tmp")
         tmp.write_text(json.dumps(result, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
-        os.replace(tmp, OUT)
-        print(f"  wrote {OUT.relative_to(ROOT)}")
+        os.replace(tmp, out)
+        print(f"  wrote {out}")
     return 0
 
 
