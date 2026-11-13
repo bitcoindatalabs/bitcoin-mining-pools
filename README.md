@@ -59,11 +59,24 @@ This project isn't just about who is winning today; it’s about the **narrative
 
 ## 🔌 Data Sources
 
-We stand on the shoulders of the community. Our historical and real-time data is synthesized from:
+We stand on the shoulders of the community. Every block's pool comes from one resolver
+(`scripts/pool_resolver.py`), fed by these sources (pinned commits, licences and counts in
+[data/raw/SOURCES.md](./data/raw/SOURCES.md)):
 
-1.  **Historical Blocks (0–869k)**: Sourced from [jlopp/bitcoin-blocks-by-mining-pool](https://github.com/jlopp/bitcoin-blocks-by-mining-pool). This incredible dataset provides the foundation of the historical records.
-2.  **Pool Metadata**: Sourced from the [bitcoin-data/mining-pools](https://github.com/bitcoin-data/mining-pools/tree/generated) repository (generated branch), providing the mapping between coinbase tags, payout addresses, and pool identities.
-3.  **Modern Tip (Post-2024)**: Continuously updated directly from a **self-hosted Bitcoin full node**, providing the most accurate, real-time insights into the current mining landscape.
+1.  **Chain data**: each block's coinbase scriptSig and coinbase outputs, read from our own **self-hosted Bitcoin node**
+    (a local chain lake), for every block from Genesis to the tip.
+2.  **Pool lists** (refreshed, pinned in `data/raw/pool_sources.lock.json`): [mempool/mining-pools](https://github.com/mempool/mining-pools)
+    (the list behind mempool.space) and [bitcoin-data/mining-pools](https://github.com/bitcoin-data/mining-pools/tree/generated)
+    (0xB10C, generated branch), plus our cited additions in `data/raw/pools_supplement.json`. Both lists are MIT-licensed.
+3.  **Historical labels (0–869,305, frozen)**: [jlopp/bitcoin-blocks-by-mining-pool](https://github.com/jlopp/bitcoin-blocks-by-mining-pool),
+    used only as a fallback when a block has neither a known coinbase tag nor a known payout address. It is no longer
+    maintained and is not refreshed.
+
+**How a block is labelled** (`method` in `data/processed/block_attribution.parquet`):
+`tag` / `regex` (a known coinbase tag; the longest match wins), `payout` (a known payout address; it wins over a
+conflicting tag, because such a tag is a sub-account or worker name inside another pool's coinbase, except for pools
+that pay their miners in the coinbase, such as OCEAN or Eligius), `jlopp` (the frozen historical label), `unknown`.
+Tags that name pool *software* (`ckpool`, `BTCPool`) are used only as a last resort.
 
 ---
 
@@ -72,13 +85,19 @@ We stand on the shoulders of the community. Our historical and real-time data is
 - **View Live Dashboard**: [Visit the GitHub Pages site](https://bitcoindatalabs.github.io/bitcoin-mining-pools/) (or your repo's URL).
 
 ### 🔄 Data Update Loop
-To refresh the dashboard with new block data from a node or pool-lookup registry, run the following sequence:
+To refresh the dashboard with new blocks or a new pool list, run in order (on datalabs,
+`python/automation/miner_data_updater.py` runs this sequence):
 
-1. **`python scripts/merge_myrp.py`**: Merges new blocks from your local node (`data/raw/bitcoin_miners_myrp.parquet`) into the dashboard dataset.
-2. **`python scripts/update_metrics.py`**: Recalculates all pool KPIs, ecosystem growth, and generates the master slug-to-name lookup.
-3. **`python scripts/process_forensics.py`**: Calibrates the advanced forensics models (Z-Scores, Entropy, Streaks).
+1. **`python scripts/extract_coinbase.py`**: appends new blocks' coinbase data from the local chain lake
+   (`--chain-parts DIR`, default `/data/bitcoin/data/chain/parts`) to `data/raw/coinbase_blocks.parquet`.
+2. **`python scripts/resolve_blocks.py`**: rebuilds the pool registry (`build_pools_lookup.py`), labels every block,
+   and writes `data/processed/block_attribution.parquet` plus `blocks_pre_2021.parquet` and
+   `blocks_post_2021.parquet`. When the registry changes, every block is re-resolved; otherwise only new ones.
+3. **`python scripts/update_metrics.py`**: Recalculates all pool KPIs and ecosystem growth.
+4. **`python scripts/process_forensics.py`**: Calibrates the advanced forensics models (Z-Scores, Entropy, Streaks).
 
 > [!NOTE]
-> `scripts/prepare_data.py` is now a **Legacy Importer** and should only be run if you are resetting the entire historical dataset from the original `blocks.csv`. Regular updates should skip this to avoid overwriting node data.
+> `scripts/merge_myrp.py` is deprecated and now just runs `resolve_blocks.py`. `scripts/prepare_data.py` is a legacy
+> importer from the original `blocks.csv` and is no longer part of the pipeline.
 
 - **Read the Docs**: Start with [docs/01-architecture.md](./docs/01-architecture.md) for a deep dive into how we handle 860k blocks in a browser.

@@ -1,5 +1,6 @@
 """
-prepare_data.py (Legacy Importer)
+prepare_data.py (Legacy Importer: NOT part of the pipeline since bdl-060. It writes jlopp-only labels and would
+overwrite the resolver's output; use resolve_blocks.py.)
 Reads data/raw/blocks.csv + forref/bitcoin_blocks_metadata.parquet
 Enriches blocks with real timestamp from metadata
 Writes blocks_pre_2021.parquet and blocks_post_2021.parquet

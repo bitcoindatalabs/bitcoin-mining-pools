@@ -1,146 +1,226 @@
 """
 build_pools_lookup.py
-Merges data/raw/pools.json (upstream bitcoin-data/mining-pools) with
-data/raw/pools_supplement.json (our local additions) and writes:
-  - dashboard/data/lookup/lookup_slug_to_name.json   (slug -> display name)
-  - dashboard/data/lookup/pools_enriched.json        (merged coinbase_tags + payout_addresses)
-  - dashboard/data/lookup/pool_types.json            (slug -> type: "solo" | "pool")
-The enriched JSON is used by merge_myrp.py and process_forensics.py for
-coinbase_tag resolution so there is one canonical place to add new pools.
+Merges the pinned upstream pool lists with our curated supplement into one versioned registry, and writes:
+  - dashboard/data/lookup/pools_enriched.json      the registry pool_resolver.PoolResolver reads
+  - dashboard/data/lookup/pool_conflicts.json      tags / addresses that two sources give to different pools
+  - dashboard/data/lookup/lookup_slug_to_name.json slug -> display name
+  - dashboard/data/lookup/pool_types.json          slug -> "solo" | "pool"
+
+Sources (pinned in data/raw/pool_sources.lock.json; see data/raw/SOURCES.md):
+  bitcoin-data   data/raw/pools.json             0xB10C's bitcoin-data/mining-pools, generated branch
+                                                 (coinbase_tags: case-sensitive substrings; payout_addresses)
+  mempool        data/raw/mempool-pools-v2.json  mempool/mining-pools master (per pool: tags = JS regexes run
+                                                 case-insensitively by mempool, addresses)
+  supplement     data/raw/pools_supplement.json  our curated additions; every new entry cites a source
+                                                 (coinbase_tags, regexes, payout_addresses, slug_aliases,
+                                                 generic_tags, payout_to_miners_slugs, pool_types)
+
+Precedence: supplement > mempool > bitcoin-data. When two sources give the same tag text or the same address to
+different pools (after slug aliases), the higher source wins, the lower entry is dropped, and the case is written
+to pool_conflicts.json. A pool renamed upstream (BTC.com -> CloverPool, Slush Pool -> Braiins Pool) is mapped with
+slug_aliases in the supplement, never by relabelling blocks.
+
+registry_version = first 16 hex chars of sha256(pool_resolver.RESOLVER_VERSION, lock sources' sha + md5,
+supplement md5). Every dataset built from
+the registry records it.
 """
 
+import hashlib
 import json
+import re
+import sys
 from pathlib import Path
 
-ROOT = Path(__file__).parent.parent
+ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 LOOKUP_DIR = ROOT / "dashboard" / "data" / "lookup"
-LOOKUP_DIR.mkdir(parents=True, exist_ok=True)
+LOCK = RAW / "pool_sources.lock.json"
+SUPPLEMENT = RAW / "pools_supplement.json"
+SOURCE_RANK = {"supplement": 0, "mempool": 1, "bitcoin-data": 2}
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from pool_resolver import RESOLVER_VERSION, to_slug, apply_alias, addr_to_script, js_regex_to_python  # noqa: E402,F401
 
 
-# ---------------------------------------------------------------------------
-# Canonical slug: lowercase, strip spaces / hyphens / underscores / dots
-# ---------------------------------------------------------------------------
-def to_slug(name: str) -> str:
-    if not name:
-        return "unknown"
-    s = name.lower()
-    if s == "unknown":
-        return "unknown"
-    for ch in (" ", "-", "_", "."):
-        s = s.replace(ch, "")
-    return s or "unknown"
+def _clean(d: dict) -> dict:
+    return {k: v for k, v in (d or {}).items() if not k.startswith("_comment")}
 
 
-def build():
-    # --- 1. Load upstream pools.json -----------------------------------------
-    with open(RAW / "pools.json") as f:
-        upstream = json.load(f)
+def registry_version(lock: dict, supplement_bytes: bytes) -> str:
+    h = hashlib.sha256(f"resolver:{RESOLVER_VERSION};".encode())
+    for name in sorted(lock["sources"]):
+        s = lock["sources"][name]
+        h.update(f"{name}:{s['sha']}:{s['md5']};".encode())
+    h.update(hashlib.md5(supplement_bytes).hexdigest().encode())
+    return h.hexdigest()[:16]
 
-    # --- 2. Load supplemental file -------------------------------------------
-    with open(RAW / "pools_supplement.json") as f:
-        supplement = json.load(f)
 
-    # --- 3. Merge coinbase_tags (supplement adds to / overrides upstream) ----
-    merged_tags = dict(upstream.get("coinbase_tags", {}))
-    for tag, info in supplement.get("coinbase_tags", {}).items():
-        if tag.startswith("_comment"):
+def build(write: bool = True):
+    lock = json.loads(LOCK.read_text())
+    sup_bytes = SUPPLEMENT.read_bytes()
+    supplement = json.loads(sup_bytes)
+    aliases = _clean(supplement.get("slug_aliases"))
+
+    def slug_of(name: str) -> str:
+        return apply_alias(to_slug(name), aliases)
+
+    # ---- 1. collect candidate entries from every source --------------------------------------------------------
+    tag_cands, addr_cands, names = [], [], {}
+
+    # Display names: supplement > bitcoin-data > mempool (the dashboard's pools_info.json and earlier releases use
+    # bitcoin-data's names; matching precedence above is unaffected). supplement.display_names overrides all.
+    name_rank = {"supplement": 0, "bitcoin-data": 1, "mempool": 2}
+
+    def note_name(slug, name, source):
+        cur = names.get(slug)
+        if cur is None or name_rank[source] < cur[1]:
+            names[slug] = (name, name_rank[source])
+
+    bd = json.loads((ROOT / lock["sources"]["bitcoin-data"]["local"]).read_text())
+    for tag, info in bd.get("coinbase_tags", {}).items():
+        s = slug_of(info["name"])
+        tag_cands.append({"text": tag, "kind": "tag", "slug": s, "name": info["name"], "link": info.get("link", ""),
+                          "source": "bitcoin-data"})
+        note_name(s, info["name"], "bitcoin-data")
+    for addr, info in bd.get("payout_addresses", {}).items():
+        s = slug_of(info["name"])
+        addr_cands.append({"addr": addr, "slug": s, "name": info["name"], "link": info.get("link", ""),
+                           "source": "bitcoin-data"})
+        note_name(s, info["name"], "bitcoin-data")
+
+    mp = json.loads((ROOT / lock["sources"]["mempool"]["local"]).read_text())
+    for pool in mp:
+        s = slug_of(pool["name"])
+        note_name(s, pool["name"], "mempool")
+        for pat in pool.get("tags", pool.get("regexes", [])):
+            tag_cands.append({"text": pat, "kind": "regex", "slug": s, "name": pool["name"],
+                              "link": pool.get("link", ""), "source": "mempool", "mempool_id": pool.get("id")})
+        for addr in pool.get("addresses", []):
+            addr_cands.append({"addr": addr, "slug": s, "name": pool["name"], "link": pool.get("link", ""),
+                               "source": "mempool"})
+
+    for tag, info in _clean(supplement.get("coinbase_tags")).items():
+        s = slug_of(info["name"])
+        tag_cands.append({"text": tag, "kind": "tag", "slug": s, "name": info["name"], "link": info.get("link", ""),
+                          "source": "supplement", "cite": info.get("source", "")})
+        note_name(s, info["name"], "supplement")
+    for r in supplement.get("regexes", []):
+        s = slug_of(r["name"])
+        tag_cands.append({"text": r["pattern"], "kind": "regex", "slug": s, "name": r["name"],
+                          "link": r.get("link", ""), "source": "supplement", "cite": r.get("source", "")})
+        note_name(s, r["name"], "supplement")
+    for addr, info in _clean(supplement.get("payout_addresses")).items():
+        s = slug_of(info["name"])
+        addr_cands.append({"addr": addr, "slug": s, "name": info["name"], "link": info.get("link", ""),
+                           "source": "supplement", "cite": info.get("source", "")})
+        note_name(s, info["name"], "supplement")
+    for slug, name in _clean(supplement.get("display_names")).items():
+        names[slug] = (name, -1)
+
+    # ---- 2. resolve conflicts by precedence --------------------------------------------------------------------
+    conflicts = []
+    by_text: dict = {}
+    for c in tag_cands:
+        by_text.setdefault(c["text"], []).append(c)
+    kept_tags = []
+    for text, cs in by_text.items():
+        winner = min(cs, key=lambda c: SOURCE_RANK[c["source"]])
+        if len({c["slug"] for c in cs}) > 1:
+            conflicts.append({"kind": "tag", "key": text, "winner": winner["slug"], "winner_source": winner["source"],
+                              "candidates": [{"source": c["source"], "slug": c["slug"], "name": c["name"]}
+                                             for c in cs]})
+            cs = [c for c in cs if c["slug"] == winner["slug"]]
+        kept_tags.extend(cs)            # same text, same slug: keep both (a regex is case-insensitive, a tag not)
+
+    addrs, by_addr = {}, {}
+    for c in addr_cands:
+        by_addr.setdefault(c["addr"], []).append(c)
+    for addr, cs in by_addr.items():
+        winner = min(cs, key=lambda c: SOURCE_RANK[c["source"]])
+        if len({c["slug"] for c in cs}) > 1:
+            conflicts.append({"kind": "address", "key": addr, "winner": winner["slug"],
+                              "winner_source": winner["source"],
+                              "candidates": [{"source": c["source"], "slug": c["slug"], "name": c["name"]}
+                                             for c in cs]})
+        addrs[addr] = winner
+
+    # ---- 3. validate: addresses decode, regexes compile ---------------------------------------------------------
+    undecoded, rejected, regexes = [], [], []
+    for addr, c in addrs.items():
+        try:
+            addr_to_script(addr)
+        except (ValueError, IndexError):
+            undecoded.append({"address": addr, "slug": c["slug"], "source": c["source"]})
+    for c in kept_tags:
+        if c["kind"] != "regex":
             continue
-        merged_tags[tag] = info
+        try:
+            re.compile(js_regex_to_python(c["text"]))
+            regexes.append(c)
+        except re.error as e:
+            rejected.append({"pattern": c["text"], "slug": c["slug"], "error": str(e)})
 
-    # --- 4. Merge payout_addresses (supplement adds to upstream) -------------
-    merged_addrs = dict(upstream.get("payout_addresses", {}))
-    for addr, info in supplement.get("payout_addresses", {}).items():
-        if addr.startswith("_comment"):
-            continue
-        merged_addrs[addr] = info
+    # ---- 4. assemble the registry -------------------------------------------------------------------------------
+    def entry(c):
+        e = {"name": names.get(c["slug"], (c["name"],))[0], "slug": c["slug"], "link": c["link"],
+             "source": c["source"]}
+        if c.get("cite"):
+            e["cite"] = c["cite"]
+        return e
 
-    # --- 5. Build slug -> canonical name lookup ------------------------------
-    slug_to_name: dict[str, str] = {}
+    coinbase_tags = {}
+    for c in sorted((c for c in kept_tags if c["kind"] == "tag"), key=lambda c: SOURCE_RANK[c["source"]]):
+        coinbase_tags.setdefault(c["text"], entry(c))
+    supplement_overrides = _clean(supplement.get("supplement_overrides"))
+    pool_types = {}
+    for _tag, info in _clean(supplement.get("coinbase_tags")).items():
+        if info.get("type"):
+            pool_types[slug_of(info["name"])] = info["type"]
+    pool_types.update(_clean(supplement.get("pool_types")))
 
-    # coinbase_tags first (majority of active pools)
-    for _tag, info in merged_tags.items():
-        name = info.get("name", "")
-        if name:
-            slug_to_name[to_slug(name)] = name
-
-    # payout_addresses fill in anything coinbase_tags missed
-    for _addr, info in merged_addrs.items():
-        name = info.get("name", "")
-        if name:
-            slug = to_slug(name)
-            if slug not in slug_to_name:
-                slug_to_name[slug] = name
-
-    slug_to_name["unknown"] = "Unknown"
-
-    # --- 6. Apply slug aliases (e.g. legacy myrp slugs -> canonical slugs) --
-    slug_aliases: dict[str, str] = {
-        k: v
-        for k, v in supplement.get("slug_aliases", {}).items()
-        if not k.startswith("_comment")
+    version = registry_version(lock, sup_bytes)
+    enriched = {
+        "registry_version": version,
+        "sources": {k: {f: v[f] for f in ("repo", "branch", "sha", "commit_date", "md5")}
+                    for k, v in lock["sources"].items()} | {
+            "supplement": {"file": "data/raw/pools_supplement.json", "md5": hashlib.md5(sup_bytes).hexdigest()}},
+        "resolver_version": RESOLVER_VERSION,
+        "source_rank": SOURCE_RANK,
+        "coinbase_tags": dict(sorted(coinbase_tags.items())),
+        "regexes": [entry(c) | {"pattern": c["text"], "mempool_id": c.get("mempool_id")}
+                    for c in sorted(regexes, key=lambda c: (c.get("mempool_id") or 0, c["text"]))],
+        "payout_addresses": {a: entry(c) for a, c in sorted(addrs.items())},
+        "slug_aliases": aliases,
+        "generic_tags": supplement.get("generic_tags", []),
+        "generic_slugs": supplement.get("generic_slugs", []),
+        "payout_to_miners_slugs": sorted(set(supplement.get("payout_to_miners_slugs", []))
+                                         | {s for s, t in pool_types.items() if t == "solo"}),
+        "validation": {"undecoded_addresses": undecoded, "rejected_regexes": rejected},
     }
-    # Ensure every alias target is in the lookup
-    for src, tgt in slug_aliases.items():
+
+    slug_to_name = {s: n for s, (n, _r) in names.items()}
+    for src, tgt in aliases.items():
         if tgt not in slug_to_name and src in slug_to_name:
             slug_to_name[tgt] = slug_to_name[src]
-
-    # --- 6b. Supplement overrides: bp-resolved slug -> myrp slugs it beats --
-    supplement_overrides: dict[str, list[str]] = {
-        k: v
-        for k, v in supplement.get("supplement_overrides", {}).items()
-        if not k.startswith("_comment")
-    }
-
-    # --- 6c. Build slug -> type ("solo" | "pool") ----------------------------
-    # Priority: pool_types section (explicit overrides) > type field on coinbase_tags
-    # Anything not classified defaults to "pool".
-    pool_types: dict[str, str] = {}
-
-    # Collect types declared inline on coinbase_tag entries (supplement only;
-    # upstream pools.json has no type field)
-    for _tag, info in supplement.get("coinbase_tags", {}).items():
-        if _tag.startswith("_comment"):
-            continue
-        t = info.get("type")
-        name = info.get("name", "")
-        if t and name:
-            pool_types[to_slug(name)] = t
-
-    # Explicit pool_types section overrides anything derived above
-    for slug, t in supplement.get("pool_types", {}).items():
-        if not slug.startswith("_comment"):
-            pool_types[slug] = t
-
+    for src in aliases:                 # aliased slugs never appear in outputs
+        slug_to_name.pop(src, None)
+    slug_to_name["unknown"] = "Unknown"
     slug_to_name = dict(sorted(slug_to_name.items()))
 
-    # --- 7. Write lookup_slug_to_name.json -----------------------------------
-    lookup_path = LOOKUP_DIR / "lookup_slug_to_name.json"
-    with open(lookup_path, "w") as f:
-        json.dump(slug_to_name, f, indent=2, ensure_ascii=False)
-    print(f"lookup_slug_to_name.json  → {len(slug_to_name)} entries  ({lookup_path})")
+    if write:
+        LOOKUP_DIR.mkdir(parents=True, exist_ok=True)
 
-    # --- 8. Write pools_enriched.json (for coinbase_tag resolution) ----------
-    enriched = {
-        "coinbase_tags": merged_tags,
-        "payout_addresses": merged_addrs,
-        "slug_aliases": slug_aliases,
-    }
-    enriched_path = LOOKUP_DIR / "pools_enriched.json"
-    with open(enriched_path, "w") as f:
-        json.dump(enriched, f, indent=2, ensure_ascii=False)
-    print(f"pools_enriched.json       → {len(merged_tags)} coinbase_tags, "
-          f"{len(merged_addrs)} payout_addresses  ({enriched_path})")
+        def dump(name, obj):
+            (LOOKUP_DIR / name).write_text(json.dumps(obj, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        dump("pools_enriched.json", enriched)
+        dump("pool_conflicts.json", {"registry_version": version, "conflicts": conflicts})
+        dump("lookup_slug_to_name.json", slug_to_name)
+        dump("pool_types.json", dict(sorted(pool_types.items())))
+        print(f"registry {version}: {len(coinbase_tags)} substring tags, {len(regexes)} regexes, "
+              f"{len(addrs)} payout addresses ({len(undecoded)} not mainnet-decodable), "
+              f"{len(rejected)} rejected regexes, {len(conflicts)} conflicts, {len(slug_to_name)} slugs")
 
-    # --- 9. Write pool_types.json --------------------------------------------
-    types_path = LOOKUP_DIR / "pool_types.json"
-    with open(types_path, "w") as f:
-        json.dump(dict(sorted(pool_types.items())), f, indent=2, ensure_ascii=False)
-    solo_count = sum(1 for t in pool_types.values() if t == "solo")
-    print(f"pool_types.json           → {len(pool_types)} classified slugs "
-          f"({solo_count} solo)  ({types_path})")
-
-    return enriched, slug_to_name, slug_aliases, supplement_overrides, pool_types
+    return enriched, slug_to_name, aliases, supplement_overrides, pool_types
 
 
 if __name__ == "__main__":

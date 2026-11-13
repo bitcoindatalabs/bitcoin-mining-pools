@@ -32,16 +32,23 @@ by GitHub Pages.
 ┌─────────────────────────────────────────────────────────┐
 │              Python Data Pipeline (local only)           │
 │                                                          │
-│   data/raw/                                              │
-│   ├── blocks.csv       ← source from jlopp (869k rows)  │
-│   ├── pools.json       ← pool metadata from bitcoin-data│
-│   ├── bitcoin_miners_myrp.parquet ← node data (till 2026)│
-│   └── bitcoin_blocks_pool.parquet ← forensics (till 2026)│
+│   data/raw/            (provenance: data/raw/SOURCES.md) │
+│   ├── coinbase_blocks.parquet ← chain lake (gitignored)  │
+│   ├── pools.json       ← bitcoin-data list (pinned)      │
+│   ├── mempool-pools-v2.json ← mempool list (pinned)      │
+│   ├── pool_sources.lock.json ← upstream SHAs + md5       │
+│   ├── pools_supplement.json ← our cited additions        │
+│   ├── blocks.csv       ← jlopp labels 0-869,305 (FROZEN) │
+│   └── bitcoin_blocks_pool.parquet ← forensics metrics    │
 │                                                          │
 │   scripts/                                               │
-│   ├── merge_myrp.py    ← (Step 1) Appends node data     │
-│   ├── update_metrics.py ← (Step 2) JSONs + Slug Lookup   │
-│   ├── process_forensics.py ← (Step 3) Forensics Analytics │
+│   ├── extract_coinbase.py ← (Step 1) chain lake -> raw   │
+│   ├── resolve_blocks.py ← (Step 2) registry + resolver   │
+│   │   ├── build_pools_lookup.py  (merged registry)       │
+│   │   └── pool_resolver.py       (the one resolver)      │
+│   ├── update_metrics.py ← (Step 3) JSONs                 │
+│   ├── process_forensics.py ← (Step 4) Forensics          │
+│   ├── merge_myrp.py    ← [DEPRECATED] runs resolve_blocks│
 │   └── prepare_data.py  ← [LEGACY] One-time CSV Import    │
 │                                                          │
 │   dashboard/data/      ← (Generated Artifacts)           │

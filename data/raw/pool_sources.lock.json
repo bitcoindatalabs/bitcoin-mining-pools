@@ -1,0 +1,41 @@
+{
+  "_comment": "Pinned upstream pool lists. Each file in data/raw/ is the exact upstream bytes at `sha`. Refreshed by hand in bdl-060 (2026-11-12); bdl-062 automates the refresh.",
+  "sources": {
+    "bitcoin-data": {
+      "repo": "bitcoin-data/mining-pools",
+      "branch": "generated",
+      "file": "pools.json",
+      "sha": "0158b59ac47ac1b6f1df2704c98f2576f6d5391d",
+      "commit_date": "2026-06-30T21:00:31Z",
+      "url": "https://raw.githubusercontent.com/bitcoin-data/mining-pools/0158b59ac47ac1b6f1df2704c98f2576f6d5391d/pools.json",
+      "local": "data/raw/pools.json",
+      "format": "bitcoin-data-v1",
+      "license": "MIT",
+      "fetched_at": "2026-11-12T23:20:00-06:00",
+      "md5": "6bef0927cc10e6ef23aa7538322d48e4",
+      "counts": {
+        "coinbase_tags": 174,
+        "payout_addresses": 201,
+        "pools": 149
+      }
+    },
+    "mempool": {
+      "repo": "mempool/mining-pools",
+      "branch": "master",
+      "file": "pools-v2.json",
+      "sha": "d2ddbfa37da1d260225b74db04f939871f78e17b",
+      "commit_date": "2026-11-12T03:29:30Z",
+      "url": "https://raw.githubusercontent.com/mempool/mining-pools/d2ddbfa37da1d260225b74db04f939871f78e17b/pools-v2.json",
+      "local": "data/raw/mempool-pools-v2.json",
+      "format": "mempool-v2",
+      "license": "MIT",
+      "fetched_at": "2026-11-12T23:20:00-06:00",
+      "md5": "e723835350ee7303b5620c7ae31d64a9",
+      "counts": {
+        "regexes": 207,
+        "payout_addresses": 220,
+        "pools": 172
+      }
+    }
+  }
+}

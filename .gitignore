@@ -23,3 +23,7 @@ social/
 # Experimental lab folder
 lab/
 .vscode
+data/raw/coinbase_blocks*.parquet
+
+# Local pipeline outputs (bdl-060): block_attribution.parquet is rebuilt from the chain lake
+data/processed/

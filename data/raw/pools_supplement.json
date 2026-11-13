@@ -225,7 +225,14 @@
     "_comment": "Maps alternative slugs (as found in bitcoin_miners_myrp.parquet or legacy data) to canonical slugs derived from pools.json name resolution. Canonical slug = to_slug(official_name_from_pools_json).",
     "slushpool": "braiinspool",
     "ocean": "oceanxyz",
-    "carbonnegative(unidentified)": "carbonnegative"
+    "carbonnegative(unidentified)": "carbonnegative",
+    "btccom": "cloverpool",
+    "bitfufu": "bitfufupool",
+    "canoe": "canoepool",
+    "exx&bw": "exxbw",
+    "tricky'sbtcpool": "trickysbtcpool",
+    "tigerpool": "tiger",
+    "cn/tt": "cntt"
   },
   "pool_types": {
     "_comment": "Type overrides for slugs from upstream pools.json where we cannot add a type inline. Values: solo, pool.",
@@ -426,6 +433,49 @@
     "bc1qreaftg3lr53nv84dnxhcvchmswevzlp9tdj2jd": {
       "name": "SoloPool.com",
       "link": "https://solopool.com"
+    },
+    "18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX": {
+      "name": "ViaBTC",
+      "link": "https://www.viabtc.com",
+      "source": "btc.com known-pools pools.json, commit deb3ee6 (2016-06-13 'add viabtc.com'); removed in 9c09437 (2020-07-31). Both commits are in the shared history of mempool/mining-pools and bitcoin-data/mining-pools. Chain check (bdl-060): 36,392 blocks tagged /ViaBTC/ pay this script, through height 840,285."
+    },
+    "bc1q0a5zgnc08lhw23ddy7p34kkqwvkhhwn0u0nsnc": {
+      "name": "UUID Miner",
+      "link": "",
+      "source": "mempool/mining-pools commit 81d2f0d0158ad7a03f80a256cba3a4d08a616e4e (2025-08-22, 'add UUID miner', by mempool developer mononaut) on branch mononaut/uuid; NOT merged into master as of d2ddbfa (2026-11-12). Chain check (bdl-060): 332 blocks 873,376-972,394 carry '://<uuid4>' in the coinbase and pay one of these three addresses."
+    },
+    "bc1q4k98v8y3sg8e7r3nfr0kmfufcf7mplyjq7utu6": {
+      "name": "UUID Miner",
+      "link": "",
+      "source": "mempool/mining-pools commit 81d2f0d0158ad7a03f80a256cba3a4d08a616e4e (2025-08-22, 'add UUID miner', by mempool developer mononaut) on branch mononaut/uuid; NOT merged into master as of d2ddbfa (2026-11-12). Chain check (bdl-060): 332 blocks 873,376-972,394 carry '://<uuid4>' in the coinbase and pay one of these three addresses."
+    },
+    "bc1qvpstwkk28wpcrnuej0uf7af9u3lvns4epfdysh": {
+      "name": "UUID Miner",
+      "link": "",
+      "source": "mempool/mining-pools commit 81d2f0d0158ad7a03f80a256cba3a4d08a616e4e (2025-08-22, 'add UUID miner', by mempool developer mononaut) on branch mononaut/uuid; NOT merged into master as of d2ddbfa (2026-11-12). Chain check (bdl-060): 332 blocks 873,376-972,394 carry '://<uuid4>' in the coinbase and pay one of these three addresses."
     }
-  }
+  },
+  "_comment_generic": "generic_tags: coinbase tags that name pool software, not a pool. They label a block only when no specific tag, payout address or jlopp label does (pool_resolver.py precedence rule 4).",
+  "generic_tags": [
+    "ckpool",
+    "BTCPool"
+  ],
+  "generic_slugs": [
+    "btcpool(unidentified)"
+  ],
+  "_comment_payout_to_miners": "Pools whose coinbase pays their miners directly, so a payout address in their blocks names a miner, not a pool: their tag beats a conflicting payout address (pool_resolver.py rule 2). Solo pools (pool_types 'solo') are added automatically. Evidence: median non-OP_RETURN coinbase outputs per tagged block, heights 0-975,618: Eligius 66, ckpool.org 150, OCEAN 17, against 1 for AntPool, Foundry, F2Pool, ViaBTC (review/bdl-060). OCEAN: https://ocean.xyz/docs/tides ; Eligius: https://en.bitcoin.it/wiki/Eligius ; ckpool.org: https://ckpool.org",
+  "payout_to_miners_slugs": [
+    "oceanxyz",
+    "eligius",
+    "ckpool"
+  ],
+  "_comment_aliases_bdl060": "Added 2026-11-12 (bdl-060): btccom->cloverpool (mempool/mining-pools 36137e4 'rename btccom -> cloverpool'); bitfufu->bitfufupool (same pool, two upstream names); canoe->canoepool (321 blocks tagged /CANOE/ pay mempool's 'Canoe' address 1Afcpc2F...); tigerpool->tiger (bitcoin-data 'TigerPool' tag 'tiger'; the '[tiger' blocks pay mempool's 'tiger' address 1LsFmhnn...); exx&bw, tricky'sbtcpool, cn/tt -> URL-safe slugs.",
+  "regexes": [
+    {
+      "pattern": ":\\/\\/[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}",
+      "name": "UUID Miner",
+      "link": "",
+      "source": "mempool/mining-pools commit 81d2f0d0158ad7a03f80a256cba3a4d08a616e4e (2025-08-22, 'add UUID miner', by mempool developer mononaut) on branch mononaut/uuid; NOT merged into master as of d2ddbfa (2026-11-12). Chain check (bdl-060): 332 blocks 873,376-972,394 carry '://<uuid4>' in the coinbase and pay one of these three addresses."
+    }
+  ]
 }
