@@ -39,7 +39,7 @@ SUPPLEMENT = RAW / "pools_supplement.json"
 SOURCE_RANK = {"supplement": 0, "mempool": 1, "bitcoin-data": 2}
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from pool_resolver import RESOLVER_VERSION, to_slug, apply_alias, addr_to_script, js_regex_to_python  # noqa: E402,F401
+from pool_resolver import RESOLVER_VERSION, to_slug, apply_alias, addr_to_script, regex_problem  # noqa: E402
 
 
 def _clean(d: dict) -> dict:
@@ -55,8 +55,11 @@ def registry_version(lock: dict, supplement_bytes: bytes) -> str:
     return h.hexdigest()[:16]
 
 
-def build(write: bool = True):
-    lock = json.loads(LOCK.read_text())
+def build(write: bool = True, lock: dict | None = None, quiet: bool = False):
+    """Merge the sources into the registry. `lock` defaults to data/raw/pool_sources.lock.json; refresh_pool_sources.py
+    passes a candidate lock whose `local` paths point at freshly fetched files (absolute paths are fine) to build
+    and diff a candidate registry with write=False before anything in the repo changes."""
+    lock = lock if lock is not None else json.loads(LOCK.read_text())
     sup_bytes = SUPPLEMENT.read_bytes()
     supplement = json.loads(sup_bytes)
     aliases = _clean(supplement.get("slug_aliases"))
@@ -77,8 +80,12 @@ def build(write: bool = True):
             names[slug] = (name, name_rank[source])
 
     bd = json.loads((ROOT / lock["sources"]["bitcoin-data"]["local"]).read_text())
+    rejected_tags = []
     for tag, info in bd.get("coinbase_tags", {}).items():
         s = slug_of(info["name"])
+        if not tag.strip():             # an empty tag is a substring of every coinbase
+            rejected_tags.append({"tag": tag, "slug": s, "source": "bitcoin-data", "error": "empty tag"})
+            continue
         tag_cands.append({"text": tag, "kind": "tag", "slug": s, "name": info["name"], "link": info.get("link", ""),
                           "source": "bitcoin-data"})
         note_name(s, info["name"], "bitcoin-data")
@@ -88,7 +95,7 @@ def build(write: bool = True):
                            "source": "bitcoin-data"})
         note_name(s, info["name"], "bitcoin-data")
 
-    mp = json.loads((ROOT / lock["sources"]["mempool"]["local"]).read_text())
+    mp = json.loads((ROOT / lock["sources"]["mempool"]["local"]).read_text(encoding="utf-8"))
     for pool in mp:
         s = slug_of(pool["name"])
         note_name(s, pool["name"], "mempool")
@@ -154,11 +161,11 @@ def build(write: bool = True):
     for c in kept_tags:
         if c["kind"] != "regex":
             continue
-        try:
-            re.compile(js_regex_to_python(c["text"]))
+        problem = regex_problem(c["text"])
+        if problem:
+            rejected.append({"pattern": c["text"], "slug": c["slug"], "source": c["source"], "error": problem})
+        else:
             regexes.append(c)
-        except re.error as e:
-            rejected.append({"pattern": c["text"], "slug": c["slug"], "error": str(e)})
 
     # ---- 4. assemble the registry -------------------------------------------------------------------------------
     def entry(c):
@@ -195,7 +202,8 @@ def build(write: bool = True):
         "generic_slugs": supplement.get("generic_slugs", []),
         "payout_to_miners_slugs": sorted(set(supplement.get("payout_to_miners_slugs", []))
                                          | {s for s, t in pool_types.items() if t == "solo"}),
-        "validation": {"undecoded_addresses": undecoded, "rejected_regexes": rejected},
+        "validation": {"undecoded_addresses": undecoded, "rejected_regexes": rejected,
+                       "rejected_tags": rejected_tags},
     }
 
     slug_to_name = {s: n for s, (n, _r) in names.items()}
@@ -216,11 +224,12 @@ def build(write: bool = True):
         dump("pool_conflicts.json", {"registry_version": version, "conflicts": conflicts})
         dump("lookup_slug_to_name.json", slug_to_name)
         dump("pool_types.json", dict(sorted(pool_types.items())))
+    if not quiet:
         print(f"registry {version}: {len(coinbase_tags)} substring tags, {len(regexes)} regexes, "
               f"{len(addrs)} payout addresses ({len(undecoded)} not mainnet-decodable), "
               f"{len(rejected)} rejected regexes, {len(conflicts)} conflicts, {len(slug_to_name)} slugs")
 
-    return enriched, slug_to_name, aliases, supplement_overrides, pool_types
+    return enriched, slug_to_name, aliases, supplement_overrides, pool_types, conflicts
 
 
 if __name__ == "__main__":

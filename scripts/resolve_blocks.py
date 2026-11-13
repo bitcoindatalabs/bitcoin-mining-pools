@@ -17,7 +17,13 @@ Inputs:
 method: tag | regex | payout | jlopp | unknown (see pool_resolver.py for the precedence).
 
 By default only heights above the existing attribution file are resolved, unless the registry_version changed
-(then every block is re-resolved, ~1 minute) or --full is passed.
+(then every block is re-resolved, ~1 minute) or --full is passed. Every block is re-resolved, not only those
+labelled by tag, payout or unknown: under the resolver's precedence a new tag or payout entry also outranks the
+jlopp fallback (rule 3), so jlopp-labelled blocks are re-checked too.
+
+When a full re-resolve replaces an existing attribution file, the label changes are appended to
+data/status/relabel_log.json: per run, the old and new registry_version and source SHAs and, per (from, to)
+pair, the number of blocks, the new methods and the heights (as [lo, hi] ranges).
 
 Usage: python3 scripts/resolve_blocks.py [--full] [--workers N]
 """
@@ -42,6 +48,9 @@ COINBASE = RAW / "coinbase_blocks.parquet"
 JLOPP = RAW / "blocks.csv"
 JLOPP_MAX_HEIGHT = 869_305
 ATTRIBUTION = PROCESSED / "block_attribution.parquet"
+RELABEL_LOG = ROOT / "data" / "status" / "relabel_log.json"
+RELABEL_LOG_KEEP = 200          # runs kept in the log
+MAX_RANGES = 5000               # height ranges kept per transition
 POST_2021_HEIGHT = 664_063
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -99,6 +108,49 @@ def resolve(cb: pd.DataFrame, registry: dict, workers: int) -> pd.DataFrame:
     return pd.DataFrame(rows, columns=COLUMNS)
 
 
+def height_ranges(heights) -> list:
+    """Sorted heights -> [h, [lo, hi], ...]: single heights as ints, runs as [lo, hi]."""
+    out = []
+    for h in sorted(int(x) for x in heights):
+        if out and isinstance(out[-1], list) and out[-1][1] == h - 1:
+            out[-1][1] = h
+        elif out and isinstance(out[-1], int) and out[-1] == h - 1:
+            out[-1] = [out[-1], h]
+        else:
+            out.append(h)
+    return out
+
+
+def summarise_relabels(prev: pd.DataFrame, new: pd.DataFrame) -> dict:
+    """Label changes between two attributions (height, pool_slug[, method]) on their common heights."""
+    m = prev[["height", "pool_slug"]].merge(new[["height", "pool_slug", "method"]], on="height",
+                                            suffixes=("_old", "_new"))
+    ch = m[m["pool_slug_old"] != m["pool_slug_new"]]
+    transitions = []
+    for (a, b), g in ch.groupby(["pool_slug_old", "pool_slug_new"]):
+        r = height_ranges(g["height"])
+        t = {"from": a, "to": b, "blocks": int(len(g)), "methods": g["method"].value_counts().to_dict(),
+             "heights": r[:MAX_RANGES]}
+        if len(r) > MAX_RANGES:
+            t["heights_truncated"] = True
+        transitions.append(t)
+    transitions.sort(key=lambda t: (-t["blocks"], t["from"], t["to"]))
+    return {"blocks_compared": int(len(m)), "blocks_changed": int(len(ch)),
+            "unknown_before": int((m["pool_slug_old"] == "unknown").sum()),
+            "unknown_after": int((m["pool_slug_new"] == "unknown").sum()), "transitions": transitions}
+
+
+def append_relabel_log(entry: dict):
+    log = {"runs": []}
+    if RELABEL_LOG.exists():
+        log = json.loads(RELABEL_LOG.read_text(encoding="utf-8"))
+    log["runs"] = (log.get("runs", []) + [entry])[-RELABEL_LOG_KEEP:]
+    RELABEL_LOG.parent.mkdir(parents=True, exist_ok=True)
+    tmp = RELABEL_LOG.with_name(RELABEL_LOG.name + ".tmp")
+    tmp.write_text(json.dumps(log, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    os.replace(tmp, RELABEL_LOG)
+
+
 def write_attribution(df: pd.DataFrame, registry: dict):
     PROCESSED.mkdir(parents=True, exist_ok=True)
     df = df.astype({"height": "int32", "time": "int64"})
@@ -124,7 +176,8 @@ def write_dashboard(df: pd.DataFrame, registry: dict):
         tmp = path.with_suffix(".tmp.parquet")
         t = pa.Table.from_pandas(part.reset_index(drop=True), preserve_index=False)
         t = t.replace_schema_metadata({**(t.schema.metadata or {}),
-                                       b"registry_version": registry["registry_version"].encode()})
+                                       b"registry_version": registry["registry_version"].encode(),
+                                       b"sources": json.dumps(registry["sources"]).encode()})
         pq.write_table(t, tmp, compression="snappy", use_dictionary=["pool_slug"], write_statistics=True)
         os.replace(tmp, path)
         print(f"  {name}: {len(part):,} blocks, {(part['pool_slug'] == 'unknown').sum():,} unknown, "
@@ -147,13 +200,15 @@ def main() -> int:
         print("ERROR: coinbase_blocks.parquet is empty", file=sys.stderr)
         return 1
 
-    old = None
-    if ATTRIBUTION.exists() and not a.full:
-        old_meta = pq.read_schema(ATTRIBUTION).metadata or {}
-        if old_meta.get(b"registry_version", b"").decode() == version:
+    old = prev = None
+    old_meta = (pq.read_schema(ATTRIBUTION).metadata or {}) if ATTRIBUTION.exists() else {}
+    old_version = old_meta.get(b"registry_version", b"").decode() or None
+    if ATTRIBUTION.exists():
+        if old_version == version and not a.full:
             old = pd.read_parquet(ATTRIBUTION)
         else:
-            print(f"registry_version changed ({old_meta.get(b'registry_version', b'-').decode()} -> {version}); "
+            prev = pd.read_parquet(ATTRIBUTION, columns=["height", "pool_slug", "method"])
+            print(f"registry_version {old_version} -> {version}{' (--full)' if a.full else ''}; "
                   f"re-resolving every block")
     todo = cb if old is None else cb[cb["height"] > old["height"].max()]
     t0 = time.time()
@@ -166,6 +221,21 @@ def main() -> int:
         print("ERROR: attribution heights are not contiguous from 0; refusing to write", file=sys.stderr)
         return 1
     write_attribution(df, registry)
+    if prev is not None:
+        rel = summarise_relabels(prev, df)
+        if old_version != version or rel["blocks_changed"]:
+            old_sources = json.loads(old_meta.get(b"sources", b"{}") or b"{}")
+            append_relabel_log({
+                "run_at": pd.Timestamp.now(tz="UTC").isoformat(timespec="seconds"),
+                "registry_version_old": old_version, "registry_version_new": version,
+                "sources_old": {k: v.get("sha") or v.get("md5") for k, v in old_sources.items()},
+                "sources_new": {k: v.get("sha") or v.get("md5") for k, v in registry["sources"].items()},
+                **rel})
+            print(f"  relabelled {rel['blocks_changed']:,} of {rel['blocks_compared']:,} blocks "
+                  f"(unknown {rel['unknown_before']:,} -> {rel['unknown_after']:,}); "
+                  f"logged in {RELABEL_LOG.relative_to(ROOT)}")
+            for t in rel["transitions"][:15]:
+                print(f"    {t['from']} -> {t['to']}: {t['blocks']:,}")
     print(f"  {ATTRIBUTION.relative_to(ROOT)}: {len(df):,} blocks (0-{h[-1]:,}) in {time.time() - t0:.0f}s; "
           f"methods {df['method'].value_counts().to_dict()}")
     write_dashboard(df, registry)

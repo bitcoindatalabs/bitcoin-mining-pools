@@ -86,8 +86,17 @@ Tags that name pool *software* (`ckpool`, `BTCPool`) are used only as a last res
 
 ### 🔄 Data Update Loop
 To refresh the dashboard with new blocks or a new pool list, run in order (on datalabs,
-`python/automation/miner_data_updater.py` runs this sequence):
+`python/automation/miner_data_updater.py` runs this sequence every night):
 
+0. **`python scripts/refresh_pool_sources.py`**: checks the two upstream pool lists
+   ([mempool/mining-pools](https://github.com/mempool/mining-pools) and
+   [bitcoin-data/mining-pools](https://github.com/bitcoin-data/mining-pools)) for a newer commit, downloads the file
+   pinned to that commit, validates it (JSON and schema, every address decodes, every regex compiles in Python,
+   no drop of more than 10% against the last good snapshot), and merges it with `data/raw/pools_supplement.json`
+   into the registry with a new `registry_version`. A refused or unreachable list keeps the last good snapshot.
+   Pins are in `data/raw/pool_sources.lock.json`; when each list was last checked is in
+   `dashboard/data/lookup/pool_list_status.json` (the dashboard footer's "pool list as of").
+   `--dry-run` fetches into a temp dir and prints what would change, including how many blocks would be relabelled.
 1. **`python scripts/extract_coinbase.py`**: appends new blocks' coinbase data from the local chain lake
    (`--chain-parts DIR`, default `/data/bitcoin/data/chain/parts`) to `data/raw/coinbase_blocks.parquet`.
 2. **`python scripts/resolve_blocks.py`**: rebuilds the pool registry (`build_pools_lookup.py`), labels every block,
@@ -95,6 +104,13 @@ To refresh the dashboard with new blocks or a new pool list, run in order (on da
    `blocks_post_2021.parquet`. When the registry changes, every block is re-resolved; otherwise only new ones.
 3. **`python scripts/update_metrics.py`**: Recalculates all pool KPIs and ecosystem growth.
 4. **`python scripts/process_forensics.py`**: Calibrates the advanced forensics models (Z-Scores, Entropy, Streaks).
+5. **`python scripts/unknown_watch.py`**: clusters the last 7 days' unknown blocks by coinbase text and payout script
+   and writes `data/status/unknown_clusters.json`; a new cluster of 3+ blocks is a candidate for a cited supplement
+   entry (never added automatically).
+
+When a registry change relabels past blocks, `resolve_blocks.py` appends the changes (which heights, from which pool
+to which) to `data/status/relabel_log.json`. Every output records the `registry_version` and the source commits it
+was built from.
 
 > [!NOTE]
 > `scripts/merge_myrp.py` is deprecated and now just runs `resolve_blocks.py`. `scripts/prepare_data.py` is a legacy

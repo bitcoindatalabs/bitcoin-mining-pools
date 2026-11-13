@@ -11,7 +11,11 @@ the two upstream pool lists are in `pool_sources.lock.json`. The registry built 
 | `pools.json` | [bitcoin-data/mining-pools](https://github.com/bitcoin-data/mining-pools) (0xB10C and contributors) | `generated` | `0158b59ac47ac1b6f1df2704c98f2576f6d5391d` | 2026-06-30 | MIT |
 | `mempool-pools-v2.json` | [mempool/mining-pools](https://github.com/mempool/mining-pools) (the list behind mempool.space) | `master` | `d2ddbfa37da1d260225b74db04f939871f78e17b` | 2026-11-12 | MIT |
 
-Both files are the exact upstream bytes at the pinned commit (`md5` in the lock file), fetched 2026-11-12.
+Both files are the exact upstream bytes at the pinned commit (`md5` in the lock file), first fetched 2026-11-12 and
+since then refreshed daily by `scripts/refresh_pool_sources.py`: it pins the newest commit that changed the file,
+validates the file, and keeps the last good snapshot if the new one is refused or the fetch fails. The table below
+records the pins of 2026-11-12; the lock file always holds the current ones, and git history holds every earlier
+snapshot. Label changes caused by a new pin are logged in `data/status/relabel_log.json`.
 
 - **bitcoin-data `pools.json`**: `coinbase_tags` (matched as exact, case-sensitive substrings of the coinbase
   scriptSig) and `payout_addresses`; 174 tags and 201 addresses at this commit. The generated branch is rebuilt from

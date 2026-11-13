@@ -4,7 +4,7 @@
  * Returns a structured dataset ready for aggregation.
  */
 
-const POOL_META_URL = './data/pool_metrics.json?v=27';
+const POOL_META_URL = './data/pool_metrics.json?v=28';
 const POOLS_INFO_URL = './data/lookup/pools_info.json';
 const TIMELINES_URL = './data/lookup/timelines.json';
 const LOOKUP_SLUG_URL = './data/lookup/lookup_slug_to_name.json';
@@ -74,14 +74,14 @@ async function loadLookupSlugToName() {
 
 /** Fetch Global Ecosystem Growth JSON */
 async function loadEcosystem() {
-  const res = await fetch('./data/pool_growth.json?v=27');
+  const res = await fetch('./data/pool_growth.json?v=28');
   if (!res.ok) throw new Error(`Failed to fetch ecosystem: ${res.status}`);
   return res.json();
 }
 
 /** Fetch Forensics Data JSON */
 export async function loadForensics() {
-  const res = await fetch('./data/forensics_data.json?v=27');
+  const res = await fetch('./data/forensics_data.json?v=28');
   if (!res.ok) throw new Error(`Failed to fetch forensics: ${res.status}`);
   return res.json();
 }
@@ -90,8 +90,8 @@ export async function loadForensics() {
 export async function loadData(period = 'post') {
   const isFullHistory = (period === 'pre');
   const parquetUrls = isFullHistory 
-    ? ['./data/blocks_pre_2021.parquet?v=27', './data/blocks_post_2021.parquet?v=27']
-    : ['./data/blocks_post_2021.parquet?v=27'];
+    ? ['./data/blocks_pre_2021.parquet?v=28', './data/blocks_post_2021.parquet?v=28']
+    : ['./data/blocks_post_2021.parquet?v=28'];
 
   const [blocksData, poolMeta, poolsInfo, timelines, ecosystem, lookup] = await Promise.all([
     Promise.all(parquetUrls.map(url => loadParquet(url))),

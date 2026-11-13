@@ -138,13 +138,76 @@ def addr_to_script(addr: str) -> bytes:
     raise ValueError("not a mainnet address")
 
 
+def _b58encode_check(payload: bytes) -> str:
+    data = payload + hashlib.sha256(hashlib.sha256(payload).digest()).digest()[:4]
+    n, out = int.from_bytes(data, "big"), ""
+    while n:
+        n, r = divmod(n, 58)
+        out = _B58[r] + out
+    return "1" * (len(data) - len(data.lstrip(b"\0"))) + out
+
+
+def _segwit_encode(witver: int, prog: bytes) -> str:
+    acc = bits = 0
+    data = [witver]
+    for b in prog:
+        acc = (acc << 8) | b
+        bits += 8
+        while bits >= 5:
+            bits -= 5
+            data.append((acc >> bits) & 31)
+    if bits:
+        data.append((acc << (5 - bits)) & 31)
+    const = 1 if witver == 0 else 0x2BC830A3
+    pm = _bech32_polymod([ord(x) >> 5 for x in "bc"] + [0] + [ord(x) & 31 for x in "bc"] + data + [0] * 6) ^ const
+    return "bc1" + "".join(_B32[d] for d in data + [(pm >> 5 * (5 - i)) & 31 for i in range(6)])
+
+
+def script_to_addr(script: bytes):
+    """scriptPubKey -> mainnet address for P2PKH, P2SH and segwit outputs; None for anything else (bare
+    pubkeys, multisig). The inverse of addr_to_script, used to report unknown blocks' payout addresses."""
+    s = bytes(script)
+    if len(s) == 25 and s[:3] == b"\x76\xa9\x14" and s[-2:] == b"\x88\xac":
+        return _b58encode_check(b"\x00" + s[3:23])
+    if len(s) == 23 and s[:2] == b"\xa9\x14" and s[-1:] == b"\x87":
+        return _b58encode_check(b"\x05" + s[2:22])
+    if 4 <= len(s) <= 42 and (s[0] == 0 or 0x51 <= s[0] <= 0x60) and s[1] == len(s) - 2:
+        return _segwit_encode(0 if s[0] == 0 else s[0] - 0x50, s[2:])
+    return None
+
+
 # ---------------------------------------------------------------------------
 # Regexes: mempool writes JavaScript regexes; translate the few JS-only forms
 # ---------------------------------------------------------------------------
 def js_regex_to_python(pattern: str) -> str:
     """JS and Python agree on everything mempool's list uses today (literals, '.', '$'). Translate the JS-only
-    escapes we know of; anything else that fails to compile is rejected by the caller."""
-    return re.sub(r"\\u\{([0-9a-fA-F]+)\}", lambda m: chr(int(m.group(1), 16)), pattern)
+    forms we know of; anything else that fails to compile is rejected by the caller (regex_problem):
+      \\u{HHHH}      code-point escape          -> the character itself
+      (?<name>...)   named group                -> (?P<name>...)
+      \\k<name>      named back-reference       -> (?P=name)
+      [^]            "any character" class      -> [\\s\\S]
+    """
+    p = re.sub(r"\\u\{([0-9a-fA-F]+)\}", lambda m: re.escape(chr(int(m.group(1), 16))), pattern)
+    p = re.sub(r"\(\?<([A-Za-z_][A-Za-z0-9_]*)>", r"(?P<\1>", p)
+    p = re.sub(r"\\k<([A-Za-z_][A-Za-z0-9_]*)>", r"(?P=\1)", p)
+    return p.replace("[^]", r"[\s\S]")
+
+
+def compile_pattern(pattern: str):
+    """Compile a mempool (JS) regex the way the resolver runs it: in the Latin-1 byte space, ASCII case folding."""
+    return re.compile(_to_bytespace(js_regex_to_python(pattern)), re.IGNORECASE | re.ASCII)
+
+
+def regex_problem(pattern: str):
+    """Why a regex must not be used, or None. A regex that fails to compile in Python, or that matches the empty
+    string (it would label every block), is rejected."""
+    try:
+        rx = compile_pattern(pattern)
+    except re.error as e:
+        return f"does not compile in Python: {e}"
+    if rx.search("") is not None:
+        return "matches the empty string (would match every block)"
+    return None
 
 
 def _to_bytespace(s: str) -> str:
@@ -197,11 +260,11 @@ class PoolResolver:
         self.rejected_regexes = []
         for r in reg.get("regexes", []):
             s = norm(r)
-            try:
-                rx = re.compile(_to_bytespace(js_regex_to_python(r["pattern"])), re.IGNORECASE | re.ASCII)
-            except re.error as e:
-                self.rejected_regexes.append((r["pattern"], str(e)))
+            problem = regex_problem(r["pattern"])
+            if problem:
+                self.rejected_regexes.append((r["pattern"], problem))
                 continue
+            rx = compile_pattern(r["pattern"])
             self._regexes.append((rx, r["pattern"], s, rank.get(r.get("source"), 9),
                                   s in generic or r["pattern"] in generic_tags))
         self._scripts = {}

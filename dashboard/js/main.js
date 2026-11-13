@@ -1,11 +1,11 @@
-import { loadData, loadParquetOnly, loadForensics, filterBlocks, aggregateByPool, aggregateByCountry, aggregateMonthly } from './data-loader.js?v=27';
+import { loadData, loadParquetOnly, loadForensics, filterBlocks, aggregateByPool, aggregateByCountry, aggregateMonthly } from './data-loader.js?v=28';
 import { 
   renderDonut, renderPoolTable, renderCountryShareChart, renderAreaChart, renderEcosystemGrowthChart, renderHhiChart, renderConcentrationChart, renderTopMinersTable, 
   renderStreaksLeaderboard, renderZScoreFunnel, renderEntropyHeatmap, renderSyncHistogram, renderConsecutiveAdvantage, renderEmptyBlockChart, renderEmptyTrendChart,
   renderBip110Signaling, renderBip110Efficiency, renderBip110Overhead,
   renderQuarterlyLift, renderTransitionMatrix,
   resizeAllCharts, donutChart, growthChart 
-} from './charts.js?v=27';
+} from './charts.js?v=28';
 
 let allBlocks   = [];
 let poolMeta    = {};
@@ -508,7 +508,7 @@ async function lazyLoadHistory() {
     const res = await fetch('./data/lookup/lookup_slug_to_name.json');
     const lookup = await res.json();
     
-    const preBlocks = await loadParquetOnly('./data/blocks_pre_2021.parquet?v=27', lookup);
+    const preBlocks = await loadParquetOnly('./data/blocks_pre_2021.parquet?v=28', lookup);
     fullHistoryBlocks = [...preBlocks, ...post2021Blocks];
     console.log("Historical data loaded in background.");
   } catch (err) {
@@ -516,8 +516,26 @@ async function lazyLoadHistory() {
   }
 }
 
+// ── Pool list provenance (footer) ────────────────────────────────────────────
+// pool_list_status.json is written daily by scripts/refresh_pool_sources.py (bdl-062).
+async function showPoolListStatus() {
+  const el = document.getElementById('pool-list-asof');
+  if (!el) return;
+  try {
+    const res = await fetch('./data/lookup/pool_list_status.json', { cache: 'no-cache' });
+    if (!res.ok) return;
+    const s = await res.json();
+    const pins = Object.entries(s.sources || {})
+      .map(([name, v]) => `${name} ${String(v.sha || '').slice(0, 7)}`).join(', ');
+    el.textContent = `Pool list as of ${s.checked_at}${pins ? ` (${pins})` : ''}.`;
+  } catch (err) {
+    console.warn('Pool list status unavailable:', err);
+  }
+}
+
 // ── Entry point ───────────────────────────────────────────────────────────────
 export async function initApp() {
+  showPoolListStatus();
   await loadAndRender('post');
   wireFilters();
   wireInfoToggles();

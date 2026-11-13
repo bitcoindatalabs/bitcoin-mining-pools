@@ -8,6 +8,16 @@ ROOT = Path(__file__).parent.parent
 RAW = ROOT / "data" / "raw"
 DASHBOARD_DATA = ROOT / "dashboard" / "data"
 
+def registry_provenance() -> dict:
+    """registry_version and source pins of the pool list behind the labels (bdl-062)."""
+    try:
+        reg = json.loads((DASHBOARD_DATA / "lookup" / "pools_enriched.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return {"registry_version": reg.get("registry_version"),
+            "pool_sources": {k: v.get("sha") or v.get("md5") for k, v in reg.get("sources", {}).items()}}
+
+
 def main():
     print("Loading datasets for synchronization...")
     # 1. Load Main Dashboard Data (The "Identity" Source)
@@ -702,7 +712,8 @@ def main():
             "overhead_bar": overhead_stats
         },
         "kpi8_transitions": kpi8_data,
-        "last_updated": pd.Timestamp.now().isoformat()
+        "last_updated": pd.Timestamp.now().isoformat(),
+        **registry_provenance(),
     }
     
     out_path = DASHBOARD_DATA / "forensics_data.json"

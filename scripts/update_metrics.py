@@ -103,7 +103,10 @@ def main():
         
     ecosystem = {
         "months": months,
-        "cumulativePools": cumulative_counts
+        "cumulativePools": cumulative_counts,
+        # provenance: the pool list these labels come from (bdl-062)
+        "registry_version": enriched.get("registry_version"),
+        "pool_sources": {k: v.get("sha") or v.get("md5") for k, v in enriched.get("sources", {}).items()},
     }
     with open(DASHBOARD_DATA / "pool_growth.json", "w") as f:
         json.dump(ecosystem, f, separators=(",", ":"))

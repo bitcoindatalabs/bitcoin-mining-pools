@@ -1,5 +1,5 @@
 {
-  "_comment": "Pinned upstream pool lists. Each file in data/raw/ is the exact upstream bytes at `sha`. Refreshed by hand in bdl-060 (2026-11-12); bdl-062 automates the refresh.",
+  "_comment": "Pinned upstream pool lists. Each file in data/raw/ is the exact upstream bytes at `sha`. First pinned by hand in bdl-060 (2026-11-12); refreshed daily by scripts/refresh_pool_sources.py (bdl-062), which only rewrites this file when a pin changes.",
   "sources": {
     "bitcoin-data": {
       "repo": "bitcoin-data/mining-pools",
