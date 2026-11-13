@@ -108,8 +108,9 @@ def main():
         how='inner'
     )
     
-    # Use pool_slug as the primary pool identifier
-    df['pool_name'] = df['pool_slug']
+    # Forensics measure how blocks were produced (streaks, transitions, empty blocks, signalling), so they count the
+    # pool whose server built the block: host_pool (bdl-063). Sub-pools such as TrustPool count toward their host.
+    df['pool_name'] = df['host_pool']
     
     # 2. Add Datetime
     df['timestamp'] = pd.to_datetime(df['block_time'], unit='s')

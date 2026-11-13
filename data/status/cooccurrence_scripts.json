@@ -1,0 +1,755 @@
+{
+ "registry_version": "5fed73568dacbed3",
+ "rule": {
+  "min_identified_blocks": 10,
+  "min_share": 1.0,
+  "evidence_methods": [
+   "tag",
+   "regex",
+   "payout"
+  ],
+  "excluded": "scripts with identified blocks from payout_to_miners_slugs pools"
+ },
+ "tip_height": 975618,
+ "labelled_blocks": 3949,
+ "labelled_by_pool": {
+  "50btc": 1453,
+  "kncminer": 1329,
+  "f2pool": 548,
+  "poolin": 191,
+  "eclipsemc": 103,
+  "megabigpower": 78,
+  "hummerpool": 42,
+  "secretsuperstar": 40,
+  "antpool": 28,
+  "triplemining": 26,
+  "bitfury": 25,
+  "asicminer": 19,
+  "okpooltop": 15,
+  "btpool": 11,
+  "btcc": 8,
+  "nmcbit": 7,
+  "hhtt": 7,
+  "stminingcorp": 7,
+  "givemecoins": 7,
+  "nicehash": 2,
+  "yourbtcnet": 1,
+  "btcguild": 1,
+  "exxbw": 1
+ },
+ "labelled_by_range": {
+  "0-299,999": 3543,
+  "300,000-419,999": 95,
+  "420,000-799,999": 309,
+  "800,000+": 2
+ },
+ "scripts": [
+  {
+   "script": "76a91421c0d001728b3feaf115515b7c135e779e9f442f88ac",
+   "address": "145UHBQAmGRpdsXVKhdHtFndnJ8XN8fLjq",
+   "pool": "50btc",
+   "identified_blocks": 1291,
+   "identified_methods": {
+    "regex": 1291
+   },
+   "identified_heights": [
+    219933,
+    229646
+   ],
+   "labelled_blocks": 1453,
+   "labelled_heights": [
+    212655,
+    228897
+   ]
+  },
+  {
+   "script": "76a91470a419336ae604ddf73e4f8199f1d03b3c2f260b88ac",
+   "address": "1BGbGFBhsXYq6kTyjSC9AHRe1dhe76tD6i",
+   "pool": "kncminer",
+   "identified_blocks": 296,
+   "identified_methods": {
+    "regex": 296
+   },
+   "identified_heights": [
+    300700,
+    319172
+   ],
+   "labelled_blocks": 1329,
+   "labelled_heights": [
+    287806,
+    326969
+   ]
+  },
+  {
+   "script": "76a91419f097e85b421a9864e6cf0620561ed2398ebf9988ac",
+   "address": "13NA7X1u18CgGa7RzTDyvuuoLJtLRvXgke",
+   "pool": "f2pool",
+   "identified_blocks": 15,
+   "identified_methods": {
+    "regex": 15
+   },
+   "identified_heights": [
+    262653,
+    262969
+   ],
+   "labelled_blocks": 548,
+   "labelled_heights": [
+    259214,
+    288663
+   ]
+  },
+  {
+   "script": "76a9149b8741d6e8abbd809194e4178627eb236f19114a88ac",
+   "address": "1FBMmZvoiVX8d529Y8dF8uYi4ApgKWbvgT",
+   "pool": "poolin",
+   "identified_blocks": 57,
+   "identified_methods": {
+    "regex": 57
+   },
+   "identified_heights": [
+    718062,
+    729292
+   ],
+   "labelled_blocks": 117,
+   "labelled_heights": [
+    704849,
+    717435
+   ]
+  },
+  {
+   "script": "76a914740ecaf436d5867903c722d783fc994c25a29b1588ac",
+   "address": "1Baf75Ferj6A7AoN565gCQj9kGWbDMHfN9",
+   "pool": "eclipsemc",
+   "identified_blocks": 4470,
+   "identified_methods": {
+    "regex": 4416,
+    "tag": 54
+   },
+   "identified_heights": [
+    188883,
+    284765
+   ],
+   "labelled_blocks": 81,
+   "labelled_heights": [
+    278268,
+    284639
+   ]
+  },
+  {
+   "script": "76a914616b969226578c4fa4e27ce6a3395d437b66b6a988ac",
+   "address": "19t7RxwXdfiwQMyQ3JVB16e9HgV7omijSs",
+   "pool": "megabigpower",
+   "identified_blocks": 37,
+   "identified_methods": {
+    "regex": 37
+   },
+   "identified_heights": [
+    261530,
+    262621
+   ],
+   "labelled_blocks": 78,
+   "labelled_heights": [
+    259635,
+    261402
+   ]
+  },
+  {
+   "script": "76a914a0a68a5e68854712b491f9777c9196b3bb27d70f88ac",
+   "address": "1FeSd8XvDzBgTy4jYKwMSmD4xcT9rjkfgb",
+   "pool": "poolin",
+   "identified_blocks": 73,
+   "identified_methods": {
+    "regex": 73
+   },
+   "identified_heights": [
+    666077,
+    669472
+   ],
+   "labelled_blocks": 64,
+   "labelled_heights": [
+    663559,
+    666027
+   ]
+  },
+  {
+   "script": "a914a36e55683d4cc8a5466f6d2cf48b8eef1f23e6c187",
+   "address": "3GbAEvhB6XUYG79SfCamYPVzhJpchzq3ZY",
+   "pool": "hummerpool",
+   "identified_blocks": 46,
+   "identified_methods": {
+    "regex": 46
+   },
+   "identified_heights": [
+    560482,
+    581902
+   ],
+   "labelled_blocks": 42,
+   "labelled_heights": [
+    566623,
+    573415
+   ]
+  },
+  {
+   "script": "76a9141858f277d8501b58f9af3895d37a4cce0b04237a88ac",
+   "address": "13Djmm4Sv1mkym8QJ3s3qbDnTP24aEZCfs",
+   "pool": "secretsuperstar",
+   "identified_blocks": 292,
+   "identified_methods": {
+    "regex": 292
+   },
+   "identified_heights": [
+    533495,
+    548432
+   ],
+   "labelled_blocks": 29,
+   "labelled_heights": [
+    548679,
+    551427
+   ]
+  },
+  {
+   "script": "76a914ae70f885f4d0377c63d11a61d5adb62eae7086d788ac",
+   "address": "1GuMujABuc8kvzDTyVJFpcf4vszPUgsjiU",
+   "pool": "antpool",
+   "identified_blocks": 334,
+   "identified_methods": {
+    "regex": 334
+   },
+   "identified_heights": [
+    286681,
+    318637
+   ],
+   "labelled_blocks": 28,
+   "labelled_heights": [
+    273632,
+    285390
+   ]
+  },
+  {
+   "script": "76a91463afd7ba46472834b3a91a31ecf16c8bcb19616188ac",
+   "address": "1A66YkobmtQvGbq9jt5faw6nCE8tgjGgKT",
+   "pool": "bitfury",
+   "identified_blocks": 1753,
+   "identified_methods": {
+    "regex": 1753
+   },
+   "identified_heights": [
+    355732,
+    400298
+   ],
+   "labelled_blocks": 24,
+   "labelled_heights": [
+    358420,
+    359087
+   ]
+  },
+  {
+   "script": "76a91423507572d6db4000e2e6701d92ccc6691e484b6188ac",
+   "address": "14Dj368DZyFPDbSbERf53wcGLWefsZUamn",
+   "pool": "eclipsemc",
+   "identified_blocks": 638,
+   "identified_methods": {
+    "regex": 638
+   },
+   "identified_heights": [
+    170562,
+    188872
+   ],
+   "labelled_blocks": 20,
+   "labelled_heights": [
+    170096,
+    170596
+   ]
+  },
+  {
+   "script": "76a914b93dfd929a473f652c7c3e73ed093d60ae6385c388ac",
+   "address": "1HtUGfbDcMzTeHWx2Dbgnhc6kYnj1Hp24i",
+   "pool": "asicminer",
+   "identified_blocks": 3126,
+   "identified_methods": {
+    "regex": 3126
+   },
+   "identified_heights": [
+    237079,
+    294915
+   ],
+   "labelled_blocks": 19,
+   "labelled_heights": [
+    249275,
+    249531
+   ]
+  },
+  {
+   "script": "a914da5cadb75f6cdc4f39852451c808e0cc727ad63a87",
+   "address": "3MbcFnPVegNX9iwQ9614ATm8WrYJQuNJQX",
+   "pool": "okpooltop",
+   "identified_blocks": 91,
+   "identified_methods": {
+    "regex": 91
+   },
+   "identified_heights": [
+    555684,
+    591098
+   ],
+   "labelled_blocks": 15,
+   "labelled_heights": [
+    591284,
+    591927
+   ]
+  },
+  {
+   "script": "76a914242ddb86ed6d911ac53f4ef2b2d878e689d6759388ac",
+   "address": "14JJG9HH75YrybPf5c44YVWByZ2W2apiKK",
+   "pool": "triplemining",
+   "identified_blocks": 128,
+   "identified_methods": {
+    "regex": 128
+   },
+   "identified_heights": [
+    175144,
+    226140
+   ],
+   "labelled_blocks": 11,
+   "labelled_heights": [
+    171007,
+    174628
+   ]
+  },
+  {
+   "script": "76a9149905f7b67f3b1c0839397a7ee8c89edfa37b9b0788ac",
+   "address": "1Ex7XzK8JhY9w9hLsPp7AEXVGNZgdcHTDV",
+   "pool": "secretsuperstar",
+   "identified_blocks": 11,
+   "identified_methods": {
+    "regex": 11
+   },
+   "identified_heights": [
+    559057,
+    560885
+   ],
+   "labelled_blocks": 11,
+   "labelled_heights": [
+    555952,
+    558669
+   ]
+  },
+  {
+   "script": "76a9141689ac1a9870a7b688cb4f7049f9fccd6daa299a88ac",
+   "address": "134AnrmSLjjCPP6b8ZjT4YKLX6i2RJBqf9",
+   "pool": "btpool",
+   "identified_blocks": 125,
+   "identified_methods": {
+    "regex": 125
+   },
+   "identified_heights": [
+    480792,
+    491354
+   ],
+   "labelled_blocks": 10,
+   "labelled_heights": [
+    481776,
+    482631
+   ]
+  },
+  {
+   "script": "76a914bf59d5a0c4b89565a44c9d1d9053ce6f6aa3c56788ac",
+   "address": "1JSmgT3UVAK9fh5AXwPPV5bgJt1yaEHkSM",
+   "pool": "triplemining",
+   "identified_blocks": 48,
+   "identified_methods": {
+    "regex": 48
+   },
+   "identified_heights": [
+    175610,
+    207817
+   ],
+   "labelled_blocks": 10,
+   "labelled_heights": [
+    171783,
+    175038
+   ]
+  },
+  {
+   "script": "76a9141ae64d7d55e3d773fc6fbaf85c9ba1f969760d8c88ac",
+   "address": "13TEThZNnKPk34HYAuo1QqYMwDdjF3qeHx",
+   "pool": "btcc",
+   "identified_blocks": 864,
+   "identified_methods": {
+    "regex": 864
+   },
+   "identified_heights": [
+    502542,
+    543040
+   ],
+   "labelled_blocks": 8,
+   "labelled_heights": [
+    528282,
+    535985
+   ]
+  },
+  {
+   "script": "76a914656103d48c5242d4192e0fec5791c78c75ea021c88ac",
+   "address": "1AF3U6NX1YeArou7FyE4qzMhQVypaiyKkc",
+   "pool": "stminingcorp",
+   "identified_blocks": 48,
+   "identified_methods": {
+    "regex": 48
+   },
+   "identified_heights": [
+    238456,
+    248087
+   ],
+   "labelled_blocks": 7,
+   "labelled_heights": [
+    235655,
+    255737
+   ]
+  },
+  {
+   "script": "76a914b85ec3ef21616b951b37bf6045ce728201c7dedd88ac",
+   "address": "1HorriBLeWypTH3YqEAn8J5LweNJHrZ7bo",
+   "pool": "hhtt",
+   "identified_blocks": 592,
+   "identified_methods": {
+    "regex": 592
+   },
+   "identified_heights": [
+    223607,
+    277071
+   ],
+   "labelled_blocks": 7,
+   "labelled_heights": [
+    222377,
+    223533
+   ]
+  },
+  {
+   "script": "76a914e268763d1f7fc8ea67d03b06b315ba1601024fc988ac",
+   "address": "1Me8rVWwHH8eFWCPqwM43N1MkPtR6Lar7d",
+   "pool": "nmcbit",
+   "identified_blocks": 104,
+   "identified_methods": {
+    "regex": 104
+   },
+   "identified_heights": [
+    155981,
+    204615
+   ],
+   "labelled_blocks": 7,
+   "labelled_heights": [
+    189843,
+    197505
+   ]
+  },
+  {
+   "script": "a914b4c98a3f6302ce9b58780721d377d21aa04f890b87",
+   "address": "3JAvzKWgtxPzcbTqKeAT7qfwoZBjtVmkBU",
+   "pool": "poolin",
+   "identified_blocks": 136,
+   "identified_methods": {
+    "regex": 136
+   },
+   "identified_heights": [
+    553035,
+    558877
+   ],
+   "labelled_blocks": 7,
+   "labelled_heights": [
+    557057,
+    557684
+   ]
+  },
+  {
+   "script": "76a914ebe9380bb6e47d75698beb2b9d6ce7a63d7485bf88ac",
+   "address": "1NWPBR6QMFg41EsWZYapiJLwpQpVoSS5u4",
+   "pool": "givemecoins",
+   "identified_blocks": 12,
+   "identified_methods": {
+    "regex": 12
+   },
+   "identified_heights": [
+    267919,
+    275606
+   ],
+   "labelled_blocks": 5,
+   "labelled_heights": [
+    250534,
+    267033
+   ]
+  },
+  {
+   "script": "76a914b816bc51a89a6878158903405cbdbada80ff4f0088ac",
+   "address": "1HnNZzjf7CuGEJqqgiB2BxTxvVQeGcPS4R",
+   "pool": "triplemining",
+   "identified_blocks": 21,
+   "identified_methods": {
+    "regex": 21
+   },
+   "identified_heights": [
+    177654,
+    227682
+   ],
+   "labelled_blocks": 3,
+   "labelled_heights": [
+    174197,
+    174387
+   ]
+  },
+  {
+   "script": "00143d04ff9b27d06d84293b0853325bab547d483c33",
+   "address": "bc1q85z0lxe86pkcg2fmppfnykat2375s0pnxjx9sc",
+   "pool": "nicehash",
+   "identified_blocks": 184,
+   "identified_methods": {
+    "regex": 184
+   },
+   "identified_heights": [
+    932129,
+    971392
+   ],
+   "labelled_blocks": 2,
+   "labelled_heights": [
+    971652,
+    971719
+   ]
+  },
+  {
+   "script": "76a9140268b5d7886e73e4c9621d18317e68a578911f8e88ac",
+   "address": "1DjnnVC5d6XJQktzq7Boq1jy298dMogY6",
+   "pool": "eclipsemc",
+   "identified_blocks": 48,
+   "identified_methods": {
+    "regex": 48
+   },
+   "identified_heights": [
+    179791,
+    181344
+   ],
+   "labelled_blocks": 2,
+   "labelled_heights": [
+    179611,
+    179669
+   ]
+  },
+  {
+   "script": "76a9140c0271699741cd1211149dd12ad126a901e156da88ac",
+   "address": "126W33f3fJaVzPT57pVFBZZt7PUCTHnH7J",
+   "pool": "poolin",
+   "identified_blocks": 1042,
+   "identified_methods": {
+    "regex": 1042
+   },
+   "identified_heights": [
+    634669,
+    656705
+   ],
+   "labelled_blocks": 2,
+   "labelled_heights": [
+    636269,
+    637358
+   ]
+  },
+  {
+   "script": "76a91484fff26486fdddb2e79a634cddfdd351cba5e46d88ac",
+   "address": "1D8EopaPeqgmwthzqMZsxdoPxR7A5HSuZD",
+   "pool": "triplemining",
+   "identified_blocks": 37,
+   "identified_methods": {
+    "regex": 37
+   },
+   "identified_heights": [
+    175773,
+    226744
+   ],
+   "labelled_blocks": 2,
+   "labelled_heights": [
+    173800,
+    174959
+   ]
+  },
+  {
+   "script": "76a9144c300ebfd37ad8305e5f215434992f54b97feb5588ac",
+   "address": "17wqvgUuKPBesXbGDBMKfPdwtdfQXzCuKG",
+   "pool": "givemecoins",
+   "identified_blocks": 10,
+   "identified_methods": {
+    "regex": 10
+   },
+   "identified_heights": [
+    347019,
+    362721
+   ],
+   "labelled_blocks": 1,
+   "labelled_heights": [
+    353413,
+    353413
+   ]
+  },
+  {
+   "script": "76a91457eb0ea1de7bd9b63d59c29d60941adb61c597cf88ac",
+   "address": "191sNkKTG8pzUsNgZYKo7DH2odg39XDAGo",
+   "pool": "poolin",
+   "identified_blocks": 1661,
+   "identified_methods": {
+    "regex": 1661
+   },
+   "identified_heights": [
+    669540,
+    705739
+   ],
+   "labelled_blocks": 1,
+   "labelled_heights": [
+    695080,
+    695080
+   ]
+  },
+  {
+   "script": "76a9145bce32fc302217b6f0e18bca8b73f15005411f5788ac",
+   "address": "19NRWRg6QvofS6JcDLT9jKww2bh2EpUmKk",
+   "pool": "yourbtcnet",
+   "identified_blocks": 163,
+   "identified_methods": {
+    "regex": 163
+   },
+   "identified_heights": [
+    154967,
+    162203
+   ],
+   "labelled_blocks": 1,
+   "labelled_heights": [
+    154063,
+    154063
+   ]
+  },
+  {
+   "script": "76a9148cf4f6175b2651dcdff0051970a917ea10189c2d88ac",
+   "address": "1DrK44np3gMKuvcGeFVv9Jk67zodP52eMu",
+   "pool": "bitfury",
+   "identified_blocks": 4096,
+   "identified_methods": {
+    "regex": 4096
+   },
+   "identified_heights": [
+    386558,
+    447621
+   ],
+   "labelled_blocks": 1,
+   "labelled_heights": [
+    269523,
+    269523
+   ]
+  },
+  {
+   "script": "76a914a481b199c240575c86d141e3b5021c48ab5195fb88ac",
+   "address": "1FzqBjveZpc9e4ZcNXW33zuf5318yAtJYj",
+   "pool": "btcguild",
+   "identified_blocks": 208,
+   "identified_methods": {
+    "regex": 208
+   },
+   "identified_heights": [
+    198928,
+    206755
+   ],
+   "labelled_blocks": 1,
+   "labelled_heights": [
+    198695,
+    198695
+   ]
+  },
+  {
+   "script": "76a914cebd1b27e747a51df13b36fc9f7c5eac3169c5bc88ac",
+   "address": "1Kr8jqaywmHVzE5ZUSE1MFWKi638VZbzSP",
+   "pool": "givemecoins",
+   "identified_blocks": 10,
+   "identified_methods": {
+    "regex": 10
+   },
+   "identified_heights": [
+    295634,
+    437589
+   ],
+   "labelled_blocks": 1,
+   "labelled_heights": [
+    489125,
+    489125
+   ]
+  },
+  {
+   "script": "76a914fd7e46fb4edf3ba7f5ee5956cb47bc3793d1f8a788ac",
+   "address": "1Q7MES3Ww6cUHBNTyNBgf9kZHHDFAq6Asp",
+   "pool": "btpool",
+   "identified_blocks": 63,
+   "identified_methods": {
+    "regex": 63
+   },
+   "identified_heights": [
+    497172,
+    505332
+   ],
+   "labelled_blocks": 1,
+   "labelled_heights": [
+    501084,
+    501084
+   ]
+  },
+  {
+   "script": "a91431f671a40a322eee4e0d485e208fc1492848d2ea87",
+   "address": "36FCGAcCarkKWSwEekS7ZcFxBPddwmBtJr",
+   "pool": "exxbw",
+   "identified_blocks": 116,
+   "identified_methods": {
+    "regex": 116
+   },
+   "identified_heights": [
+    449365,
+    459499
+   ],
+   "labelled_blocks": 1,
+   "labelled_heights": [
+    454061,
+    454061
+   ]
+  }
+ ],
+ "near_misses": [
+  {
+   "script": "76a91463dd7f90e949f8e354415233e51d3392d4d8f55288ac",
+   "address": "1A73ExsM2doRwTLp82rv5U36QHbBFmHD1X",
+   "top_pool": "kncminer",
+   "share": 0.9231,
+   "identified_blocks": 13,
+   "hosts": {
+    "kncminer": 12,
+    "eligius": 1
+   },
+   "would_label_blocks": 11,
+   "why_not": "payout-to-miners pool"
+  },
+  {
+   "script": "a914804afd8b3479267b0cd0bb2fa2e217096005fb8d87",
+   "address": "3DPNFXGoe8QGiEXEApQ3QtHb8wM15VCQU3",
+   "top_pool": "okexpool",
+   "share": 0.9324,
+   "identified_blocks": 3123,
+   "hosts": {
+    "okexpool": 2912,
+    "okpooltop": 211
+   },
+   "would_label_blocks": 9,
+   "why_not": "share below min_share"
+  },
+  {
+   "script": "76a914a324149853252f14c329e7b65d85f40e0f6eb1b688ac",
+   "address": "1FscNBYzd5CqDzUVQ9YapLQNtLbswkM4NL",
+   "top_pool": "eligius",
+   "share": 1.0,
+   "identified_blocks": 40,
+   "hosts": {
+    "eligius": 40
+   },
+   "would_label_blocks": 7,
+   "why_not": "payout-to-miners pool"
+  }
+ ]
+}

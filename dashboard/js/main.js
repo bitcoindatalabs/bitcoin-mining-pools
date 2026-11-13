@@ -1,11 +1,11 @@
-import { loadData, loadParquetOnly, loadForensics, filterBlocks, aggregateByPool, aggregateByCountry, aggregateMonthly } from './data-loader.js?v=28';
+import { loadData, loadParquetOnly, loadForensics, filterBlocks, aggregateByPool, aggregateByCountry, aggregateMonthly } from './data-loader.js?v=29';
 import { 
   renderDonut, renderPoolTable, renderCountryShareChart, renderAreaChart, renderEcosystemGrowthChart, renderHhiChart, renderConcentrationChart, renderTopMinersTable, 
   renderStreaksLeaderboard, renderZScoreFunnel, renderEntropyHeatmap, renderSyncHistogram, renderConsecutiveAdvantage, renderEmptyBlockChart, renderEmptyTrendChart,
   renderBip110Signaling, renderBip110Efficiency, renderBip110Overhead,
   renderQuarterlyLift, renderTransitionMatrix,
   resizeAllCharts, donutChart, growthChart 
-} from './charts.js?v=28';
+} from './charts.js?v=29';
 
 let allBlocks   = [];
 let poolMeta    = {};
@@ -23,7 +23,12 @@ let activeRange = '1Y';
 let activeCountryRange = '1Y';
 let activeTopPoolsRange = '1M';
 let activePeriod = 'post'; // 'pre' or 'post'
+let groupSubPools = false; // false: show sub-pools separately (`pool`); true: group under `host_pool`
 let barMetric   = 'blocks';
+
+function activePoolField() {
+  return groupSubPools ? 'host_pool_name' : 'pool_name';
+}
 
 const profileHandler = (e) => showProfileCard(e.detail);
 
@@ -125,10 +130,11 @@ function updateKPICards() {
 
   const poolNames = new Set();
   for (const b of last30Blocks) {
-    if (b.pool_name !== 'Unknown') poolNames.add(b.pool_name);
+    if (b.host_pool_name !== 'Unknown') poolNames.add(b.host_pool_name);
   }
   
-  const poolAgg = aggregateByPool(last30Blocks);
+  // KPIs and concentration metrics always count by host_pool (the server that built the block).
+  const poolAgg = aggregateByPool(last30Blocks, 'host_pool_name');
   const top     = poolAgg.find(p => p.name !== 'Unknown');
 
   // Share of top 3 known pools relative to ALL blocks in the slice
@@ -152,14 +158,14 @@ function updateKPICards() {
 
 // ── Static Macro Charts (Unfiltered) ──────────────────────────────────────────
 function initStaticMacroCharts() {
-  // 1. Dominance Area chart reflects the active toggled period (all-time or post-2020)
-  const monthlyArea = aggregateMonthly(allBlocks, 12);
+  // 1. Dominance Area chart reflects the active toggled period (all-time or post-2020) and sub-pool grouping
+  const monthlyArea = aggregateMonthly(allBlocks, 12, activePoolField());
   renderAreaChart({ ...monthlyArea, timelines });
 
   // 2. HHI and Concentration macro trends should ALWAYs remain focused on the modern era (Post-2020)
-  // regardless of how far back the historical dominance area chart expands.
+  // and always count by host_pool (sub-pools grouped under the pool that built the block).
   const modernBlocks = post2021Blocks || allBlocks;
-  const monthlyModern = aggregateMonthly(modernBlocks, 12);
+  const monthlyModern = aggregateMonthly(modernBlocks, 12, 'host_pool_name');
   
   const { months, series, poolNames, hhi } = monthlyModern;
   const top3 = [];
@@ -278,21 +284,22 @@ function renderAll() {
   // We use post2020Blocks (the modern dataset) to ensure these stay relevant to current mining
   // regardless of whether the historical macro chart is showing the full 2009+ history.
   const snapshotBlocks = post2021Blocks || allBlocks;
+  const field = activePoolField();
   const filtered = filterBlocks(snapshotBlocks, { range: activeRange });
   
-  const poolAgg = aggregateByPool(filtered);
+  const poolAgg = aggregateByPool(filtered, field);
   renderDonut(poolAgg, poolMeta, poolsInfo);
   renderPoolTable(poolAgg, poolMeta);
 
   // Snapshot for Country Share independently respects its active timeframe
   const filteredCountry = filterBlocks(snapshotBlocks, { range: activeCountryRange });
-  const countryPoolAgg = aggregateByPool(filteredCountry);
+  const countryPoolAgg = aggregateByPool(filteredCountry, field);
   const countryAgg = aggregateByCountry(countryPoolAgg, poolsInfo);
   renderCountryShareChart(countryAgg);
 
   // 3. Top Mining Pools Table (Independent range filter)
   const topPoolsFiltered = filterBlocks(snapshotBlocks, { range: activeTopPoolsRange });
-  const topPoolsAgg = aggregateByPool(topPoolsFiltered);
+  const topPoolsAgg = aggregateByPool(topPoolsFiltered, field);
   renderTopMinersTable(topPoolsAgg, poolsInfo, forensics, slugToName, activeTopPoolsRange);
 
   // 4. Ecosystem chart uses entirely global data (spanning from genesis to present)
@@ -419,6 +426,17 @@ function wireFilters() {
       renderAll();
     });
   }
+
+  // Sub-pool grouping toggle ("Group sub-pools under their host pool")
+  const subpoolToggles = document.querySelectorAll('.subpool-toggle-input');
+  subpoolToggles.forEach(toggle => {
+    toggle.addEventListener('change', (e) => {
+      groupSubPools = Boolean(e.target.checked);
+      subpoolToggles.forEach(t => { t.checked = groupSubPools; });
+      initStaticMacroCharts();
+      renderAll();
+    });
+  });
 }
 
 function wireInfoToggles() {
@@ -508,7 +526,7 @@ async function lazyLoadHistory() {
     const res = await fetch('./data/lookup/lookup_slug_to_name.json');
     const lookup = await res.json();
     
-    const preBlocks = await loadParquetOnly('./data/blocks_pre_2021.parquet?v=28', lookup);
+    const preBlocks = await loadParquetOnly('./data/blocks_pre_2021.parquet?v=29', lookup);
     fullHistoryBlocks = [...preBlocks, ...post2021Blocks];
     console.log("Historical data loaded in background.");
   } catch (err) {

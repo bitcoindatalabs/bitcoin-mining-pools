@@ -16,22 +16,37 @@ Registry entries used here:
   generic_slugs     [slug]                            every tag of these slugs is generic
   payout_to_miners_slugs [slug]                       pools whose coinbase outputs pay miners (rule 2 exception)
   source_rank       {source: rank}                    tie-break between equally long tag matches (lower wins)
+  sub_pools         [{slug, hosts}]                   operators whose name appears in blocks a host pool built and
+                                                      was paid for (TrustPool on ViaBTC); bdl-063
+  tag_payout_decisions [{tag_slug, payout_slugs, label}]  every other decided tag != payout pair: label 'payout' or
+                                                      'tag' says which side is the pool; bdl-063
+
+Two labels per block (bdl-063):
+  pool       the most specific operator we can name (TrustPool)
+  host_pool  the pool whose server built the block and was paid (ViaBTC); Attribution.slug. Concentration uses it.
+They differ only for sub-pool blocks: the specific tag names a sub_pools slug and the block pays one of its hosts.
 
 Precedence for one block:
   1. specific coinbase tag or regex. Among all hits the longest matched text wins; ties go to the source with the
      lower rank (supplement < mempool < bitcoin-data), then to the longer pattern.      method 'tag' | 'regex'
   2. payout address: the first coinbase output, in vout order, whose script is a known payout script.
-     When rule 1 and rule 2 both apply and disagree, the payout address wins (method 'payout'): the tag is then
-     a sub-account, worker or proxy name inside another pool's coinbase ("/ViaBTC/Trustpool/", BTC.com
-     "eu/Bitdeer/", Huobi "bj/TMSPOOL/", F2Pool "Mined by emcd"), and the pool that was paid is the pool.
-     Exception: the tag wins when its pool pays its miners directly in the coinbase (registry
-     payout_to_miners_slugs: OCEAN, Eligius, ckpool.org, solo pools), because there the outputs are miners.
+     When rule 1 and rule 2 both apply and disagree, the pair (tag slug, payout slug) decides:
+       - a sub_pools pair (TrustPool tag, ViaBTC payout): pool = the sub-pool, host_pool = the payout pool;
+         method 'tag' | 'regex' (the method says how `pool` was made; the host always comes from the payout)
+       - a tag_payout_decisions pair with label 'payout' (worker or customer names such as F2Pool's "Mined by
+         <account>", AntPool & friends): pool = host_pool = the payout pool, method 'payout'
+       - label 'tag' (address handed over to the tag's pool; payout-to-miners pools): pool = host_pool = the tag
+       - an undecided pair: the payout wins (method 'payout'), except when the tag's pool pays its miners directly
+         in the coinbase (payout_to_miners_slugs: OCEAN, Eligius, ckpool.org, solo pools); there the tag wins.
                                                                                           method 'payout'
   3. the frozen jlopp label (heights <= 869,305 only), after slug aliases, when not unknown.
                                                                                           method 'jlopp'
-  4. a generic software tag (ckpool, btcpool): a weak label used only when nothing above applies.
-                                                                                          method 'tag' | 'regex'
-  5. unknown.                                                                             method 'unknown'
+  4. co-occurrence (only when the resolver is given a co-occurrence table, built by resolve_blocks.py): the
+     block's first payout script is one that only one host pool's tag/regex/payout-identified blocks pay.
+                                                                                          method 'cooccurrence'
+  5. a generic software tag (ckpool, btcpool): a weak label used only when nothing above applies.
+                                                                                          method 'generic'
+  6. unknown.                                                                             method 'unknown'
 
 Matching is done on the scriptSig decoded byte-for-byte as Latin-1 (like mempool's hex2ascii), so no byte is
 dropped or merged. Tags and regexes are converted to the same byte space (UTF-8 encoded, read as Latin-1), so a
@@ -46,9 +61,9 @@ import re
 from pathlib import Path
 from typing import Iterable, NamedTuple
 
-METHODS = ("tag", "regex", "payout", "jlopp", "unknown")
+METHODS = ("tag", "regex", "payout", "jlopp", "cooccurrence", "generic", "unknown")
 # Bump when the matching rules below change; it is part of registry_version, so a rule change re-resolves blocks.
-RESOLVER_VERSION = "2026-11-12.1"
+RESOLVER_VERSION = "2026-11-13.1"
 
 
 # ---------------------------------------------------------------------------
@@ -219,12 +234,17 @@ def _to_bytespace(s: str) -> str:
 # Resolver
 # ---------------------------------------------------------------------------
 class Attribution(NamedTuple):
-    slug: str
-    method: str             # tag | regex | payout | jlopp | unknown
-    tag: str | None         # the coinbase tag / regex that matched (for tag and regex), else None
+    slug: str               # host_pool: the pool that built the block and was paid (concentration counts this)
+    method: str             # tag | regex | payout | jlopp | cooccurrence | generic | unknown (how `pool` was made)
+    tag: str | None         # the coinbase tag / regex that matched (for tag, regex and generic), else None
     tag_slug: str | None    # best specific tag/regex slug, whatever won (for disagreement analysis)
     payout_slug: str | None  # payout-address slug, whatever won
     generic_slug: str | None  # generic software-tag slug, whatever won
+    pool: str | None = None  # the most specific operator: the sub-pool for sub-pool blocks, else == slug
+
+    @property
+    def host_pool(self) -> str:
+        return self.slug
 
 
 def load_registry(registry) -> dict:
@@ -234,7 +254,9 @@ def load_registry(registry) -> dict:
 
 
 class PoolResolver:
-    def __init__(self, registry):
+    def __init__(self, registry, cooccurrence: dict | None = None):
+        """cooccurrence: {first payout script (bytes or hex): host slug}, as resolve_blocks.cooccurrence_table()
+        builds it. Without it rule 4 never applies (per-block callers such as the nightly updater)."""
         reg = load_registry(registry)
         self.registry_version = reg.get("registry_version")
         aliases = {k: v for k, v in reg.get("slug_aliases", {}).items() if not k.startswith("_")}
@@ -267,6 +289,17 @@ class PoolResolver:
             rx = compile_pattern(r["pattern"])
             self._regexes.append((rx, r["pattern"], s, rank.get(r.get("source"), 9),
                                   s in generic or r["pattern"] in generic_tags))
+        # (tag slug, payout slug) -> 'sub_pool' | 'payout' | 'tag'
+        self._pairs = {}
+        for e in reg.get("sub_pools", []):
+            for h in e["hosts"]:
+                self._pairs[(apply_alias(e["slug"], aliases), apply_alias(h, aliases))] = "sub_pool"
+        for e in reg.get("tag_payout_decisions", []):
+            for p in e["payout_slugs"]:
+                self._pairs[(apply_alias(e["tag_slug"], aliases), apply_alias(p, aliases))] = e["label"]
+        self._cooc = {}
+        for sc, s in (cooccurrence or {}).items():
+            self._cooc[bytes.fromhex(sc) if isinstance(sc, str) else bytes(sc)] = apply_alias(s, aliases)
         self._scripts = {}
         self.undecoded_addresses = []
         for addr, info in reg.get("payout_addresses", {}).items():
@@ -301,6 +334,10 @@ class PoolResolver:
                 return s
         return None
 
+    def pair_decision(self, tag_slug: str, payout_slug: str):
+        """'sub_pool' | 'payout' | 'tag' for a decided tag != payout pair, None for an undecided one."""
+        return self._pairs.get((tag_slug, payout_slug))
+
     def resolve(self, scriptsig: bytes, payout_scripts: Iterable[bytes] = (), jlopp_slug=None) -> Attribution:
         hits = self.tag_hits(scriptsig)
         best = gen = None
@@ -314,14 +351,22 @@ class PoolResolver:
         js = self.slug(jlopp_slug) if jlopp_slug else None
         tag_slug = best[5] if best else None
         gen_slug = gen[5] if gen else None
-        if best and pay and best[5] != pay and best[5] not in self.payout_to_miners:
-            return Attribution(pay, "payout", None, tag_slug, pay, gen_slug)
+        if best and pay and best[5] != pay:
+            decision = self._pairs.get((best[5], pay))
+            if decision == "sub_pool":
+                return Attribution(pay, best[3], best[4], tag_slug, pay, gen_slug, best[5])
+            if decision == "payout" or (decision is None and best[5] not in self.payout_to_miners):
+                return Attribution(pay, "payout", None, tag_slug, pay, gen_slug, pay)
         if best:
-            return Attribution(best[5], best[3], best[4], tag_slug, pay, gen_slug)
+            return Attribution(best[5], best[3], best[4], tag_slug, pay, gen_slug, best[5])
         if pay:
-            return Attribution(pay, "payout", None, tag_slug, pay, gen_slug)
+            return Attribution(pay, "payout", None, tag_slug, pay, gen_slug, pay)
         if js and js != "unknown":
-            return Attribution(js, "jlopp", None, tag_slug, pay, gen_slug)
+            return Attribution(js, "jlopp", None, tag_slug, pay, gen_slug, js)
+        if self._cooc and payout_scripts is not None and len(payout_scripts):
+            c = self._cooc.get(bytes(payout_scripts[0]))
+            if c:
+                return Attribution(c, "cooccurrence", None, tag_slug, pay, gen_slug, c)
         if gen:
-            return Attribution(gen[5], gen[3], gen[4], tag_slug, pay, gen_slug)
-        return Attribution("unknown", "unknown", None, tag_slug, pay, gen_slug)
+            return Attribution(gen[5], "generic", gen[4], tag_slug, pay, gen_slug, gen[5])
+        return Attribution("unknown", "unknown", None, tag_slug, pay, gen_slug, "unknown")

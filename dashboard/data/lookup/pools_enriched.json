@@ -1,5 +1,5 @@
 {
-  "registry_version": "5bca37536b2d219f",
+  "registry_version": "5fed73568dacbed3",
   "sources": {
     "bitcoin-data": {
       "repo": "bitcoin-data/mining-pools",
@@ -17,10 +17,10 @@
     },
     "supplement": {
       "file": "data/raw/pools_supplement.json",
-      "md5": "4f3f5c186b63fb90bde7d66676b0f911"
+      "md5": "de40e31059c0bfc9c22c0d9b509067d7"
     }
   },
-  "resolver_version": "2026-11-12.1",
+  "resolver_version": "2026-11-13.1",
   "source_rank": {
     "supplement": 0,
     "mempool": 1,
@@ -4574,6 +4574,284 @@
     "solock",
     "solopoolcom"
   ],
+  "sub_pools": [
+    {
+      "slug": "trustpool",
+      "hosts": [
+        "viabtc"
+      ],
+      "evidence": "2,455 blocks 616,983-975,585 (2020-02-11 to 2026-11-12): 2,247 read '/ViaBTC/Trustpool/', 208 read '/trustpool/' only; all pay ViaBTC's addresses 18cBEMRx... (1,094) and 1PuJjnF4... (1,361), which ViaBTC's own tagged blocks paid 19,993 and 14,832 times in the same periods.",
+      "source": "mempool/mining-pools d2ddbfa id 172 'TrustPool' (https://trustpool.cc); review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)",
+      "note": "TrustPool runs on ViaBTC: its blocks read '/ViaBTC/Trustpool/' and are paid to ViaBTC, so they count toward ViaBTC in concentration figures."
+    },
+    {
+      "slug": "bitdeer",
+      "hosts": [
+        "cloverpool"
+      ],
+      "evidence": "823 blocks 653,668-697,491 (2020-10-21 to 2021-08-25) read '<region>/Bitdeer/' (us, bj, eu: the region-server format of BTC.com's own coinbase text) and pay BTC.com's addresses bc1qjl8u... (254) and 1Bf9sZ... (569), which BTC.com's own tagged blocks paid 1,565 and 1,732 times in the same periods.",
+      "source": "bitcoin-data/mining-pools 0158b59 'Bitdeer' (https://www.bitdeer.com); review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)",
+      "note": "Bitdeer's hashrate mined on BTC.com (now CloverPool) in 2020-21: the blocks read 'us/Bitdeer/' and are paid to BTC.com."
+    },
+    {
+      "slug": "emcdpool",
+      "hosts": [
+        "f2pool",
+        "huobipool"
+      ],
+      "evidence": "167 blocks 577,335-627,443 (2019-05-23 to 2020-04-24) read 'Mined by emcd' (F2Pool's 'Mined by <account>' format) and pay F2Pool's 1KFHE7...; 176 blocks 656,729-684,820 (2020-11-13 to 2021-05-24) read '<region>/one_more_mcd/' and pay Huobi's 18Zcyx... and 1EepjX.... The hosts' own tagged blocks paid the same addresses 8,280, 1,595 and 629 times in the same periods. EMCD's own address is paid from 2021 (309 blocks).",
+      "source": "mempool/mining-pools d2ddbfa id 110 'EMCDPool' (https://pool.emcd.io); bitcoin-data/mining-pools 0158b59 'EMCDPool'; review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)",
+      "note": "Before EMCD paid its own blocks (2021), its hashrate mined on F2Pool (2019-20, 'Mined by emcd') and Huobi Pool (2020-21, '/one_more_mcd/')."
+    },
+    {
+      "slug": "tmspool",
+      "hosts": [
+        "huobipool"
+      ],
+      "evidence": "129 blocks 660,304-684,709 (2020-12-07 to 2021-05-23) read '<region>/TMSPOOL/' (Huobi's 'bj/' region format) and pay Huobi's 18Zcyx... and 1EepjX..., which Huobi's own tagged blocks paid 1,402 and 625 times in the same periods.",
+      "source": "bitcoin-data/mining-pools 0158b59 'TMSPool' (https://btc.tmspool.top); review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)",
+      "note": "TMSPOOL's blocks were built and paid by Huobi Pool. TATMAS Pool (tmsminer.com) may be the same operator; both upstream lists keep them apart and so do we."
+    },
+    {
+      "slug": "tatmaspool",
+      "hosts": [
+        "viabtc"
+      ],
+      "evidence": "99 blocks 641,571-662,197 (2020-07-31 to 2020-12-20) read '/ViaBTC/TATMAS Pool/' and pay ViaBTC's 18cBEMRx..., which ViaBTC's own tagged blocks paid 1,689 times in the same period.",
+      "source": "mempool/mining-pools d2ddbfa id 72 'TATMAS Pool' (https://tmsminer.com); bitcoin-data/mining-pools 0158b59 'TATMAS Pool'; review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)",
+      "note": "TATMAS Pool ran on ViaBTC: its blocks read '/ViaBTC/TATMAS Pool/' and are paid to ViaBTC."
+    },
+    {
+      "slug": "togetherpool",
+      "hosts": [
+        "rawpool"
+      ],
+      "evidence": "57 blocks 670,632-677,399 (2021-02-14 to 2021-04-02) read 'TogetherPool' and pay bc1qwlrsv... (52; mempool lists it for Rawpool, bitcoin-data for TogetherPool, mempool wins by precedence) or bc1q8ej2... (5; supplement: Rawpool). After the text stops, 32 untagged blocks pay the same two addresses, then Rawpool's 35y82t.... No block with Rawpool's own text ever paid either address, so the host rests on mempool's address entry alone (low confidence).",
+      "source": "mempool/mining-pools d2ddbfa 'Rawpool' addresses; bitcoin-data/mining-pools 0158b59 'TogetherPool' (https://www.togetherpool.com); review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)",
+      "note": "TogetherPool's 2021 blocks are paid to addresses mempool.space lists for Rawpool; bitcoin-data lists one of them for TogetherPool itself."
+    },
+    {
+      "slug": "1thash",
+      "hosts": [
+        "antpool"
+      ],
+      "evidence": "12 blocks 679,477-726,981 (2021-04-16 to 2022-03-12) read '/1THash/76x' and pay AntPool's 12dRugNc..., which AntPool's own tagged blocks paid 8,052 times in the same period.",
+      "source": "mempool/mining-pools d2ddbfa id 5 '1THash' (https://www.1thash.top); review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)",
+      "note": "12 1THash blocks in 2021-22 were paid to AntPool."
+    },
+    {
+      "slug": "spiderpool",
+      "hosts": [
+        "huobipool"
+      ],
+      "evidence": "1 block, 593,307 (2019-09-05), reads '/SpiderPool.com/' and pays Huobi's 1MvYAS..., which Huobi's own tagged blocks paid 157 times within two weeks of it; SpiderPool's first block paid to its own address is 596,190, 20 days later.",
+      "source": "mempool/mining-pools d2ddbfa id 102 'SpiderPool' (https://www.spiderpool.com); review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)",
+      "note": null
+    },
+    {
+      "slug": "bitcoinukraine",
+      "hosts": [
+        "bitcoinrussia"
+      ],
+      "evidence": "1 block, 524,045 (2018-05-23), reads '/Bitcoin-Ukraine.com.ua/' and pays Bitcoin-Russia's 165GCE..., which Bitcoin-Russia's own tagged blocks paid 7 times within two weeks of it.",
+      "source": "mempool/mining-pools d2ddbfa id 93 'Bitcoin-Ukraine' (https://bitcoin-ukraine.com.ua); review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)",
+      "note": null
+    }
+  ],
+  "tag_payout_decisions": [
+    {
+      "tag_slug": "canoepool",
+      "payout_slugs": [
+        "1thash"
+      ],
+      "label": "tag",
+      "kind": "address_handover",
+      "evidence": "322 blocks 500,540-539,426 (2017-12-22 to 2018-09-01) read '/canoepool/' and pay 147SwRQ..., which mempool lists for 1THash. No block with 1THash's text paid it before 591,615 (2019-08). CanoePool's own '/CANOE/' blocks (321, to 483,934) paid its other address.",
+      "source": "mempool/mining-pools d2ddbfa id 10 'CanoePool', id 5 '1THash'; review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "btctop",
+      "payout_slugs": [
+        "1thash"
+      ],
+      "label": "tag",
+      "kind": "address_handover",
+      "evidence": "16 blocks 474,000-497,286 (2017-07-03 to 2017-12-03) read '/BTC.TOP/NYA/EB1/AD6/' and pay the same 147SwRQ..., two years before any 1THash block paid it; BTC.TOP's own blocks pay its own address (15,492).",
+      "source": "mempool/mining-pools d2ddbfa id 11 'BTC.TOP'; review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "okkong",
+      "payout_slugs": [
+        "ukrpool"
+      ],
+      "label": "tag",
+      "kind": "address_handover",
+      "evidence": "28 blocks 636,922-655,705 (2020-06-29 to 2020-11-06) read '<region>/hash.okkong.com/' and pay 125K2x..., which bitcoin-data lists for UkrPool. UkrPool's own tagged blocks paid it 608,989-635,411 and stop before OKKONG's start; OKKONG's own address alternates with it from 638,149.",
+      "source": "bitcoin-data/mining-pools 0158b59 'UKRPool', 'OKKONG'; review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "antpool",
+      "payout_slugs": [
+        "poolin",
+        "cloverpool"
+      ],
+      "label": "payout",
+      "kind": "template_sharing",
+      "evidence": "39 blocks 767,203-768,944 (2022-12) read 'Mined by AntPool' and pay Poolin (24) or BTC.com (15): the AntPool & friends template sharing (bdl-058, b10c). Not sub-pools; labels as bdl-060.",
+      "source": "https://b10c.me/observations/12-template-similarity/ ; review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "cloverpool",
+      "payout_slugs": [
+        "binancepool"
+      ],
+      "label": "payout",
+      "kind": "worker_name",
+      "evidence": "7 blocks 775,948-776,247 (2023-02-10 to 12) read 'btccom887', 'btccom890', ...: numbered worker names inside Binance Pool blocks.",
+      "source": "review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "kucoinpool",
+      "payout_slugs": [
+        "ultimuspool"
+      ],
+      "label": "payout",
+      "kind": "worker_name",
+      "evidence": "2 blocks 775,898 and 775,979 (2023-02-10/11) read 'KuCoinPool888', 'KuCoinPool903': numbered worker names, the same days and pattern as 'btccom887' in Binance blocks; KuCoin Pool's own blocks read 'KuCoinPool' with no number.",
+      "source": "review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "cloverpool",
+      "payout_slugs": [
+        "f2pool"
+      ],
+      "label": "payout",
+      "kind": "worker_name",
+      "evidence": "3 blocks 583,626-604,978 (2019) read 'Mined by nsbtccom': an F2Pool account name ('Mined by <account>').",
+      "source": "review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "asicminer",
+      "payout_slugs": [
+        "f2pool"
+      ],
+      "label": "payout",
+      "kind": "worker_name",
+      "evidence": "1 block, 685,643, reads '/F2Pool/Mined by asicminerspain': an F2Pool account name.",
+      "source": "review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "tiger",
+      "payout_slugs": [
+        "f2pool"
+      ],
+      "label": "payout",
+      "kind": "worker_name",
+      "evidence": "1 block, 495,179, reads 'Mined by lwhtiger2999': an F2Pool account name.",
+      "source": "review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "futurebitapollosolo",
+      "payout_slugs": [
+        "f2pool"
+      ],
+      "label": "payout",
+      "kind": "worker_name",
+      "evidence": "1 block, 595,129, reads 'Mined by apollominer' and pays F2Pool: an F2Pool account name that contains the 'Apollo' tag. bdl-060 labelled it FutureBit Apollo Solo because solo pools keep their tag; this decision moves it to F2Pool.",
+      "source": "review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "dpool",
+      "payout_slugs": [
+        "gdpool"
+      ],
+      "label": "payout",
+      "kind": "override",
+      "evidence": "107 blocks 905,830-942,815 (2025-07 to 2026-03) read 'GDPool', which both upstream lists give to GDPool; dpool comes only from this supplement's 'GDPool' tag override (bdl-060 F), which exists for DPOOL's 2018-19 blocks. Labels as bdl-060.",
+      "source": "mempool/mining-pools d2ddbfa 3ec7756; review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "terrapool",
+      "payout_slugs": [
+        "cleanincentive"
+      ],
+      "label": "payout",
+      "kind": "source_conflict",
+      "evidence": "11 blocks 819,134-827,554 (2023-11-30 to 2024-01-27) read 'Validated with Clean Energy', which mempool gives to Terra Pool and bitcoin-data to CleanIncentive, together with the paid address bc1qrm09.... One operator per bitcoin-data; labels as bdl-060.",
+      "source": "mempool/mining-pools d2ddbfa id 3; bitcoin-data/mining-pools 0158b59 'CleanIncentive'; review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "cloverpool",
+      "payout_slugs": [
+        "waterhole"
+      ],
+      "label": "payout",
+      "kind": "pool_software",
+      "evidence": "2 blocks 482,059 and 482,221 (2017-08) read '/BTC.COM/' and pay Waterhole's 1FLH1S... after Waterhole's own text stopped (475,040); 76 untagged blocks paid the same address to 499,822. Waterhole appears to have run on BTC.com's pool software; BTC.com is not a sub-pool of Waterhole. Labels as bdl-060.",
+      "source": "review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "eligius",
+      "payout_slugs": [
+        "cointerra",
+        "wiz"
+      ],
+      "label": "tag",
+      "kind": "payout_to_miners",
+      "evidence": "40 blocks (2014-15): Eligius pays its miners in the coinbase, so CoinTerra's and wiz's addresses are miners. Labels as bdl-060.",
+      "source": "https://en.bitcoin.it/wiki/Eligius ; review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "solock",
+      "payout_slugs": [
+        "eobot"
+      ],
+      "label": "tag",
+      "kind": "payout_to_miners",
+      "evidence": "4 blocks (2017-18) read '/solo.ckpool.org/': solo CKPool pays the solo miner (here Eobot). Labels as bdl-060.",
+      "source": "https://ckpool.org ; review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    },
+    {
+      "tag_slug": "oceanxyz",
+      "payout_slugs": [
+        "cleanincentive"
+      ],
+      "label": "tag",
+      "kind": "payout_to_miners",
+      "evidence": "97 blocks 959,666-974,735 (2026-07 to 2026-11) read 'OCEAN.XYZ': OCEAN pays its miners in the coinbase (median 43 outputs in these blocks); CleanIncentive's address is one miner among them. Labels as bdl-060.",
+      "source": "https://ocean.xyz/docs/tides ; review/bdl-063/data/pair_evidence.csv (Bitcoin Data Labs chain check, tip 975,618)"
+    }
+  ],
+  "former_names": {
+    "cloverpool": [
+      {
+        "name": "BTC.com",
+        "source": "https://github.com/mempool/mining-pools/commit/36137e4dfacfb1770b79311e4e762f7a995d0395",
+        "note": "mempool/mining-pools renamed the pool btccom -> cloverpool on 2026-11-02. Every BTC.com block, back to 2016, is shown as CloverPool."
+      }
+    ],
+    "braiinspool": [
+      {
+        "name": "Slush Pool",
+        "source": "https://github.com/mempool/mining-pools/commit/a1a7d86fa0396c5e103282b5e0912dcbd2a41b96",
+        "note": "Renamed Braiins Pool in 2022 (mempool/mining-pools 2022-10-08, 'SlushPool rename to Braiins Pool'). Every Slush Pool block, back to 2010, is shown as Braiins Pool."
+      }
+    ],
+    "gdpool": [
+      {
+        "name": "Lucky Pool",
+        "source": "https://github.com/mempool/mining-pools/commit/3ec7756dd913f461ca3771524d2788326ab8af6e",
+        "note": "mempool/mining-pools renamed luckyPool -> GDPool on 2025-11-26 and added the 'GDPool' tag; blocks tagged 'Lucky pool' are shown as GDPool."
+      }
+    ]
+  },
+  "cooccurrence": {
+    "min_identified_blocks": 10,
+    "min_share": 1.0
+  },
+  "identification_notes": {
+    "uuidminer": "Identified by Bitcoin Data Labs: 332 blocks since 2024 carry a random UUID in the coinbase text and pay the same three addresses; the name follows a mempool developer's proposal (mempool/mining-pools commit 81d2f0d on branch mononaut/uuid, not merged)."
+  },
   "validation": {
     "undecoded_addresses": [
       {

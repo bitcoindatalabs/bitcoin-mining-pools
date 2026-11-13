@@ -1,0 +1,3521 @@
+{
+ "registry_version": "5fed73568dacbed3",
+ "generated_at": "2026-11-13T16:37:08+00:00",
+ "tip_height": 975618,
+ "pools": {
+  "175btc": {
+   "name": "175btc",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 22,
+   "first_height": 253884,
+   "last_height": 261024,
+   "first_date": "2013-08-23",
+   "last_date": "2013-10-01",
+   "methods": {
+    "tag": 0,
+    "regex": 22,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "1hash": {
+   "name": "1Hash",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1895,
+   "first_height": 401094,
+   "last_height": 498050,
+   "first_date": "2016-03-04",
+   "last_date": "2017-12-07",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 1895,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "1m1x": {
+   "name": "1M1X",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 188,
+   "first_height": 575120,
+   "last_height": 589876,
+   "first_date": "2019-05-08",
+   "last_date": "2019-08-13",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 188,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "1thash": {
+   "name": "1THash",
+   "former_names": [],
+   "host_pools": [
+    {
+     "slug": "antpool",
+     "blocks": 12,
+     "first_height": 679477,
+     "last_height": 726981,
+     "first_date": "2021-04-16",
+     "last_date": "2022-03-12"
+    }
+   ],
+   "sub_pools": [],
+   "blocks": 5063,
+   "first_height": 591615,
+   "last_height": 912854,
+   "first_date": "2019-08-25",
+   "last_date": "2025-09-02",
+   "methods": {
+    "tag": 0,
+    "regex": 5063,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": "12 1THash blocks in 2021-22 were paid to AntPool."
+  },
+  "21inc": {
+   "name": "21 Inc.",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1508,
+   "first_height": 351321,
+   "last_height": 400698,
+   "first_date": "2015-04-09",
+   "last_date": "2016-03-01",
+   "methods": {
+    "tag": 0,
+    "regex": 42,
+    "payout": 1466,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "50btc": {
+   "name": "50BTC",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 7859,
+   "first_height": 212655,
+   "last_height": 303841,
+   "first_date": "2012-12-18",
+   "last_date": "2014-06-02",
+   "methods": {
+    "tag": 0,
+    "regex": 6406,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 1453,
+    "generic": 0
+   },
+   "identification_note": "1,453 blocks (2012-2013) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them 50BTC's; Bitcoin Data Labs labels them 50BTC (co-occurrence)."
+  },
+  "58coin": {
+   "name": "58COIN",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 745,
+   "first_height": 493228,
+   "last_height": 563915,
+   "first_date": "2017-11-05",
+   "last_date": "2019-02-20",
+   "methods": {
+    "tag": 0,
+    "regex": 745,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "7pool": {
+   "name": "7pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 468529,
+   "last_height": 468529,
+   "first_date": "2017-05-28",
+   "last_date": "2017-05-28",
+   "methods": {
+    "tag": 1,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "8baochi": {
+   "name": "8baochi",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 51,
+   "first_height": 359357,
+   "last_height": 370013,
+   "first_date": "2015-06-04",
+   "last_date": "2015-08-15",
+   "methods": {
+    "tag": 0,
+    "regex": 51,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "aaopool": {
+   "name": "AAO Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 2,
+   "first_height": 687015,
+   "last_height": 687469,
+   "first_date": "2021-06-10",
+   "last_date": "2021-06-13",
+   "methods": {
+    "tag": 0,
+    "regex": 2,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "antpool": {
+   "name": "AntPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [
+    {
+     "slug": "1thash",
+     "blocks": 12,
+     "first_date": "2021-04-16",
+     "last_date": "2022-03-12"
+    }
+   ],
+   "blocks": 112035,
+   "first_height": 273632,
+   "last_height": 975616,
+   "first_date": "2013-12-07",
+   "last_date": "2026-11-13",
+   "methods": {
+    "tag": 20,
+    "regex": 111954,
+    "payout": 33,
+    "jlopp": 0,
+    "cooccurrence": 28,
+    "generic": 0
+   },
+   "identification_note": "28 blocks (2013-2014) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them AntPool's; Bitcoin Data Labs labels them AntPool (co-occurrence)."
+  },
+  "arkpool": {
+   "name": "ArkPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 61,
+   "first_height": 676741,
+   "last_height": 708150,
+   "first_date": "2021-03-28",
+   "last_date": "2021-11-04",
+   "methods": {
+    "tag": 0,
+    "regex": 54,
+    "payout": 7,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "asicminer": {
+   "name": "ASICMiner",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 3146,
+   "first_height": 237050,
+   "last_height": 294915,
+   "first_date": "2013-05-20",
+   "last_date": "2014-04-09",
+   "methods": {
+    "tag": 0,
+    "regex": 3127,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 19,
+    "generic": 0
+   },
+   "identification_note": "19 blocks (2013) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them ASICMiner's; Bitcoin Data Labs labels them ASICMiner (co-occurrence)."
+  },
+  "axbt": {
+   "name": "A-XBT",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 16,
+   "first_height": 373015,
+   "last_height": 384367,
+   "first_date": "2015-09-04",
+   "last_date": "2015-11-20",
+   "methods": {
+    "tag": 0,
+    "regex": 7,
+    "payout": 9,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "batpool": {
+   "name": "BATPOOL",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 441,
+   "first_height": 446259,
+   "last_height": 497074,
+   "first_date": "2017-01-02",
+   "last_date": "2017-12-01",
+   "methods": {
+    "tag": 0,
+    "regex": 441,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bcmonster": {
+   "name": "BCMonster",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 16,
+   "first_height": 397117,
+   "last_height": 463850,
+   "first_date": "2016-02-06",
+   "last_date": "2017-04-28",
+   "methods": {
+    "tag": 0,
+    "regex": 15,
+    "payout": 1,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bcpoolio": {
+   "name": "bcpool.io",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 8,
+   "first_height": 309657,
+   "last_height": 312207,
+   "first_date": "2014-07-07",
+   "last_date": "2014-07-24",
+   "methods": {
+    "tag": 0,
+    "regex": 8,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "binancepool": {
+   "name": "Binance Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 22220,
+   "first_height": 627434,
+   "last_height": 974743,
+   "first_date": "2020-04-24",
+   "last_date": "2026-11-06",
+   "methods": {
+    "tag": 18476,
+    "regex": 3737,
+    "payout": 7,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bitclub": {
+   "name": "BitClub",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 5672,
+   "first_height": 350387,
+   "last_height": 602584,
+   "first_date": "2015-04-02",
+   "last_date": "2019-11-06",
+   "methods": {
+    "tag": 0,
+    "regex": 5671,
+    "payout": 1,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bitcoinaffiliatenetwork": {
+   "name": "Bitcoin Affiliate Network",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 438,
+   "first_height": 312570,
+   "last_height": 386314,
+   "first_date": "2014-07-26",
+   "last_date": "2015-12-02",
+   "methods": {
+    "tag": 0,
+    "regex": 438,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bitcoincom": {
+   "name": "Bitcoin.com",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 2475,
+   "first_height": 430757,
+   "last_height": 679929,
+   "first_date": "2016-09-21",
+   "last_date": "2021-04-20",
+   "methods": {
+    "tag": 0,
+    "regex": 2475,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bitcoinindia": {
+   "name": "BitcoinIndia",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 114,
+   "first_height": 437197,
+   "last_height": 524397,
+   "first_date": "2016-11-03",
+   "last_date": "2018-05-25",
+   "methods": {
+    "tag": 0,
+    "regex": 114,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bitcoinrussia": {
+   "name": "BitcoinRussia",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [
+    {
+     "slug": "bitcoinukraine",
+     "blocks": 1,
+     "first_date": "2018-05-23",
+     "last_date": "2018-05-23"
+    }
+   ],
+   "blocks": 132,
+   "first_height": 454204,
+   "last_height": 574399,
+   "first_date": "2017-02-22",
+   "last_date": "2019-05-03",
+   "methods": {
+    "tag": 0,
+    "regex": 127,
+    "payout": 5,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bitcoinukraine": {
+   "name": "Bitcoin-Ukraine",
+   "former_names": [],
+   "host_pools": [
+    {
+     "slug": "bitcoinrussia",
+     "blocks": 1,
+     "first_height": 524045,
+     "last_height": 524045,
+     "first_date": "2018-05-23",
+     "last_date": "2018-05-23"
+    }
+   ],
+   "sub_pools": [],
+   "blocks": 11,
+   "first_height": 464461,
+   "last_height": 524045,
+   "first_date": "2017-05-02",
+   "last_date": "2018-05-23",
+   "methods": {
+    "tag": 0,
+    "regex": 11,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bitdeer": {
+   "name": "Bitdeer",
+   "former_names": [],
+   "host_pools": [
+    {
+     "slug": "cloverpool",
+     "blocks": 823,
+     "first_height": 653668,
+     "last_height": 697491,
+     "first_date": "2020-10-21",
+     "last_date": "2021-08-25"
+    }
+   ],
+   "sub_pools": [],
+   "blocks": 823,
+   "first_height": 653668,
+   "last_height": 697491,
+   "first_date": "2020-10-21",
+   "last_date": "2021-08-25",
+   "methods": {
+    "tag": 823,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": "Bitdeer's hashrate mined on BTC.com (now CloverPool) in 2020-21: the blocks read 'us/Bitdeer/' and are paid to BTC.com."
+  },
+  "bitfarms": {
+   "name": "Bitfarms",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 47,
+   "first_height": 541171,
+   "last_height": 552593,
+   "first_date": "2018-09-12",
+   "last_date": "2018-12-05",
+   "methods": {
+    "tag": 0,
+    "regex": 47,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bitfufupool": {
+   "name": "BitFuFuPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 31,
+   "first_height": 872580,
+   "last_height": 894245,
+   "first_date": "2024-11-30",
+   "last_date": "2025-04-27",
+   "methods": {
+    "tag": 31,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bitfury": {
+   "name": "BitFury",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 20900,
+   "first_height": 269523,
+   "last_height": 622855,
+   "first_date": "2013-11-14",
+   "last_date": "2020-03-25",
+   "methods": {
+    "tag": 0,
+    "regex": 17268,
+    "payout": 3607,
+    "jlopp": 0,
+    "cooccurrence": 25,
+    "generic": 0
+   },
+   "identification_note": "25 blocks (2013-2015) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them BitFury's; Bitcoin Data Labs labels them BitFury (co-occurrence)."
+  },
+  "bitminter": {
+   "name": "BitMinter",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 6464,
+   "first_height": 152246,
+   "last_height": 589801,
+   "first_date": "2011-11-07",
+   "last_date": "2019-08-12",
+   "methods": {
+    "tag": 0,
+    "regex": 6464,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bitparking": {
+   "name": "Bitparking",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 583,
+   "first_height": 226272,
+   "last_height": 291139,
+   "first_date": "2013-03-17",
+   "last_date": "2014-03-18",
+   "methods": {
+    "tag": 0,
+    "regex": 583,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bitsolo": {
+   "name": "Bitsolo",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 22,
+   "first_height": 307365,
+   "last_height": 362064,
+   "first_date": "2014-06-23",
+   "last_date": "2015-06-22",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 22,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bixin": {
+   "name": "Bixin",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 5753,
+   "first_height": 416012,
+   "last_height": 592811,
+   "first_date": "2016-06-12",
+   "last_date": "2019-09-01",
+   "methods": {
+    "tag": 0,
+    "regex": 4668,
+    "payout": 1085,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "blockfills": {
+   "name": "BlockFills",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 10,
+   "first_height": 706296,
+   "last_height": 735591,
+   "first_date": "2021-10-23",
+   "last_date": "2022-05-09",
+   "methods": {
+    "tag": 10,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "braiinspool": {
+   "name": "Braiins Pool",
+   "former_names": [
+    {
+     "name": "Slush Pool",
+     "source": "https://github.com/mempool/mining-pools/commit/a1a7d86fa0396c5e103282b5e0912dcbd2a41b96",
+     "note": "Renamed Braiins Pool in 2022 (mempool/mining-pools 2022-10-08, 'SlushPool rename to Braiins Pool'). Every Slush Pool block, back to 2010, is shown as Braiins Pool."
+    }
+   ],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 42227,
+   "first_height": 163970,
+   "last_height": 975578,
+   "first_date": "2012-01-26",
+   "last_date": "2026-11-12",
+   "methods": {
+    "tag": 0,
+    "regex": 42227,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "braiinssolo": {
+   "name": "Braiins Solo",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 5,
+   "first_height": 938092,
+   "last_height": 970904,
+   "first_date": "2026-02-24",
+   "last_date": "2026-10-11",
+   "methods": {
+    "tag": 5,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bravomining": {
+   "name": "Bravo Mining",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 13,
+   "first_height": 388640,
+   "last_height": 434048,
+   "first_date": "2015-12-16",
+   "last_date": "2016-10-12",
+   "methods": {
+    "tag": 0,
+    "regex": 13,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "btcc": {
+   "name": "BTCC",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 18035,
+   "first_height": 326351,
+   "last_height": 543040,
+   "first_date": "2014-10-21",
+   "last_date": "2018-09-25",
+   "methods": {
+    "tag": 0,
+    "regex": 17964,
+    "payout": 63,
+    "jlopp": 0,
+    "cooccurrence": 8,
+    "generic": 0
+   },
+   "identification_note": "8 blocks (2018) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them BTCC's; Bitcoin Data Labs labels them BTCC (co-occurrence)."
+  },
+  "btcdig": {
+   "name": "BTCDig",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 33,
+   "first_height": 250795,
+   "last_height": 360408,
+   "first_date": "2013-08-07",
+   "last_date": "2015-06-11",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 33,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "btcguild": {
+   "name": "BTC Guild",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 32936,
+   "first_height": 152700,
+   "last_height": 363142,
+   "first_date": "2011-11-10",
+   "last_date": "2015-06-30",
+   "methods": {
+    "tag": 0,
+    "regex": 32935,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 1,
+    "generic": 0
+   },
+   "identification_note": "1 blocks (2012) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them BTC Guild's; Bitcoin Data Labs labels them BTC Guild (co-occurrence)."
+  },
+  "btcmp": {
+   "name": "BTCMP",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 4,
+   "first_height": 363785,
+   "last_height": 381306,
+   "first_date": "2015-07-04",
+   "last_date": "2015-10-30",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 4,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "btcnuggets": {
+   "name": "BTC Nuggets",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 293,
+   "first_height": 300259,
+   "last_height": 363548,
+   "first_date": "2014-05-11",
+   "last_date": "2015-07-02",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 293,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "btcpool(unidentified)": {
+   "name": "BTCPool (unidentified)",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 267,
+   "first_height": 657972,
+   "last_height": 686916,
+   "first_date": "2020-11-21",
+   "last_date": "2021-06-09",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 112,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 155
+   },
+   "identification_note": null
+  },
+  "btcpoolparty": {
+   "name": "BTC Pool Party",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 328198,
+   "last_height": 328198,
+   "first_date": "2014-11-02",
+   "last_date": "2014-11-02",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 1,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "btcserv": {
+   "name": "BTCServ",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 9,
+   "first_height": 163672,
+   "last_height": 165062,
+   "first_date": "2012-01-24",
+   "last_date": "2012-02-02",
+   "methods": {
+    "tag": 0,
+    "regex": 9,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "btctop": {
+   "name": "BTC.TOP",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 16748,
+   "first_height": 442947,
+   "last_height": 690257,
+   "first_date": "2016-12-11",
+   "last_date": "2021-07-09",
+   "methods": {
+    "tag": 0,
+    "regex": 16748,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "btpool": {
+   "name": "BTPOOL",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 714,
+   "first_height": 471386,
+   "last_height": 554863,
+   "first_date": "2017-06-15",
+   "last_date": "2018-12-22",
+   "methods": {
+    "tag": 0,
+    "regex": 703,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 11,
+    "generic": 0
+   },
+   "identification_note": "11 blocks (2017) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them BTPOOL's; Bitcoin Data Labs labels them BTPOOL (co-occurrence)."
+  },
+  "bwpool": {
+   "name": "BWPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 12733,
+   "first_height": 340990,
+   "last_height": 549337,
+   "first_date": "2015-01-29",
+   "last_date": "2018-11-09",
+   "methods": {
+    "tag": 0,
+    "regex": 12604,
+    "payout": 129,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "bytepool": {
+   "name": "BytePool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1002,
+   "first_height": 592013,
+   "last_height": 624155,
+   "first_date": "2019-08-27",
+   "last_date": "2020-04-03",
+   "methods": {
+    "tag": 0,
+    "regex": 991,
+    "payout": 11,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "canoepool": {
+   "name": "CanoePool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 766,
+   "first_height": 453460,
+   "last_height": 539426,
+   "first_date": "2017-02-17",
+   "last_date": "2018-09-01",
+   "methods": {
+    "tag": 0,
+    "regex": 643,
+    "payout": 123,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "carbonnegative": {
+   "name": "Carbon Negative",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1263,
+   "first_height": 688156,
+   "last_height": 900657,
+   "first_date": "2021-06-19",
+   "last_date": "2025-06-10",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 1263,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "ckpool": {
+   "name": "CKPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 322,
+   "first_height": 301751,
+   "last_height": 958019,
+   "first_date": "2014-05-20",
+   "last_date": "2026-07-14",
+   "methods": {
+    "tag": 0,
+    "regex": 86,
+    "payout": 101,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 135
+   },
+   "identification_note": null
+  },
+  "cleanincentive": {
+   "name": "CleanIncentive",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 12,
+   "first_height": 795982,
+   "last_height": 827554,
+   "first_date": "2023-06-26",
+   "last_date": "2024-01-27",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 12,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "cloudhashing": {
+   "name": "CloudHashing",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1824,
+   "first_height": 261716,
+   "last_height": 343436,
+   "first_date": "2013-10-04",
+   "last_date": "2015-02-14",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 1824,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "cloverpool": {
+   "name": "CloverPool",
+   "former_names": [
+    {
+     "name": "BTC.com",
+     "source": "https://github.com/mempool/mining-pools/commit/36137e4dfacfb1770b79311e4e762f7a995d0395",
+     "note": "mempool/mining-pools renamed the pool btccom -> cloverpool on 2026-11-02. Every BTC.com block, back to 2016, is shown as CloverPool."
+    }
+   ],
+   "host_pools": [],
+   "sub_pools": [
+    {
+     "slug": "bitdeer",
+     "blocks": 823,
+     "first_date": "2020-10-21",
+     "last_date": "2021-08-25"
+    }
+   ],
+   "blocks": 41985,
+   "first_height": 428396,
+   "last_height": 975559,
+   "first_date": "2016-09-05",
+   "last_date": "2026-11-12",
+   "methods": {
+    "tag": 15,
+    "regex": 38080,
+    "payout": 3890,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "cntt": {
+   "name": "CN/TT",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1058,
+   "first_height": 578638,
+   "last_height": 623467,
+   "first_date": "2019-05-31",
+   "last_date": "2020-03-29",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 1058,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "coinlab": {
+   "name": "CoinLab",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 346,
+   "first_height": 180947,
+   "last_height": 261624,
+   "first_date": "2012-05-20",
+   "last_date": "2013-10-04",
+   "methods": {
+    "tag": 0,
+    "regex": 346,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "cointerra": {
+   "name": "Cointerra",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 870,
+   "first_height": 300018,
+   "last_height": 332469,
+   "first_date": "2014-05-10",
+   "last_date": "2014-12-01",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 870,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "connectbtc": {
+   "name": "ConnectBTC",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 153,
+   "first_height": 445036,
+   "last_height": 544168,
+   "first_date": "2016-12-25",
+   "last_date": "2018-10-03",
+   "methods": {
+    "tag": 0,
+    "regex": 153,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "dcex": {
+   "name": "DCEX",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 18,
+   "first_height": 482992,
+   "last_height": 486572,
+   "first_date": "2017-09-01",
+   "last_date": "2017-09-23",
+   "methods": {
+    "tag": 0,
+    "regex": 18,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "dcexploration": {
+   "name": "DCExploration",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 3,
+   "first_height": 495876,
+   "last_height": 501772,
+   "first_date": "2017-11-24",
+   "last_date": "2017-12-30",
+   "methods": {
+    "tag": 0,
+    "regex": 3,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "digitalbtc": {
+   "name": "digitalBTC",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 676,
+   "first_height": 298955,
+   "last_height": 354904,
+   "first_date": "2014-05-03",
+   "last_date": "2015-05-04",
+   "methods": {
+    "tag": 0,
+    "regex": 612,
+    "payout": 64,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "digitalxmintsy": {
+   "name": "digitalX Mintsy",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 116,
+   "first_height": 352403,
+   "last_height": 368065,
+   "first_date": "2015-04-16",
+   "last_date": "2015-08-02",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 116,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "dmnd": {
+   "name": "DMND",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 955318,
+   "last_height": 955318,
+   "first_date": "2026-06-25",
+   "last_date": "2026-06-25",
+   "methods": {
+    "tag": 1,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "dpool": {
+   "name": "DPOOL",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 2448,
+   "first_height": 496263,
+   "last_height": 575484,
+   "first_date": "2017-11-26",
+   "last_date": "2019-05-11",
+   "methods": {
+    "tag": 0,
+    "regex": 1918,
+    "payout": 530,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "eclipsemc": {
+   "name": "EclipseMC",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 6001,
+   "first_height": 166138,
+   "last_height": 400824,
+   "first_date": "2012-02-10",
+   "last_date": "2016-03-02",
+   "methods": {
+    "tag": 429,
+    "regex": 5362,
+    "payout": 107,
+    "jlopp": 0,
+    "cooccurrence": 103,
+    "generic": 0
+   },
+   "identification_note": "103 blocks (2012-2014) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them EclipseMC's; Bitcoin Data Labs labels them EclipseMC (co-occurrence)."
+  },
+  "ekanembtc": {
+   "name": "EkanemBTC",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 452344,
+   "last_height": 452344,
+   "first_date": "2017-02-10",
+   "last_date": "2017-02-10",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 1,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "eligius": {
+   "name": "Eligius",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 11425,
+   "first_height": 130635,
+   "last_height": 495555,
+   "first_date": "2011-06-14",
+   "last_date": "2017-11-22",
+   "methods": {
+    "tag": 0,
+    "regex": 11425,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "emcdpool": {
+   "name": "EMCDPool",
+   "former_names": [],
+   "host_pools": [
+    {
+     "slug": "huobipool",
+     "blocks": 176,
+     "first_height": 656729,
+     "last_height": 684820,
+     "first_date": "2020-11-13",
+     "last_date": "2021-05-24"
+    },
+    {
+     "slug": "f2pool",
+     "blocks": 167,
+     "first_height": 577335,
+     "last_height": 627443,
+     "first_date": "2019-05-23",
+     "last_date": "2020-04-24"
+    }
+   ],
+   "sub_pools": [],
+   "blocks": 1203,
+   "first_height": 577335,
+   "last_height": 807826,
+   "first_date": "2019-05-23",
+   "last_date": "2023-09-15",
+   "methods": {
+    "tag": 625,
+    "regex": 578,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": "Before EMCD paid its own blocks (2021), its hashrate mined on F2Pool (2019-20, 'Mined by emcd') and Huobi Pool (2020-21, '/one_more_mcd/')."
+  },
+  "eobot": {
+   "name": "Eobot",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 38,
+   "first_height": 398780,
+   "last_height": 578901,
+   "first_date": "2016-02-17",
+   "last_date": "2019-06-02",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 38,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "est3lar": {
+   "name": "Est3lar",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 4,
+   "first_height": 919923,
+   "last_height": 921130,
+   "first_date": "2025-10-20",
+   "last_date": "2025-10-28",
+   "methods": {
+    "tag": 4,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "exxbw": {
+   "name": "EXX&BW",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 117,
+   "first_height": 449365,
+   "last_height": 459499,
+   "first_date": "2017-01-21",
+   "last_date": "2017-03-29",
+   "methods": {
+    "tag": 0,
+    "regex": 116,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 1,
+    "generic": 0
+   },
+   "identification_note": "1 blocks (2017) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them EXX&BW's; Bitcoin Data Labs labels them EXX&BW (co-occurrence)."
+  },
+  "f2pool": {
+   "name": "F2Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [
+    {
+     "slug": "emcdpool",
+     "blocks": 167,
+     "first_date": "2019-05-23",
+     "last_date": "2020-04-24"
+    }
+   ],
+   "blocks": 101802,
+   "first_height": 234649,
+   "last_height": 975614,
+   "first_date": "2013-05-05",
+   "last_date": "2026-11-13",
+   "methods": {
+    "tag": 0,
+    "regex": 99760,
+    "payout": 1494,
+    "jlopp": 0,
+    "cooccurrence": 548,
+    "generic": 0
+   },
+   "identification_note": "548 blocks (2013-2014) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them F2Pool's; Bitcoin Data Labs labels them F2Pool (co-occurrence)."
+  },
+  "foundryusa": {
+   "name": "Foundry USA",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 76471,
+   "first_height": 655253,
+   "last_height": 975618,
+   "first_date": "2020-11-03",
+   "last_date": "2026-11-13",
+   "methods": {
+    "tag": 0,
+    "regex": 76471,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "futurebitapollosolo": {
+   "name": "FutureBit Apollo Solo",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 4,
+   "first_height": 867760,
+   "last_height": 973262,
+   "first_date": "2024-10-28",
+   "last_date": "2026-10-26",
+   "methods": {
+    "tag": 4,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "gbminers": {
+   "name": "GBMiners",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 2093,
+   "first_height": 427549,
+   "last_height": 518246,
+   "first_date": "2016-08-30",
+   "last_date": "2018-04-15",
+   "methods": {
+    "tag": 0,
+    "regex": 2093,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "gdpool": {
+   "name": "GDPool",
+   "former_names": [
+    {
+     "name": "Lucky Pool",
+     "source": "https://github.com/mempool/mining-pools/commit/3ec7756dd913f461ca3771524d2788326ab8af6e",
+     "note": "mempool/mining-pools renamed luckyPool -> GDPool on 2025-11-26 and added the 'GDPool' tag; blocks tagged 'Lucky pool' are shown as GDPool."
+    }
+   ],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 134,
+   "first_height": 808964,
+   "last_height": 942815,
+   "first_date": "2023-09-23",
+   "last_date": "2026-03-29",
+   "methods": {
+    "tag": 0,
+    "regex": 24,
+    "payout": 110,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "ghashio": {
+   "name": "GHash.IO",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 23083,
+   "first_height": 250205,
+   "last_height": 435686,
+   "first_date": "2013-08-04",
+   "last_date": "2016-10-24",
+   "methods": {
+    "tag": 0,
+    "regex": 2054,
+    "payout": 21029,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "givemecoins": {
+   "name": "Give Me Coins",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 51,
+   "first_height": 250534,
+   "last_height": 489125,
+   "first_date": "2013-08-06",
+   "last_date": "2017-10-10",
+   "methods": {
+    "tag": 0,
+    "regex": 44,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 7,
+    "generic": 0
+   },
+   "identification_note": "7 blocks (2013-2017) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them Give Me Coins's; Bitcoin Data Labs labels them Give Me Coins (co-occurrence)."
+  },
+  "gogreenlight": {
+   "name": "GoGreenLight",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 333,
+   "first_height": 429582,
+   "last_height": 480116,
+   "first_date": "2016-09-13",
+   "last_date": "2017-08-11",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 333,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "haominer": {
+   "name": "haominer",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 10,
+   "first_height": 524518,
+   "last_height": 526327,
+   "first_date": "2018-05-26",
+   "last_date": "2018-06-06",
+   "methods": {
+    "tag": 0,
+    "regex": 10,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "haozhuzhu": {
+   "name": "HAOZHUZHU",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 26,
+   "first_height": 458430,
+   "last_height": 460463,
+   "first_date": "2017-03-22",
+   "last_date": "2017-04-05",
+   "methods": {
+    "tag": 0,
+    "regex": 25,
+    "payout": 1,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "hashbx": {
+   "name": "HashBX",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 502112,
+   "last_height": 502112,
+   "first_date": "2018-01-01",
+   "last_date": "2018-01-01",
+   "methods": {
+    "tag": 0,
+    "regex": 1,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "hashpool": {
+   "name": "HASHPOOL",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 348516,
+   "last_height": 348516,
+   "first_date": "2015-03-21",
+   "last_date": "2015-03-21",
+   "methods": {
+    "tag": 0,
+    "regex": 1,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "helix": {
+   "name": "Helix",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 54,
+   "first_height": 518301,
+   "last_height": 524124,
+   "first_date": "2018-04-15",
+   "last_date": "2018-05-24",
+   "methods": {
+    "tag": 0,
+    "regex": 54,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "hhtt": {
+   "name": "HHTT",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 630,
+   "first_height": 197602,
+   "last_height": 277071,
+   "first_date": "2012-09-07",
+   "last_date": "2013-12-26",
+   "methods": {
+    "tag": 0,
+    "regex": 623,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 7,
+    "generic": 0
+   },
+   "identification_note": "7 blocks (2013) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them HHTT's; Bitcoin Data Labs labels them HHTT (co-occurrence)."
+  },
+  "hotpool": {
+   "name": "HotPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 17,
+   "first_height": 389851,
+   "last_height": 394367,
+   "first_date": "2015-12-23",
+   "last_date": "2016-01-22",
+   "methods": {
+    "tag": 0,
+    "regex": 11,
+    "payout": 6,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "hummerpool": {
+   "name": "Hummerpool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 88,
+   "first_height": 560482,
+   "last_height": 581902,
+   "first_date": "2019-01-28",
+   "last_date": "2019-06-22",
+   "methods": {
+    "tag": 0,
+    "regex": 46,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 42,
+    "generic": 0
+   },
+   "identification_note": "42 blocks (2019) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them Hummerpool's; Bitcoin Data Labs labels them Hummerpool (co-occurrence)."
+  },
+  "huobipool": {
+   "name": "Huobi Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [
+    {
+     "slug": "emcdpool",
+     "blocks": 176,
+     "first_date": "2020-11-13",
+     "last_date": "2021-05-24"
+    },
+    {
+     "slug": "tmspool",
+     "blocks": 129,
+     "first_date": "2020-12-07",
+     "last_date": "2021-05-23"
+    },
+    {
+     "slug": "spiderpool",
+     "blocks": 1,
+     "first_date": "2019-09-05",
+     "last_date": "2019-09-05"
+    }
+   ],
+   "blocks": 9221,
+   "first_height": 358926,
+   "last_height": 710871,
+   "first_date": "2015-06-01",
+   "last_date": "2021-11-22",
+   "methods": {
+    "tag": 0,
+    "regex": 9216,
+    "payout": 5,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "innopolistech": {
+   "name": "Innopolis Tech",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 126,
+   "first_height": 891161,
+   "last_height": 956095,
+   "first_date": "2025-04-06",
+   "last_date": "2026-06-30",
+   "methods": {
+    "tag": 126,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "kanopool": {
+   "name": "KanoPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 2440,
+   "first_height": 325306,
+   "last_height": 933336,
+   "first_date": "2014-10-14",
+   "last_date": "2026-01-22",
+   "methods": {
+    "tag": 0,
+    "regex": 2440,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "kncminer": {
+   "name": "KnCMiner",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 7619,
+   "first_height": 287806,
+   "last_height": 429464,
+   "first_date": "2014-02-25",
+   "last_date": "2016-09-12",
+   "methods": {
+    "tag": 0,
+    "regex": 6290,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 1329,
+    "generic": 0
+   },
+   "identification_note": "1,329 blocks (2014) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them KnCMiner's; Bitcoin Data Labs labels them KnCMiner (co-occurrence)."
+  },
+  "kucoinpool": {
+   "name": "KuCoin Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 272,
+   "first_height": 701376,
+   "last_height": 802899,
+   "first_date": "2021-09-20",
+   "last_date": "2023-08-13",
+   "methods": {
+    "tag": 0,
+    "regex": 272,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "letsmineit": {
+   "name": "LetsMine.it",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 936100,
+   "last_height": 936100,
+   "first_date": "2026-02-11",
+   "last_date": "2026-02-11",
+   "methods": {
+    "tag": 1,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "lubiancom": {
+   "name": "Lubian.com",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1783,
+   "first_height": 627441,
+   "last_height": 672636,
+   "first_date": "2020-04-24",
+   "last_date": "2021-03-01",
+   "methods": {
+    "tag": 0,
+    "regex": 1783,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "luxor": {
+   "name": "Luxor",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 7337,
+   "first_height": 605423,
+   "last_height": 975609,
+   "first_date": "2019-11-26",
+   "last_date": "2026-11-12",
+   "methods": {
+    "tag": 0,
+    "regex": 7194,
+    "payout": 143,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "marapool": {
+   "name": "MARA Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 9835,
+   "first_height": 682170,
+   "last_height": 975605,
+   "first_date": "2021-05-06",
+   "last_date": "2026-11-12",
+   "methods": {
+    "tag": 1268,
+    "regex": 8567,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "maxbtc": {
+   "name": "MaxBTC",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 449,
+   "first_height": 174819,
+   "last_height": 245391,
+   "first_date": "2012-04-08",
+   "last_date": "2013-07-08",
+   "methods": {
+    "tag": 0,
+    "regex": 449,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "maxipool": {
+   "name": "MaxiPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 8,
+   "first_height": 864793,
+   "last_height": 908641,
+   "first_date": "2024-10-08",
+   "last_date": "2025-08-04",
+   "methods": {
+    "tag": 0,
+    "regex": 8,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "megabigpower": {
+   "name": "MegaBigPower",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 2329,
+   "first_height": 259635,
+   "last_height": 371295,
+   "first_date": "2013-09-23",
+   "last_date": "2015-08-24",
+   "methods": {
+    "tag": 0,
+    "regex": 282,
+    "payout": 1969,
+    "jlopp": 0,
+    "cooccurrence": 78,
+    "generic": 0
+   },
+   "identification_note": "78 blocks (2013) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them MegaBigPower's; Bitcoin Data Labs labels them MegaBigPower (co-occurrence)."
+  },
+  "minerium": {
+   "name": "Minerium",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 4,
+   "first_height": 669829,
+   "last_height": 710210,
+   "first_date": "2021-02-09",
+   "last_date": "2021-11-18",
+   "methods": {
+    "tag": 1,
+    "regex": 3,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "miningcity": {
+   "name": "MiningCity",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 92,
+   "first_height": 618951,
+   "last_height": 654383,
+   "first_date": "2020-02-25",
+   "last_date": "2020-10-26",
+   "methods": {
+    "tag": 0,
+    "regex": 92,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "miningdutch": {
+   "name": "Mining-Dutch",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 31,
+   "first_height": 676726,
+   "last_height": 964388,
+   "first_date": "2021-03-28",
+   "last_date": "2026-08-28",
+   "methods": {
+    "tag": 0,
+    "regex": 28,
+    "payout": 3,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "miningkings": {
+   "name": "MiningKings",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 41,
+   "first_height": 457624,
+   "last_height": 493491,
+   "first_date": "2017-03-17",
+   "last_date": "2017-11-07",
+   "methods": {
+    "tag": 41,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "miningsquared": {
+   "name": "Mining Squared",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 382,
+   "first_height": 890245,
+   "last_height": 944073,
+   "first_date": "2025-03-31",
+   "last_date": "2026-04-07",
+   "methods": {
+    "tag": 331,
+    "regex": 51,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "mmpool": {
+   "name": "mmpool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 44,
+   "first_height": 294747,
+   "last_height": 767395,
+   "first_date": "2014-04-08",
+   "last_date": "2022-12-14",
+   "methods": {
+    "tag": 0,
+    "regex": 44,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "mtred": {
+   "name": "Mt Red",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 77,
+   "first_height": 219115,
+   "last_height": 221923,
+   "first_date": "2013-02-01",
+   "last_date": "2013-02-19",
+   "methods": {
+    "tag": 0,
+    "regex": 77,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "multipool": {
+   "name": "Multipool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 3,
+   "first_height": 380861,
+   "last_height": 399500,
+   "first_date": "2015-10-27",
+   "last_date": "2016-02-21",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 3,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "mybtccoinpool": {
+   "name": "myBTCcoin Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 10,
+   "first_height": 361937,
+   "last_height": 404016,
+   "first_date": "2015-06-21",
+   "last_date": "2016-03-24",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 10,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "neopool": {
+   "name": "Neopool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 4,
+   "first_height": 854967,
+   "last_height": 859300,
+   "first_date": "2024-08-01",
+   "last_date": "2024-08-31",
+   "methods": {
+    "tag": 4,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "nexious": {
+   "name": "Nexious",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 384051,
+   "last_height": 384051,
+   "first_date": "2015-11-17",
+   "last_date": "2015-11-17",
+   "methods": {
+    "tag": 0,
+    "regex": 1,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "nicehash": {
+   "name": "NiceHash",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 409,
+   "first_height": 360224,
+   "last_height": 971719,
+   "first_date": "2015-06-10",
+   "last_date": "2026-10-16",
+   "methods": {
+    "tag": 0,
+    "regex": 407,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 2,
+    "generic": 0
+   },
+   "identification_note": "2 blocks (2026) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them NiceHash's; Bitcoin Data Labs labels them NiceHash (co-occurrence)."
+  },
+  "nmcbit": {
+   "name": "NMCbit",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 112,
+   "first_height": 153343,
+   "last_height": 204615,
+   "first_date": "2011-11-15",
+   "last_date": "2012-10-23",
+   "methods": {
+    "tag": 0,
+    "regex": 105,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 7,
+    "generic": 0
+   },
+   "identification_note": "7 blocks (2012) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them NMCbit's; Bitcoin Data Labs labels them NMCbit (co-occurrence)."
+  },
+  "noderunners": {
+   "name": "Noderunners",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 944078,
+   "last_height": 944078,
+   "first_date": "2026-04-07",
+   "last_date": "2026-04-07",
+   "methods": {
+    "tag": 1,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "novablock": {
+   "name": "NovaBlock",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 968,
+   "first_height": 590069,
+   "last_height": 672523,
+   "first_date": "2019-08-14",
+   "last_date": "2021-02-28",
+   "methods": {
+    "tag": 0,
+    "regex": 968,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "oceanxyz": {
+   "name": "OCEAN",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1746,
+   "first_height": 819242,
+   "last_height": 975584,
+   "first_date": "2023-12-01",
+   "last_date": "2026-11-12",
+   "methods": {
+    "tag": 0,
+    "regex": 1745,
+    "payout": 1,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "okexpool": {
+   "name": "OKExPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 2912,
+   "first_height": 610435,
+   "last_height": 720017,
+   "first_date": "2019-12-30",
+   "last_date": "2022-01-23",
+   "methods": {
+    "tag": 0,
+    "regex": 2912,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "okkong": {
+   "name": "OKKONG",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 239,
+   "first_height": 636922,
+   "last_height": 735604,
+   "first_date": "2020-06-29",
+   "last_date": "2022-05-09",
+   "methods": {
+    "tag": 0,
+    "regex": 176,
+    "payout": 63,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "okminer": {
+   "name": "OKMINER",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 2,
+   "first_height": 738200,
+   "last_height": 746885,
+   "first_date": "2022-05-28",
+   "last_date": "2022-07-28",
+   "methods": {
+    "tag": 0,
+    "regex": 1,
+    "payout": 1,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "okpooltop": {
+   "name": "okpool.top",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 328,
+   "first_height": 555684,
+   "last_height": 610381,
+   "first_date": "2018-12-27",
+   "last_date": "2019-12-30",
+   "methods": {
+    "tag": 0,
+    "regex": 313,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 15,
+    "generic": 0
+   },
+   "identification_note": "15 blocks (2019) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them okpool.top's; Bitcoin Data Labs labels them okpool.top (co-occurrence)."
+  },
+  "ozcoin": {
+   "name": "OzCoin",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 4845,
+   "first_height": 159846,
+   "last_height": 322259,
+   "first_date": "2011-12-30",
+   "last_date": "2014-09-24",
+   "methods": {
+    "tag": 0,
+    "regex": 4845,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "parasite": {
+   "name": "Parasite",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 5,
+   "first_height": 938713,
+   "last_height": 958527,
+   "first_date": "2026-02-28",
+   "last_date": "2026-07-18",
+   "methods": {
+    "tag": 5,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "patels": {
+   "name": "Patels",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 2,
+   "first_height": 406427,
+   "last_height": 413175,
+   "first_date": "2016-04-09",
+   "last_date": "2016-05-24",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 2,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "pegapool": {
+   "name": "Pega Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 350,
+   "first_height": 759280,
+   "last_height": 802588,
+   "first_date": "2022-10-18",
+   "last_date": "2023-08-11",
+   "methods": {
+    "tag": 0,
+    "regex": 350,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "phashio": {
+   "name": "PHash.IO",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 44,
+   "first_height": 438351,
+   "last_height": 464213,
+   "first_date": "2016-11-11",
+   "last_date": "2017-04-30",
+   "methods": {
+    "tag": 0,
+    "regex": 44,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "phoenix": {
+   "name": "Phoenix",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 847362,
+   "last_height": 847362,
+   "first_date": "2024-06-10",
+   "last_date": "2024-06-10",
+   "methods": {
+    "tag": 1,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "polmine": {
+   "name": "Polmine",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1506,
+   "first_height": 230912,
+   "last_height": 359812,
+   "first_date": "2013-04-12",
+   "last_date": "2015-06-07",
+   "methods": {
+    "tag": 0,
+    "regex": 1069,
+    "payout": 437,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "poolin": {
+   "name": "Poolin",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 29262,
+   "first_height": 530239,
+   "last_height": 974102,
+   "first_date": "2018-07-02",
+   "last_date": "2026-11-01",
+   "methods": {
+    "tag": 46,
+    "regex": 26067,
+    "payout": 2958,
+    "jlopp": 0,
+    "cooccurrence": 191,
+    "generic": 0
+   },
+   "identification_note": "191 blocks (2019-2022) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them Poolin's; Bitcoin Data Labs labels them Poolin (co-occurrence)."
+  },
+  "publicpool": {
+   "name": "Public Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 8,
+   "first_height": 888989,
+   "last_height": 957382,
+   "first_date": "2025-03-23",
+   "last_date": "2026-07-10",
+   "methods": {
+    "tag": 8,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "rawpool": {
+   "name": "Rawpool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [
+    {
+     "slug": "togetherpool",
+     "blocks": 57,
+     "first_date": "2021-02-14",
+     "last_date": "2021-04-02"
+    }
+   ],
+   "blocks": 435,
+   "first_height": 538729,
+   "last_height": 699330,
+   "first_date": "2018-08-27",
+   "last_date": "2021-09-06",
+   "methods": {
+    "tag": 0,
+    "regex": 29,
+    "payout": 406,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "redrockpool": {
+   "name": "RedRock Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 70,
+   "first_height": 910338,
+   "last_height": 958236,
+   "first_date": "2025-08-16",
+   "last_date": "2026-07-16",
+   "methods": {
+    "tag": 70,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "rigpool": {
+   "name": "RigPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 434951,
+   "last_height": 434951,
+   "first_date": "2016-10-19",
+   "last_date": "2016-10-19",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 1,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "sbicrypto": {
+   "name": "SBI Crypto",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 4655,
+   "first_height": 655289,
+   "last_height": 960129,
+   "first_date": "2020-11-03",
+   "last_date": "2026-07-29",
+   "methods": {
+    "tag": 0,
+    "regex": 4655,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "secpool": {
+   "name": "SecPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 4987,
+   "first_height": 806031,
+   "last_height": 975610,
+   "first_date": "2023-09-03",
+   "last_date": "2026-11-12",
+   "methods": {
+    "tag": 2398,
+    "regex": 2586,
+    "payout": 3,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "secretsuperstar": {
+   "name": "SecretSuperstar",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 343,
+   "first_height": 533495,
+   "last_height": 560885,
+   "first_date": "2018-07-24",
+   "last_date": "2019-01-31",
+   "methods": {
+    "tag": 0,
+    "regex": 303,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 40,
+    "generic": 0
+   },
+   "identification_note": "40 blocks (2018-2019) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them SecretSuperstar's; Bitcoin Data Labs labels them SecretSuperstar (co-occurrence)."
+  },
+  "shawnp0wers": {
+   "name": "shawnp0wers",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 197,
+   "first_height": 435611,
+   "last_height": 481309,
+   "first_date": "2016-10-23",
+   "last_date": "2017-08-19",
+   "methods": {
+    "tag": 0,
+    "regex": 4,
+    "payout": 193,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "sigmapoolcom": {
+   "name": "Sigmapool.com",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 266,
+   "first_height": 551093,
+   "last_height": 721918,
+   "first_date": "2018-11-22",
+   "last_date": "2022-02-05",
+   "methods": {
+    "tag": 0,
+    "regex": 214,
+    "payout": 52,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "simplecoinus": {
+   "name": "simplecoin.us",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 43,
+   "first_height": 158291,
+   "last_height": 175809,
+   "first_date": "2011-12-20",
+   "last_date": "2012-04-16",
+   "methods": {
+    "tag": 0,
+    "regex": 43,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "solock": {
+   "name": "Solo CK",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 309,
+   "first_height": 321919,
+   "last_height": 975427,
+   "first_date": "2014-09-21",
+   "last_date": "2026-11-11",
+   "methods": {
+    "tag": 0,
+    "regex": 309,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "solopoolcom": {
+   "name": "SoloPool.com",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 928956,
+   "last_height": 928956,
+   "first_date": "2025-12-22",
+   "last_date": "2025-12-22",
+   "methods": {
+    "tag": 1,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "spiderpool": {
+   "name": "SpiderPool",
+   "former_names": [],
+   "host_pools": [
+    {
+     "slug": "huobipool",
+     "blocks": 1,
+     "first_height": 593307,
+     "last_height": 593307,
+     "first_date": "2019-09-05",
+     "last_date": "2019-09-05"
+    }
+   ],
+   "sub_pools": [],
+   "blocks": 9170,
+   "first_height": 593307,
+   "last_height": 975613,
+   "first_date": "2019-09-05",
+   "last_date": "2026-11-13",
+   "methods": {
+    "tag": 0,
+    "regex": 9168,
+    "payout": 2,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "stminingcorp": {
+   "name": "ST Mining Corp",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 55,
+   "first_height": 235655,
+   "last_height": 255737,
+   "first_date": "2013-05-11",
+   "last_date": "2013-09-02",
+   "methods": {
+    "tag": 0,
+    "regex": 48,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 7,
+    "generic": 0
+   },
+   "identification_note": "7 blocks (2013) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them ST Mining Corp's; Bitcoin Data Labs labels them ST Mining Corp (co-occurrence)."
+  },
+  "tangpool": {
+   "name": "Tangpool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 297,
+   "first_height": 339210,
+   "last_height": 350182,
+   "first_date": "2015-01-16",
+   "last_date": "2015-04-01",
+   "methods": {
+    "tag": 0,
+    "regex": 297,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "tatmaspool": {
+   "name": "TATMAS Pool",
+   "former_names": [],
+   "host_pools": [
+    {
+     "slug": "viabtc",
+     "blocks": 99,
+     "first_height": 641571,
+     "last_height": 662197,
+     "first_date": "2020-07-31",
+     "last_date": "2020-12-20"
+    }
+   ],
+   "sub_pools": [],
+   "blocks": 99,
+   "first_height": 641571,
+   "last_height": 662197,
+   "first_date": "2020-07-31",
+   "last_date": "2020-12-20",
+   "methods": {
+    "tag": 0,
+    "regex": 99,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": "TATMAS Pool ran on ViaBTC: its blocks read '/ViaBTC/TATMAS Pool/' and are paid to ViaBTC."
+  },
+  "tbdice": {
+   "name": "TBDice",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 4,
+   "first_height": 359549,
+   "last_height": 388166,
+   "first_date": "2015-06-05",
+   "last_date": "2015-12-13",
+   "methods": {
+    "tag": 0,
+    "regex": 4,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "telco214": {
+   "name": "Telco 214",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1830,
+   "first_height": 334942,
+   "last_height": 481813,
+   "first_date": "2014-12-19",
+   "last_date": "2017-08-23",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 1830,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "terrapool": {
+   "name": "Terra Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 202,
+   "first_height": 714945,
+   "last_height": 811775,
+   "first_date": "2021-12-20",
+   "last_date": "2023-10-12",
+   "methods": {
+    "tag": 0,
+    "regex": 202,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "tiger": {
+   "name": "Tiger Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 28,
+   "first_height": 521728,
+   "last_height": 532501,
+   "first_date": "2018-05-08",
+   "last_date": "2018-07-18",
+   "methods": {
+    "tag": 28,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "tigerpoolnet": {
+   "name": "tigerpool.net",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 285,
+   "first_height": 533729,
+   "last_height": 582828,
+   "first_date": "2018-07-26",
+   "last_date": "2019-06-28",
+   "methods": {
+    "tag": 285,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "titan": {
+   "name": "Titan",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 42,
+   "first_height": 698468,
+   "last_height": 770484,
+   "first_date": "2021-08-31",
+   "last_date": "2023-01-05",
+   "methods": {
+    "tag": 0,
+    "regex": 42,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "tmspool": {
+   "name": "TMSPool",
+   "former_names": [],
+   "host_pools": [
+    {
+     "slug": "huobipool",
+     "blocks": 129,
+     "first_height": 660304,
+     "last_height": 684709,
+     "first_date": "2020-12-07",
+     "last_date": "2021-05-23"
+    }
+   ],
+   "sub_pools": [],
+   "blocks": 129,
+   "first_height": 660304,
+   "last_height": 684709,
+   "first_date": "2020-12-07",
+   "last_date": "2021-05-23",
+   "methods": {
+    "tag": 129,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": "TMSPOOL's blocks were built and paid by Huobi Pool. TATMAS Pool (tmsminer.com) may be the same operator; both upstream lists keep them apart and so do we."
+  },
+  "togetherpool": {
+   "name": "TogetherPool",
+   "former_names": [],
+   "host_pools": [
+    {
+     "slug": "rawpool",
+     "blocks": 57,
+     "first_height": 670632,
+     "last_height": 677399,
+     "first_date": "2021-02-14",
+     "last_date": "2021-04-02"
+    }
+   ],
+   "sub_pools": [],
+   "blocks": 57,
+   "first_height": 670632,
+   "last_height": 677399,
+   "first_date": "2021-02-14",
+   "last_date": "2021-04-02",
+   "methods": {
+    "tag": 57,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": "TogetherPool's 2021 blocks are paid to addresses mempool.space lists for Rawpool; bitcoin-data lists one of them for TogetherPool itself."
+  },
+  "transactioncoinmining": {
+   "name": "transactioncoinmining",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 24,
+   "first_height": 310124,
+   "last_height": 362055,
+   "first_date": "2014-07-10",
+   "last_date": "2015-06-22",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 24,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "trickysbtcpool": {
+   "name": "Tricky's BTC Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1,
+   "first_height": 389683,
+   "last_height": 389683,
+   "first_date": "2015-12-22",
+   "last_date": "2015-12-22",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 1,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "triplemining": {
+   "name": "TripleMining",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 359,
+   "first_height": 171007,
+   "last_height": 352799,
+   "first_date": "2012-03-13",
+   "last_date": "2015-04-19",
+   "methods": {
+    "tag": 0,
+    "regex": 333,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 26,
+    "generic": 0
+   },
+   "identification_note": "26 blocks (2012) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them TripleMining's; Bitcoin Data Labs labels them TripleMining (co-occurrence)."
+  },
+  "trustpool": {
+   "name": "TrustPool",
+   "former_names": [],
+   "host_pools": [
+    {
+     "slug": "viabtc",
+     "blocks": 2455,
+     "first_height": 616983,
+     "last_height": 975585,
+     "first_date": "2020-02-11",
+     "last_date": "2026-11-12"
+    }
+   ],
+   "sub_pools": [],
+   "blocks": 2455,
+   "first_height": 616983,
+   "last_height": 975585,
+   "first_date": "2020-02-11",
+   "last_date": "2026-11-12",
+   "methods": {
+    "tag": 208,
+    "regex": 2247,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": "TrustPool runs on ViaBTC: its blocks read '/ViaBTC/Trustpool/' and are paid to ViaBTC, so they count toward ViaBTC in concentration figures."
+  },
+  "ukrpool": {
+   "name": "UKRPool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 59,
+   "first_height": 608989,
+   "last_height": 635411,
+   "first_date": "2019-12-20",
+   "last_date": "2020-06-19",
+   "methods": {
+    "tag": 59,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "ultimuspool": {
+   "name": "Ultimus Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 982,
+   "first_height": 710564,
+   "last_height": 968574,
+   "first_date": "2021-11-20",
+   "last_date": "2026-09-25",
+   "methods": {
+    "tag": 0,
+    "regex": 980,
+    "payout": 2,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "unomp": {
+   "name": "UNOMP",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 6,
+   "first_height": 401693,
+   "last_height": 405814,
+   "first_date": "2016-03-08",
+   "last_date": "2016-04-05",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 6,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "uuidminer": {
+   "name": "UUID Miner",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 332,
+   "first_height": 873376,
+   "last_height": 972394,
+   "first_date": "2024-12-05",
+   "last_date": "2026-10-20",
+   "methods": {
+    "tag": 0,
+    "regex": 332,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": "Identified by Bitcoin Data Labs: 332 blocks since 2024 carry a random UUID in the coinbase text and pay the same three addresses; the name follows a mempool developer's proposal (mempool/mining-pools commit 81d2f0d on branch mononaut/uuid, not merged)."
+  },
+  "viabtc": {
+   "name": "ViaBTC",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [
+    {
+     "slug": "trustpool",
+     "blocks": 2455,
+     "first_date": "2020-02-11",
+     "last_date": "2026-11-12"
+    },
+    {
+     "slug": "tatmaspool",
+     "blocks": 99,
+     "first_date": "2020-07-31",
+     "last_date": "2020-12-20"
+    }
+   ],
+   "blocks": 51226,
+   "first_height": 414875,
+   "last_height": 975617,
+   "first_date": "2016-06-05",
+   "last_date": "2026-11-13",
+   "methods": {
+    "tag": 0,
+    "regex": 51225,
+    "payout": 1,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "waterhole": {
+   "name": "Waterhole",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 113,
+   "first_height": 467269,
+   "last_height": 499822,
+   "first_date": "2017-05-20",
+   "last_date": "2017-12-17",
+   "methods": {
+    "tag": 0,
+    "regex": 35,
+    "payout": 78,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "wayicn": {
+   "name": "WAYI.CN",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 1502,
+   "first_height": 509073,
+   "last_height": 688930,
+   "first_date": "2018-02-14",
+   "last_date": "2021-06-26",
+   "methods": {
+    "tag": 16,
+    "regex": 1486,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "whitepool": {
+   "name": "WhitePool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 969,
+   "first_height": 817434,
+   "last_height": 975526,
+   "first_date": "2023-11-19",
+   "last_date": "2026-11-12",
+   "methods": {
+    "tag": 0,
+    "regex": 969,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "wiz": {
+   "name": "wiz",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 19,
+   "first_height": 364865,
+   "last_height": 396172,
+   "first_date": "2015-07-11",
+   "last_date": "2016-02-01",
+   "methods": {
+    "tag": 0,
+    "regex": 0,
+    "payout": 19,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "wk057": {
+   "name": "wk057",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 8,
+   "first_height": 184148,
+   "last_height": 198506,
+   "first_date": "2012-06-12",
+   "last_date": "2012-09-12",
+   "methods": {
+    "tag": 8,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  },
+  "yourbtcnet": {
+   "name": "Yourbtc.net",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 227,
+   "first_height": 154063,
+   "last_height": 163880,
+   "first_date": "2011-11-20",
+   "last_date": "2012-01-26",
+   "methods": {
+    "tag": 0,
+    "regex": 226,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 1,
+    "generic": 0
+   },
+   "identification_note": "1 blocks (2011) carry no pool tag but pay the same first output as at least 10 blocks that carry a pool tag or pay a listed address, all of them Yourbtc.net's; Bitcoin Data Labs labels them Yourbtc.net (co-occurrence)."
+  },
+  "zulupool": {
+   "name": "Zulu Pool",
+   "former_names": [],
+   "host_pools": [],
+   "sub_pools": [],
+   "blocks": 12,
+   "first_height": 653456,
+   "last_height": 815622,
+   "first_date": "2020-10-19",
+   "last_date": "2023-11-06",
+   "methods": {
+    "tag": 12,
+    "regex": 0,
+    "payout": 0,
+    "jlopp": 0,
+    "cooccurrence": 0,
+    "generic": 0
+   },
+   "identification_note": null
+  }
+ }
+}

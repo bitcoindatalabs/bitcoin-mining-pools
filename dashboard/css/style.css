@@ -777,3 +777,34 @@ footer {
   letter-spacing: 0.05em;
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
+
+.kpi-note {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  opacity: 0.75;
+  line-height: 1.35;
+}
+
+.subpool-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.42rem 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.subpool-toggle:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+.subpool-toggle input[type="checkbox"] {
+  accent-color: var(--accent);
+  cursor: pointer;
+}

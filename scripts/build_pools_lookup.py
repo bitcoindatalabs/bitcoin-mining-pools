@@ -13,7 +13,10 @@ Sources (pinned in data/raw/pool_sources.lock.json; see data/raw/SOURCES.md):
                                                  case-insensitively by mempool, addresses)
   supplement     data/raw/pools_supplement.json  our curated additions; every new entry cites a source
                                                  (coinbase_tags, regexes, payout_addresses, slug_aliases,
-                                                 generic_tags, payout_to_miners_slugs, pool_types)
+                                                 generic_tags, payout_to_miners_slugs, pool_types; since
+                                                 bdl-063 also sub_pools, tag_payout_decisions, former_names,
+                                                 cooccurrence thresholds and identification_notes, copied into the
+                                                 registry with slug aliases applied)
 
 Precedence: supplement > mempool > bitcoin-data. When two sources give the same tag text or the same address to
 different pools (after slug aliases), the higher source wins, the lower entry is dropped, and the case is written
@@ -185,6 +188,38 @@ def build(write: bool = True, lock: dict | None = None, quiet: bool = False):
             pool_types[slug_of(info["name"])] = info["type"]
     pool_types.update(_clean(supplement.get("pool_types")))
 
+    # ---- 4b. sub-pools, tag/payout pair decisions, former names, co-occurrence thresholds (bdl-063) ----------
+    def sl(x):
+        return apply_alias(to_slug(x), aliases)
+
+    sub_pools, pair_decisions = [], []
+    for e in supplement.get("sub_pools", []):
+        sub_pools.append({"slug": sl(e["slug"]), "hosts": [sl(h) for h in e["hosts"]], "evidence": e["evidence"],
+                          "source": e["source"], "note": e.get("note")})
+    for e in supplement.get("tag_payout_decisions", []):
+        if e["label"] not in ("tag", "payout"):
+            raise ValueError(f"tag_payout_decisions: label must be 'tag' or 'payout', got {e['label']!r}")
+        pair_decisions.append({"tag_slug": sl(e["tag_slug"]), "payout_slugs": [sl(x) for x in e["payout_slugs"]],
+                               "label": e["label"], "kind": e.get("kind"), "evidence": e["evidence"],
+                               "source": e["source"]})
+    seen_pairs = set()
+    for e in sub_pools:
+        seen_pairs |= {(e["slug"], h) for h in e["hosts"]}
+    for e in pair_decisions:
+        dup = seen_pairs & {(e["tag_slug"], x) for x in e["payout_slugs"]}
+        if dup:
+            raise ValueError(f"pair decided twice (sub_pools and tag_payout_decisions): {sorted(dup)}")
+        seen_pairs |= {(e["tag_slug"], x) for x in e["payout_slugs"]}
+    former_names = {sl(k): v for k, v in _clean(supplement.get("former_names")).items()}
+    cooc = supplement.get("cooccurrence") or {}
+    cooccurrence = {"min_identified_blocks": int(cooc.get("min_identified_blocks", 10)),
+                    "min_share": float(cooc.get("min_share", 1.0))}
+    identification_notes = {sl(k): v for k, v in _clean(supplement.get("identification_notes")).items()}
+    referenced = {s for pair in seen_pairs for s in pair} | set(former_names) | set(identification_notes)
+    unknown_slugs = sorted(s for s in referenced if s not in names)
+    if unknown_slugs:
+        raise ValueError(f"supplement names slugs that no source defines: {unknown_slugs}")
+
     version = registry_version(lock, sup_bytes)
     enriched = {
         "registry_version": version,
@@ -202,6 +237,11 @@ def build(write: bool = True, lock: dict | None = None, quiet: bool = False):
         "generic_slugs": supplement.get("generic_slugs", []),
         "payout_to_miners_slugs": sorted(set(supplement.get("payout_to_miners_slugs", []))
                                          | {s for s, t in pool_types.items() if t == "solo"}),
+        "sub_pools": sub_pools,
+        "tag_payout_decisions": pair_decisions,
+        "former_names": former_names,
+        "cooccurrence": cooccurrence,
+        "identification_notes": identification_notes,
         "validation": {"undecoded_addresses": undecoded, "rejected_regexes": rejected,
                        "rejected_tags": rejected_tags},
     }

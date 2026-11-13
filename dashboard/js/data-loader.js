@@ -4,7 +4,7 @@
  * Returns a structured dataset ready for aggregation.
  */
 
-const POOL_META_URL = './data/pool_metrics.json?v=28';
+const POOL_META_URL = './data/pool_metrics.json?v=29';
 const POOLS_INFO_URL = './data/lookup/pools_info.json';
 const TIMELINES_URL = './data/lookup/timelines.json';
 const LOOKUP_SLUG_URL = './data/lookup/lookup_slug_to_name.json';
@@ -13,7 +13,9 @@ const LOOKUP_SLUG_URL = './data/lookup/lookup_slug_to_name.json';
  * @typedef {Object} Block
  * @property {number} height
  * @property {string} pool_slug
+ * @property {string} host_pool_slug
  * @property {string} pool_name
+ * @property {string} host_pool_name
  * @property {Date}   date
  */
 
@@ -74,24 +76,52 @@ async function loadLookupSlugToName() {
 
 /** Fetch Global Ecosystem Growth JSON */
 async function loadEcosystem() {
-  const res = await fetch('./data/pool_growth.json?v=28');
+  const res = await fetch('./data/pool_growth.json?v=29');
   if (!res.ok) throw new Error(`Failed to fetch ecosystem: ${res.status}`);
   return res.json();
 }
 
 /** Fetch Forensics Data JSON */
 export async function loadForensics() {
-  const res = await fetch('./data/forensics_data.json?v=28');
+  const res = await fetch('./data/forensics_data.json?v=29');
   if (!res.ok) throw new Error(`Failed to fetch forensics: ${res.status}`);
   return res.json();
+}
+
+function slugToDisplayName(slug, lookup) {
+  const name = lookup[slug];
+  if (name) return name;
+  if (slug && slug.toLowerCase() !== 'unknown' && slug.toString().trim() !== '') {
+    return slug.toString()
+      .replace(/[_-]/g, ' ')
+      .replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase());
+  }
+  return 'Unknown';
+}
+
+function normalizeBlock(b, lookup) {
+  b.height = Number(b.height);
+  const poolSlug = b.pool ?? b.pool_slug;
+  const hostSlug = b.host_pool ?? b.pool_slug;
+  b.pool_slug = poolSlug;
+  b.host_pool_slug = hostSlug;
+  b.pool_name = slugToDisplayName(poolSlug, lookup);
+  b.host_pool_name = slugToDisplayName(hostSlug, lookup);
+  if (!(b.date instanceof Date)) {
+    b.date = new Date(
+      typeof b.date === 'bigint'
+        ? Number(b.date) / 1000   // parquet timestamps are in µs
+        : b.date
+    );
+  }
 }
 
 /** Main entry – returns a Dataset */
 export async function loadData(period = 'post') {
   const isFullHistory = (period === 'pre');
   const parquetUrls = isFullHistory 
-    ? ['./data/blocks_pre_2021.parquet?v=28', './data/blocks_post_2021.parquet?v=28']
-    : ['./data/blocks_post_2021.parquet?v=28'];
+    ? ['./data/blocks_pre_2021.parquet?v=29', './data/blocks_post_2021.parquet?v=29']
+    : ['./data/blocks_post_2021.parquet?v=29'];
 
   const [blocksData, poolMeta, poolsInfo, timelines, ecosystem, lookup] = await Promise.all([
     Promise.all(parquetUrls.map(url => loadParquet(url))),
@@ -114,31 +144,8 @@ export async function loadData(period = 'post') {
     });
   }
 
-  // Normalise to JS Date and map pool_name from slug
   for (const b of blocks) {
-    b.height = Number(b.height);
-    
-    // Attempt name lookup; if missing but slug exists, format and use the slug.
-    const slug = b.pool_slug;
-    const name = lookup[slug];
-    if (name) {
-      b.pool_name = name;
-    } else if (slug && slug.toLowerCase() !== 'unknown' && slug.toString().trim() !== '') {
-      // Capitalise slug: "mara-pool" -> "Mara Pool"
-      b.pool_name = slug.toString()
-        .replace(/[_-]/g, ' ')
-        .replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase());
-    } else {
-      b.pool_name = 'Unknown';
-    }
-    
-    if (!(b.date instanceof Date)) {
-      b.date = new Date(
-        typeof b.date === 'bigint'
-          ? Number(b.date) / 1000   // parquet timestamps are in µs
-          : b.date
-      );
-    }
+    normalizeBlock(b, lookup);
   }
 
   // Sort ascending by height (should already be, but guarantee it)
@@ -154,21 +161,7 @@ export async function loadData(period = 'post') {
 export async function loadParquetOnly(url, lookup) {
   const blocks = await loadParquet(url);
   for (const b of blocks) {
-    b.height = Number(b.height);
-    const slug = b.pool_slug;
-    const name = lookup[slug];
-    if (name) {
-      b.pool_name = name;
-    } else if (slug && slug.toLowerCase() !== 'unknown' && slug.toString().trim() !== '') {
-      b.pool_name = slug.toString()
-        .replace(/[_-]/g, ' ')
-        .replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase());
-    } else {
-      b.pool_name = 'Unknown';
-    }
-    if (!(b.date instanceof Date)) {
-      b.date = new Date(typeof b.date === 'bigint' ? Number(b.date) / 1000 : b.date);
-    }
+    normalizeBlock(b, lookup);
   }
   blocks.sort((a, b) => a.height - b.height);
   return blocks;
@@ -195,11 +188,11 @@ export function filterBlocks(blocks, { range = 'ALL' } = {}) {
  * Aggregate filtered blocks into pool counts.
  * Returns array sorted by count desc: [{ name, slug, count, pct }]
  */
-export function aggregateByPool(blocks) {
+export function aggregateByPool(blocks, field = 'pool_name') {
   const total = blocks.length;
   const counts = new Map();
   for (const b of blocks) {
-    const key = b.pool_name || 'Unknown';
+    const key = b[field] || 'Unknown';
     counts.set(key, (counts.get(key) ?? 0) + 1);
   }
   return Array.from(counts.entries())
@@ -230,11 +223,11 @@ export function aggregateByCountry(poolAgg, poolsInfo) {
  * Returns { months: string[], pools: { [name]: number[] } }
  * Only includes top N pools by total blocks; rest merged into "Other".
  */
-export function aggregateMonthly(blocks, topN = 12) {
+export function aggregateMonthly(blocks, topN = 12, field = 'pool_name') {
   // First find top N pool names (excluding 'Other' bucket)
   const totals = new Map();
   for (const b of blocks) {
-    const name = b.pool_name || 'Unknown';
+    const name = b[field] || 'Unknown';
     totals.set(name, (totals.get(name) ?? 0) + 1);
   }
   
@@ -251,7 +244,8 @@ export function aggregateMonthly(blocks, topN = 12) {
     const d = b.date;
     const key = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
     if (!monthMap.has(key)) monthMap.set(key, new Map());
-    const poolName = topSet.has(b.pool_name || 'Unknown') ? (b.pool_name || 'Unknown') : 'Other';
+    const rawName = b[field] || 'Unknown';
+    const poolName = topSet.has(rawName) ? rawName : 'Other';
     const m = monthMap.get(key);
     m.set(poolName, (m.get(poolName) ?? 0) + 1);
   }

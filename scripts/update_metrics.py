@@ -40,11 +40,13 @@ def main():
 
     pool_meta = {name: {"link": link} for name, link in name_to_link.items()}
 
+    # bdl-063: the per-pool metrics and the ecosystem count use `pool`, the most specific operator (TrustPool apart
+    # from ViaBTC), like the dashboard's pool charts. Concentration figures use host_pool (dashboard JS, forensics).
     print("Calculating pool metrics ...")
     # Calculate metrics
-    known = df[df["pool_slug"] != "unknown"]
+    known = df[df["pool"] != "unknown"]
     
-    grouped = known.groupby("pool_slug").agg(
+    grouped = known.groupby("pool").agg(
         first_block_mined=('height', 'min'),
         first_seen_date=('date', 'min'),
         last_block_mined=('height', 'max'),
@@ -58,7 +60,7 @@ def main():
     last_month_blocks = df[df["date"] >= last_month_start]
     last_month_total = len(last_month_blocks)
     
-    last_month_counts = last_month_blocks[last_month_blocks["pool_slug"] != "unknown"].groupby("pool_slug").size()
+    last_month_counts = last_month_blocks[last_month_blocks["pool"] != "unknown"].groupby("pool").size()
     last_month_share = (last_month_counts / last_month_total * 100).round(2)
     
     # Format dates
@@ -92,7 +94,7 @@ def main():
     
     cumulative_counts = []
     seen = set()
-    month_to_pools = df.groupby('month_key')['pool_slug'].unique()
+    month_to_pools = df.groupby('month_key')['pool'].unique()
     
     for m in months:
         if m in month_to_pools:

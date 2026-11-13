@@ -338,14 +338,17 @@ def print_diff(d: dict, limit: int = 25) -> None:
 # ---------------------------------------------------------------------------
 def blocks_that_would_change(candidate: dict, workers: int) -> dict:
     import pandas as pd
-    from resolve_blocks import ATTRIBUTION, COINBASE, resolve, summarise_relabels
+    import pyarrow.parquet as pq
+    from resolve_blocks import ATTRIBUTION, COINBASE, label_blocks, resolve, summarise_relabels
     if not (COINBASE.exists() and ATTRIBUTION.exists()):
         return {"error": "data/raw/coinbase_blocks.parquet or data/processed/block_attribution.parquet missing; "
                          "run extract_coinbase.py and resolve_blocks.py first"}
     cb = pd.read_parquet(COINBASE)
-    prev = pd.read_parquet(ATTRIBUTION, columns=["height", "pool_slug", "method"])
+    names = pq.read_schema(ATTRIBUTION).names
+    prev = pd.read_parquet(ATTRIBUTION, columns=[c for c in ("height", "pool_slug", "pool", "host_pool", "method")
+                                                 if c in names])
     cb = cb[cb["height"] <= prev["height"].max()]
-    new = resolve(cb, candidate, workers)
+    new, _ = label_blocks(resolve(cb, candidate, workers), cb, candidate, workers)   # incl. co-occurrence (bdl-063)
     return summarise_relabels(prev, new)
 
 

@@ -88,11 +88,13 @@
             <div class="kpi-label">Top 3 Dominance</div>
             <div class="kpi-value" id="val-concentration">-</div>
             <div class="kpi-sub">Blocks Mined by Top 3 Pools (%)</div>
+            <div class="kpi-note">Counted by the pool that built the block; sub-pools count toward their host.</div>
           </div>
           <div class="kpi-card">
             <div class="kpi-label">Mining Centralization (HHI)</div>
             <div class="kpi-value" id="val-hhi">-</div>
             <div class="kpi-sub" id="val-hhi-sub">Mining Centralization Index</div>
+            <div class="kpi-note">Counted by the pool that built the block; sub-pools count toward their host.</div>
           </div>
         </div>
       </section>
@@ -102,13 +104,13 @@
         <!-- Left 1/2: HHI Trend -->
         <div class="card" style="flex: 1; min-width: 350px; display: flex; flex-direction: column;">
           <h3>Mining Pool Centralization Trend</h3>
-          <span class="chart-sub">Lower scores indicate a more decentralized and healthier pool market</span>
+          <span class="chart-sub">Lower scores indicate a more decentralized and healthier pool market · Counted by the pool that built the block; sub-pools count toward their host.</span>
           <div id="chart-hhi" class="chart-el chart-el--tall" style="flex: 1;"></div>
         </div>
         <!-- Right 1/2: Pool Concentration -->
         <div class="card" style="flex: 1; min-width: 350px; display: flex; flex-direction: column;">
           <h3>Mining Power Concentration</h3>
-          <span class="chart-sub">Combined share (blocks mined) of the top 3 and top 5 powerful pools</span>
+          <span class="chart-sub">Combined share (blocks mined) of the top 3 and top 5 powerful pools · Counted by the pool that built the block; sub-pools count toward their host.</span>
           <div id="chart-concentration" class="chart-el chart-el--tall" style="flex: 1;"></div>
         </div>
       </section>
@@ -119,16 +121,22 @@
         style="display: flex; gap: 20px; margin-bottom: 30px; min-height: 400px; flex-wrap: wrap;">
         <!-- Left 1/2: Pool Share -->
         <div class="card" style="flex: 1; min-width: 350px; display: flex; flex-direction: column;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
             <div style="display: flex; flex-direction: column;">
               <h3 style="margin: 0;">Pool Market Share (Blocks)</h3>
               <span class="chart-sub" id="donut-subtitle">Blocks mined per pool · Top 15 pools</span>
             </div>
-            <div class="filter-buttons segmented-control" id="range-buttons" style="margin: 0;">
-              <button class="filter-btn segmented-btn" data-range="1M">1M</button>
-              <button class="filter-btn segmented-btn" data-range="3M">3M</button>
-              <button class="filter-btn segmented-btn active" data-range="1Y">1Y</button>
-              <button class="filter-btn segmented-btn" data-range="3Y">3Y</button>
+            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+              <label class="subpool-toggle">
+                <input type="checkbox" id="group-subpools-toggle" class="subpool-toggle-input">
+                <span>Group sub-pools under their host pool</span>
+              </label>
+              <div class="filter-buttons segmented-control" id="range-buttons" style="margin: 0;">
+                <button class="filter-btn segmented-btn" data-range="1M">1M</button>
+                <button class="filter-btn segmented-btn" data-range="3M">3M</button>
+                <button class="filter-btn segmented-btn active" data-range="1Y">1Y</button>
+                <button class="filter-btn segmented-btn" data-range="3Y">3Y</button>
+              </div>
             </div>
           </div>
           <div class="chart-body donut-layout">
@@ -215,11 +223,17 @@
             <h3 style="margin: 0;">Top Mining Pools</h3>
             <span class="chart-sub">Performance and identity breakdown of the top 30 network contributors</span>
           </div>
-          <div class="segmented-control" id="top-pools-range-buttons">
-            <button class="segmented-btn active" data-range="1M">1M</button>
-            <button class="segmented-btn" data-range="3M">3M</button>
-            <button class="segmented-btn" data-range="1Y">1Y</button>
-            <button class="segmented-btn" data-range="3Y">3Y</button>
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <label class="subpool-toggle">
+              <input type="checkbox" id="group-subpools-toggle-tab2" class="subpool-toggle-input">
+              <span>Group sub-pools under their host pool</span>
+            </label>
+            <div class="segmented-control" id="top-pools-range-buttons">
+              <button class="segmented-btn active" data-range="1M">1M</button>
+              <button class="segmented-btn" data-range="3M">3M</button>
+              <button class="segmented-btn" data-range="1Y">1Y</button>
+              <button class="segmented-btn" data-range="3Y">3Y</button>
+            </div>
           </div>
         </div>
         <div id="top-miners-table-container"></div>
@@ -611,7 +625,7 @@
 
     const boot = async () => {
       // Load main logic
-      const { initApp } = await import('./js/main.js?v=28');
+      const { initApp } = await import('./js/main.js?v=29');
 
       // Initialize shared components (Header, Nav)
       const appShellConfig = {
