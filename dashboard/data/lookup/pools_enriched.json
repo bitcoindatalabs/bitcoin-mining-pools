@@ -4612,6 +4612,7 @@
         "source": "supplement"
       }
     ],
-    "rejected_regexes": []
+    "rejected_regexes": [],
+    "rejected_tags": []
   }
 }

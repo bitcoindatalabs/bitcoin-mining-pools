@@ -63751,5 +63751,11 @@
       }
     ]
   },
-  "last_updated": "2026-11-12T23:27:28.980520"
+  "last_updated": "2026-11-12T23:52:28.288233",
+  "registry_version": "5bca37536b2d219f",
+  "pool_sources": {
+    "bitcoin-data": "0158b59ac47ac1b6f1df2704c98f2576f6d5391d",
+    "mempool": "d2ddbfa37da1d260225b74db04f939871f78e17b",
+    "supplement": "4f3f5c186b63fb90bde7d66676b0f911"
+  }
 }
