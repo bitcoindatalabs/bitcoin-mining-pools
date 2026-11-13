@@ -188,11 +188,15 @@
                 style="font-size: 0.8rem; margin-left: -15px; pointer-events: none; color: var(--accent);"></i>
             </h2>
             <a id="profile-link" href="#" target="_blank"
-              style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px; display: inline-block;">Website
+              style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 10px; display: inline-block;">Website
               <i class="fa-solid fa-external-link-alt" style="font-size: 0.75rem; margin-left: 2px;"></i></a>
+            <div id="profile-meta-badges" style="display: none; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; font-size: 0.85rem;"></div>
             <p id="profile-scoop"
               style="font-size: 0.95rem; line-height: 1.6; color: var(--text-primary); margin-bottom: 0;">Description
               missing.</p>
+            <div id="profile-relations" style="display: none; margin-top: 12px; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;"></div>
+            <div id="profile-id-note" style="display: none; margin-top: 12px; padding: 10px 12px; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.03); border-radius: 4px; font-size: 0.85rem; color: var(--text-secondary);"></div>
+            <div id="profile-sources" style="display: none; margin-top: 14px; font-size: 0.8rem; color: var(--text-secondary);"></div>
           </div>
           <div
             style="flex: 0 0 250px; background: var(--bg-secondary); padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
@@ -625,7 +629,7 @@
 
     const boot = async () => {
       // Load main logic
-      const { initApp } = await import('./js/main.js?v=29');
+      const { initApp } = await import('./js/main.js?v=30');
 
       // Initialize shared components (Header, Nav)
       const appShellConfig = {

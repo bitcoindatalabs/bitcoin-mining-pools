@@ -63170,15 +63170,15 @@
     ],
     "pool_countries": {
       "foundryusa": "United States",
-      "antpool": "China",
-      "f2pool": "Global",
-      "viabtc": "China",
-      "binancepool": "Seychelles",
-      "poolin": "China",
+      "antpool": "Unknown",
+      "f2pool": "Unknown",
+      "viabtc": "Unknown",
+      "binancepool": "Unknown",
+      "poolin": "Singapore",
       "marapool": "United States",
-      "cloverpool": "Global",
-      "spiderpool": "China",
-      "braiinspool": "Czech Republic",
+      "cloverpool": "Unknown",
+      "spiderpool": "Singapore",
+      "braiinspool": "Unknown",
       "luxor": "United States"
     },
     "matrix": [
@@ -63946,7 +63946,7 @@
       }
     ]
   },
-  "last_updated": "2026-11-13T10:47:51.672984",
+  "last_updated": "2026-11-13T11:18:58.305889",
   "registry_version": "5fed73568dacbed3",
   "pool_sources": {
     "bitcoin-data": "0158b59ac47ac1b6f1df2704c98f2576f6d5391d",

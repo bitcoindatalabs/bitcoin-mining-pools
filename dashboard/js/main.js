@@ -1,20 +1,21 @@
-import { loadData, loadParquetOnly, loadForensics, filterBlocks, aggregateByPool, aggregateByCountry, aggregateMonthly } from './data-loader.js?v=29';
+import { loadData, loadParquetOnly, loadForensics, filterBlocks, aggregateByPool, aggregateByCountry, aggregateMonthly } from './data-loader.js?v=30';
 import { 
   renderDonut, renderPoolTable, renderCountryShareChart, renderAreaChart, renderEcosystemGrowthChart, renderHhiChart, renderConcentrationChart, renderTopMinersTable, 
   renderStreaksLeaderboard, renderZScoreFunnel, renderEntropyHeatmap, renderSyncHistogram, renderConsecutiveAdvantage, renderEmptyBlockChart, renderEmptyTrendChart,
   renderBip110Signaling, renderBip110Efficiency, renderBip110Overhead,
   renderQuarterlyLift, renderTransitionMatrix,
   resizeAllCharts, donutChart, growthChart 
-} from './charts.js?v=29';
+} from './charts.js?v=30';
 
-let allBlocks   = [];
-let poolMeta    = {};
-let poolsInfo   = [];
-let timelines   = [];
-let lookupTable = {}; // Cached for background load
-let slugToName  = {}; // slug → display name, used for forensics lookups
-let ecosystem   = null;
-let forensics   = null;
+let allBlocks    = [];
+let poolMeta     = {};
+let poolProfiles = {};
+let poolFacts    = {};
+let timelines    = [];
+let lookupTable  = {}; // Cached for background load
+let slugToName   = {}; // slug → display name, used for forensics lookups
+let ecosystem    = null;
+let forensics    = null;
 
 let post2021Blocks = null;
 let fullHistoryBlocks = null;
@@ -32,67 +33,185 @@ function activePoolField() {
 
 const profileHandler = (e) => showProfileCard(e.detail);
 
+function escapeHtml(s) {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function resolveSlugByName(poolName) {
+  if (!poolName) return null;
+  const target = poolName.toLowerCase();
+  for (const [slug, name] of Object.entries(slugToName)) {
+    if (String(name).toLowerCase() === target) return slug;
+  }
+  for (const [slug, prof] of Object.entries(poolProfiles)) {
+    if (String(prof?.name || '').toLowerCase() === target) return slug;
+  }
+  return target === 'unknown' ? 'unknown' : null;
+}
+
+function renderProfileExtras(profile, facts) {
+  const badgesEl = document.getElementById('profile-meta-badges');
+  const relEl = document.getElementById('profile-relations');
+  const idEl = document.getElementById('profile-id-note');
+  const srcEl = document.getElementById('profile-sources');
+
+  const badges = [];
+  const formerNames = [];
+  (facts?.former_names || []).forEach(fn => { if (fn?.name) formerNames.push(fn.name); });
+  (profile?.former_names || []).forEach(n => { if (n && !formerNames.includes(n)) formerNames.push(n); });
+  if (formerNames.length > 0) {
+    badges.push(`Formerly ${formerNames.join(', ')}`);
+  }
+  if (profile?.country) badges.push(`HQ: ${profile.country}`);
+  if (profile?.launched) badges.push(`Launched: ${profile.launched}`);
+  if (profile?.operator) badges.push(`Operator: ${profile.operator}`);
+
+  if (badgesEl) {
+    if (badges.length > 0) {
+      badgesEl.innerHTML = badges
+        .map(b => `<span style="padding:2px 8px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--text-secondary);">${escapeHtml(b)}</span>`)
+        .join('');
+      badgesEl.style.display = 'flex';
+    } else {
+      badgesEl.innerHTML = '';
+      badgesEl.style.display = 'none';
+    }
+  }
+
+  const relLines = [];
+  const hostPools = facts?.host_pools || [];
+  if (hostPools.length > 0) {
+    const parts = hostPools.map(h => {
+      const hName = slugToName[h.slug] || h.slug;
+      const span = h.first_date && h.last_date ? `, ${h.first_date} to ${h.last_date}` : '';
+      return `<strong>${escapeHtml(hName)}</strong> (${Number(h.blocks || 0).toLocaleString()} blocks${escapeHtml(span)})`;
+    });
+    relLines.push(`Built and paid by ${parts.join('; ')}.`);
+  }
+  const subPools = facts?.sub_pools || [];
+  if (subPools.length > 0) {
+    const parts = subPools.map(sp => {
+      const spName = slugToName[sp.slug] || sp.slug;
+      const span = sp.first_date && sp.last_date ? `, ${sp.first_date} to ${sp.last_date}` : '';
+      return `<strong>${escapeHtml(spName)}</strong> (${Number(sp.blocks || 0).toLocaleString()} blocks${escapeHtml(span)})`;
+    });
+    relLines.push(`Includes sub-pools: ${parts.join('; ')}.`);
+  }
+  if (relEl) {
+    if (relLines.length > 0) {
+      relEl.innerHTML = relLines.join('<br/>');
+      relEl.style.display = 'block';
+    } else {
+      relEl.innerHTML = '';
+      relEl.style.display = 'none';
+    }
+  }
+
+  const idNote = facts?.identification_note || profile?.identification_note;
+  if (idEl) {
+    if (idNote) {
+      idEl.innerHTML = `<strong style="color:var(--text-primary);">Identification note:</strong> ${escapeHtml(idNote)}`;
+      idEl.style.display = 'block';
+    } else {
+      idEl.innerHTML = '';
+      idEl.style.display = 'none';
+    }
+  }
+
+  const sources = profile?.sources || [];
+  if (srcEl) {
+    if (sources.length > 0) {
+      const links = sources.map(s => {
+        let host = s.url;
+        try { host = new URL(s.url).hostname.replace(/^www\./, ''); } catch (_) {}
+        return `<li style="margin-bottom:4px;"><a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none;">${escapeHtml(host)}</a> — ${escapeHtml(s.claim)} <span style="opacity:0.65;">(accessed ${escapeHtml(s.accessed)})</span></li>`;
+      }).join('');
+      srcEl.innerHTML = `<div style="font-weight:600;color:var(--text-primary);margin-bottom:6px;">Sources</div><ul style="margin:0;padding-left:18px;">${links}</ul>`;
+      srcEl.style.display = 'block';
+    } else {
+      srcEl.innerHTML = '';
+      srcEl.style.display = 'none';
+    }
+  }
+}
+
 function showProfileCard(poolName) {
   if (!poolName || poolName === 'Other') return;
-  
+
+  const slug = resolveSlugByName(poolName);
+  const profile = (slug && poolProfiles[slug]) || {};
+  const facts = (slug && poolFacts[slug]) || null;
+
   if (poolName === 'Unknown') {
-     const input = document.getElementById('pool-search-input');
-     if (input) input.value = 'Unknown';
-     
-     document.getElementById('profile-link').style.display = 'none';
-     document.getElementById('profile-scoop').textContent = "Unknown blocks represent mining activity where the block's coinbase transaction does not contain a recognized pool identifier. This typically includes solo miners, newly emerging private pools, or legacy miners who have not yet identified themselves to the network.";
-     
-     const meta = poolMeta['Unknown'] || {};
-     const snapshotBlocks = post2021Blocks || allBlocks;
-     const last30Blocks = filterBlocks(snapshotBlocks, { range: '1M' });
-     const last30Agg = aggregateByPool(last30Blocks);
-     const poolEntry = last30Agg.find(p => p.name === 'Unknown');
-     const sharePct = poolEntry ? poolEntry.pct : 0;
-     
-     document.getElementById('profile-first-block').innerHTML = `2009-01-09<br><span style="font-size: 0.8rem; color: var(--text-secondary); font-weight: normal;">Network Genesis</span>`;
-     document.getElementById('profile-blocks').textContent = (meta.lifetime_blocks || 0).toLocaleString();
-     document.getElementById('profile-share').textContent = sharePct.toFixed(2) + '%';
-     
-     document.getElementById('pool-profile-card').style.display = 'block';
-     return;
+    const input = document.getElementById('pool-search-input');
+    if (input) input.value = 'Unknown';
+
+    document.getElementById('profile-link').style.display = 'none';
+    const unkDesc = profile.description || "Blocks that no pool list identifies: their coinbase text and payout addresses match no pool in the bitcoin-data, mempool, or Bitcoin Data Labs registries, and no co-occurrence rule applies.";
+    document.getElementById('profile-scoop').textContent = unkDesc;
+    renderProfileExtras(profile, facts);
+
+    const meta = poolMeta['Unknown'] || {};
+    const snapshotBlocks = post2021Blocks || allBlocks;
+    const last30Blocks = filterBlocks(snapshotBlocks, { range: '1M' });
+    const last30Agg = aggregateByPool(last30Blocks, activePoolField());
+    const poolEntry = last30Agg.find(p => p.name === 'Unknown');
+    const sharePct = poolEntry ? poolEntry.pct : 0;
+
+    document.getElementById('profile-first-block').innerHTML = `2009-01-09<br><span style="font-size: 0.8rem; color: var(--text-secondary); font-weight: normal;">Network Genesis</span>`;
+    document.getElementById('profile-blocks').textContent = (meta.lifetime_blocks || 0).toLocaleString();
+    document.getElementById('profile-share').textContent = sharePct.toFixed(2) + '%';
+
+    document.getElementById('pool-profile-card').style.display = 'block';
+    return;
   }
+
   const meta = poolMeta[poolName] || {};
-  const info = poolsInfo.find(i => i.name === poolName) || {};
-  
   const input = document.getElementById('pool-search-input');
-  if (input) input.value = poolName; // Sync search input text
-  
+  if (input) input.value = poolName;
+
   const linkEl = document.getElementById('profile-link');
-  if (meta.link) {
-    linkEl.href = meta.link;
-    linkEl.innerHTML = `${meta.link.replace(/^https?:\/\//, '')} <i class="fa-solid fa-external-link-alt" style="font-size: 0.75rem; margin-left: 2px;"></i>`;
+  const linkUrl = meta.link || profile.website;
+  if (linkUrl) {
+    linkEl.href = linkUrl;
+    linkEl.innerHTML = `${escapeHtml(linkUrl.replace(/^https?:\/\//, ''))} <i class="fa-solid fa-external-link-alt" style="font-size: 0.75rem; margin-left: 2px;"></i>`;
     linkEl.style.display = 'inline-block';
   } else {
     linkEl.style.display = 'none';
     linkEl.href = '#';
   }
-  
-  document.getElementById('profile-scoop').textContent = info.the_scoop || 'No description available for this pool.';
-  
-  // Calculate dynamic share for the last 30 days based on the primary dataset
-  // Use post2020Blocks if available to stay consistent with the modern dashboard focus
+
+  const fallbackDesc = facts?.host_pools?.length
+    ? `${poolName} is listed in upstream pool registries without a standalone operator bio.`
+    : 'Minimal upstream registry entry; no standalone pool description available.';
+  document.getElementById('profile-scoop').textContent = profile.description || fallbackDesc;
+  renderProfileExtras(profile, facts);
+
   const snapshotBlocks = post2021Blocks || allBlocks;
   const last30Blocks = filterBlocks(snapshotBlocks, { range: '1M' });
-  const last30Agg = aggregateByPool(last30Blocks);
+  const last30Agg = aggregateByPool(last30Blocks, activePoolField());
   const poolEntry = last30Agg.find(p => p.name === poolName);
   const sharePct = poolEntry ? poolEntry.pct : 0;
-  
-  // Use the static metadata generated from all blocks
+
   if (meta.first_block_mined) {
     document.getElementById('profile-first-block').innerHTML = `${meta.first_block_mined.toLocaleString()}<br><span style="font-size: 0.8rem; color: var(--text-secondary); font-weight: normal;">${meta.first_seen_date}</span>`;
     document.getElementById('profile-blocks').textContent = meta.lifetime_blocks.toLocaleString();
+    document.getElementById('profile-share').textContent = sharePct.toFixed(2) + '%';
+  } else if (facts?.first_height) {
+    document.getElementById('profile-first-block').innerHTML = `${facts.first_height.toLocaleString()}<br><span style="font-size: 0.8rem; color: var(--text-secondary); font-weight: normal;">${facts.first_date}</span>`;
+    document.getElementById('profile-blocks').textContent = (facts.blocks || 0).toLocaleString();
     document.getElementById('profile-share').textContent = sharePct.toFixed(2) + '%';
   } else {
     document.getElementById('profile-first-block').textContent = 'Unknown';
     document.getElementById('profile-blocks').textContent = '-';
     document.getElementById('profile-share').textContent = sharePct.toFixed(2) + '%';
   }
-  
+
   document.getElementById('pool-profile-card').style.display = 'block';
 }
 
@@ -201,12 +320,14 @@ function initProfileSelector() {
       if (b.pool_name && b.pool_name !== 'Other') poolNamesSet.add(b.pool_name);
   });
   
-  const infoNames = new Set(poolsInfo.map(i => i.name));
+  const detailedNames = new Set(
+    Object.values(poolProfiles).filter(p => p?.tier === 'detailed' && p?.name).map(p => p.name)
+  );
   const detailed = [];
   const standard = [];
-  
+
   poolNamesSet.forEach(name => {
-    if (infoNames.has(name)) detailed.push(name);
+    if (detailedNames.has(name)) detailed.push(name);
     else standard.push(name);
   });
 
@@ -288,19 +409,19 @@ function renderAll() {
   const filtered = filterBlocks(snapshotBlocks, { range: activeRange });
   
   const poolAgg = aggregateByPool(filtered, field);
-  renderDonut(poolAgg, poolMeta, poolsInfo);
+  renderDonut(poolAgg, poolMeta, poolProfiles, slugToName);
   renderPoolTable(poolAgg, poolMeta);
 
   // Snapshot for Country Share independently respects its active timeframe
   const filteredCountry = filterBlocks(snapshotBlocks, { range: activeCountryRange });
   const countryPoolAgg = aggregateByPool(filteredCountry, field);
-  const countryAgg = aggregateByCountry(countryPoolAgg, poolsInfo);
+  const countryAgg = aggregateByCountry(countryPoolAgg, poolProfiles, slugToName);
   renderCountryShareChart(countryAgg);
 
   // 3. Top Mining Pools Table (Independent range filter)
   const topPoolsFiltered = filterBlocks(snapshotBlocks, { range: activeTopPoolsRange });
   const topPoolsAgg = aggregateByPool(topPoolsFiltered, field);
-  renderTopMinersTable(topPoolsAgg, poolsInfo, forensics, slugToName, activeTopPoolsRange);
+  renderTopMinersTable(topPoolsAgg, poolProfiles, forensics, slugToName, activeTopPoolsRange);
 
   // 4. Ecosystem chart uses entirely global data (spanning from genesis to present)
   renderEcosystemGrowthChart(ecosystem, poolMeta);
@@ -481,11 +602,12 @@ async function loadAndRender(period) {
     const dataset = results[0];
     forensics = results[1];
 
-    allBlocks = dataset.blocks;
-    poolMeta  = dataset.poolMeta;
-    poolsInfo = dataset.poolsInfo;
-    timelines = dataset.timelines;
-    ecosystem = dataset.ecosystem;
+    allBlocks    = dataset.blocks;
+    poolMeta     = dataset.poolMeta;
+    poolProfiles = dataset.poolProfiles || {};
+    poolFacts    = dataset.poolFacts || {};
+    timelines    = dataset.timelines;
+    ecosystem    = dataset.ecosystem;
     if (dataset.slugToName) slugToName = dataset.slugToName;
     
     // Cache the lookup table and blocks for background loading
@@ -526,7 +648,7 @@ async function lazyLoadHistory() {
     const res = await fetch('./data/lookup/lookup_slug_to_name.json');
     const lookup = await res.json();
     
-    const preBlocks = await loadParquetOnly('./data/blocks_pre_2021.parquet?v=29', lookup);
+    const preBlocks = await loadParquetOnly('./data/blocks_pre_2021.parquet?v=30', lookup);
     fullHistoryBlocks = [...preBlocks, ...post2021Blocks];
     console.log("Historical data loaded in background.");
   } catch (err) {

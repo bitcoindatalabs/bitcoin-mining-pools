@@ -526,21 +526,14 @@ def main():
     _anomalies = sorted(_anomalies, key=lambda x: x['lift'], reverse=True)
     _notable_low_n = sorted(_notable_low_n, key=lambda x: x['lift'], reverse=True)
 
-    # Build pool_countries lookup from pools_info.json
-    with open(DASHBOARD_DATA / "lookup" / "pools_info.json") as _f:
-        _pools_info_raw = json.load(_f)
-    _name_to_country = {p['name'].lower(): p.get('country', 'Unknown') for p in _pools_info_raw}
-    # Slug-to-display-name map for the matrix pools
-    _slug_display = {
-        'foundryusa': 'Foundry USA', 'antpool': 'AntPool', 'f2pool': 'F2Pool',
-        'viabtc': 'ViaBTC', 'binancepool': 'Binance Pool', 'poolin': 'Poolin',
-        'btccom': 'BTC.com', 'marapool': 'MARA Pool', 'braiinspool': 'Braiins Pool',
-        'luxor': 'Luxor', 'spiderpool': 'SpiderPool'
-    }
+    # Build pool_countries lookup from pool_profiles.json (keyed by canonical slug)
+    with open(DASHBOARD_DATA / "lookup" / "pool_profiles.json") as _f:
+        _profiles = json.load(_f).get("pools", {})
+    _slug_alias = {"btccom": "cloverpool"}
     _pool_countries = {}
     for _slug in _matrix_pools:
-        _display = _slug_display.get(_slug, _slug)
-        _pool_countries[_slug] = _name_to_country.get(_display.lower(), 'Unknown')
+        _canonical = _slug_alias.get(_slug, _slug)
+        _pool_countries[_slug] = _profiles.get(_canonical, {}).get("country") or "Unknown"
 
     kpi8_data = {
         "pools": _matrix_pools,

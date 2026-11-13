@@ -4,8 +4,9 @@
  * Returns a structured dataset ready for aggregation.
  */
 
-const POOL_META_URL = './data/pool_metrics.json?v=29';
-const POOLS_INFO_URL = './data/lookup/pools_info.json';
+const POOL_META_URL = './data/pool_metrics.json?v=30';
+const POOL_PROFILES_URL = './data/lookup/pool_profiles.json?v=30';
+const POOL_FACTS_URL = './data/lookup/pool_facts.json?v=30';
 const TIMELINES_URL = './data/lookup/timelines.json';
 const LOOKUP_SLUG_URL = './data/lookup/lookup_slug_to_name.json';
 
@@ -22,8 +23,9 @@ const LOOKUP_SLUG_URL = './data/lookup/lookup_slug_to_name.json';
 /**
  * @typedef {Object} Dataset
  * @property {Block[]}  blocks
- * @property {Object}   poolMeta   – { [poolName]: { link } }
- * @property {Object}   poolsInfo
+ * @property {Object}   poolMeta     – { [poolName]: { link } }
+ * @property {Object}   poolProfiles – { [slug]: profile }
+ * @property {Object}   poolFacts    – { [slug]: facts }
  * @property {Object}   timelines
  * @property {Date}     minDate
  * @property {Date}     maxDate
@@ -53,11 +55,20 @@ async function loadPoolMeta() {
   return res.json();
 }
 
-/** Fetch pools info JSON */
-async function loadPoolsInfo() {
-  const res = await fetch(POOLS_INFO_URL);
-  if (!res.ok) throw new Error(`Failed to fetch pools_info: ${res.status}`);
-  return res.json();
+/** Fetch pool profiles JSON (keyed by canonical slug) */
+async function loadPoolProfiles() {
+  const res = await fetch(POOL_PROFILES_URL);
+  if (!res.ok) throw new Error(`Failed to fetch pool_profiles: ${res.status}`);
+  const data = await res.json();
+  return data.pools || {};
+}
+
+/** Fetch pool facts JSON (keyed by canonical slug) */
+async function loadPoolFacts() {
+  const res = await fetch(POOL_FACTS_URL);
+  if (!res.ok) throw new Error(`Failed to fetch pool_facts: ${res.status}`);
+  const data = await res.json();
+  return data.pools || {};
 }
 
 /** Fetch timelines JSON */
@@ -76,14 +87,14 @@ async function loadLookupSlugToName() {
 
 /** Fetch Global Ecosystem Growth JSON */
 async function loadEcosystem() {
-  const res = await fetch('./data/pool_growth.json?v=29');
+  const res = await fetch('./data/pool_growth.json?v=30');
   if (!res.ok) throw new Error(`Failed to fetch ecosystem: ${res.status}`);
   return res.json();
 }
 
 /** Fetch Forensics Data JSON */
 export async function loadForensics() {
-  const res = await fetch('./data/forensics_data.json?v=29');
+  const res = await fetch('./data/forensics_data.json?v=30');
   if (!res.ok) throw new Error(`Failed to fetch forensics: ${res.status}`);
   return res.json();
 }
@@ -120,13 +131,14 @@ function normalizeBlock(b, lookup) {
 export async function loadData(period = 'post') {
   const isFullHistory = (period === 'pre');
   const parquetUrls = isFullHistory 
-    ? ['./data/blocks_pre_2021.parquet?v=29', './data/blocks_post_2021.parquet?v=29']
-    : ['./data/blocks_post_2021.parquet?v=29'];
+    ? ['./data/blocks_pre_2021.parquet?v=30', './data/blocks_post_2021.parquet?v=30']
+    : ['./data/blocks_post_2021.parquet?v=30'];
 
-  const [blocksData, poolMeta, poolsInfo, timelines, ecosystem, lookup] = await Promise.all([
+  const [blocksData, poolMeta, poolProfiles, poolFacts, timelines, ecosystem, lookup] = await Promise.all([
     Promise.all(parquetUrls.map(url => loadParquet(url))),
     loadPoolMeta(),
-    loadPoolsInfo(),
+    loadPoolProfiles(),
+    loadPoolFacts(),
     loadTimelines(),
     loadEcosystem(),
     loadLookupSlugToName()
@@ -154,7 +166,7 @@ export async function loadData(period = 'post') {
   const minDate = blocks[0].date;
   const maxDate = blocks[blocks.length - 1].date;
 
-  return { blocks, poolMeta, poolsInfo, timelines, ecosystem, minDate, maxDate, slugToName: lookup };
+  return { blocks, poolMeta, poolProfiles, poolFacts, timelines, ecosystem, minDate, maxDate, slugToName: lookup };
 }
 
 /** Helper for background loading – just blocks, normalized and sorted */
@@ -204,13 +216,17 @@ export function aggregateByPool(blocks, field = 'pool_name') {
  * Aggregate pool data into country shares.
  * Returns array sorted by count desc: [{ country, count }]
  */
-export function aggregateByCountry(poolAgg, poolsInfo) {
+export function aggregateByCountry(poolAgg, poolProfiles, slugToName = {}) {
+  const nameToCountry = new Map();
+  for (const [slug, prof] of Object.entries(poolProfiles || {})) {
+    const country = prof?.country || null;
+    if (prof?.name) nameToCountry.set(prof.name.toLowerCase(), country);
+    if (slugToName[slug]) nameToCountry.set(slugToName[slug].toLowerCase(), country);
+  }
   const counts = new Map();
   for (const p of poolAgg) {
     if (p.name === 'Unknown' || p.name === 'Other') continue;
-    const info = poolsInfo.find(i => i.name === p.name);
-    let c = info && info.country ? info.country : 'Unknown';
-    // Count blocks by country
+    const c = nameToCountry.get(p.name.toLowerCase()) || 'Unknown';
     counts.set(c, (counts.get(c) ?? 0) + p.count);
   }
   return Array.from(counts.entries())

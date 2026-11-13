@@ -73,12 +73,23 @@ function baseTooltip(extra = {}) {
 // ── Donut chart ───────────────────────────────────────────────────────────────
 export let donutChart = null;
 
-export function renderDonut(poolData, poolMeta, poolsInfo) {
+function buildProfileByNameMap(poolProfiles, slugToName = {}) {
+  const byName = new Map();
+  for (const [slug, prof] of Object.entries(poolProfiles || {})) {
+    if (prof?.name) byName.set(prof.name.toLowerCase(), prof);
+    if (slugToName[slug]) byName.set(slugToName[slug].toLowerCase(), prof);
+  }
+  return byName;
+}
+
+export function renderDonut(poolData, poolMeta, poolProfiles, slugToName = {}) {
   const el = document.getElementById('chart-donut');
   if (!donutChart) {
     donutChart = ec().init(el, null, { renderer: 'canvas' });
     window.addEventListener('resize', () => donutChart.resize());
   }
+
+  const profileByName = buildProfileByNameMap(poolProfiles, slugToName);
 
   // Top 15 + aggregate rest into "Other"
   const TOP = 15;
@@ -102,19 +113,19 @@ export function renderDonut(poolData, poolMeta, poolsInfo) {
       trigger: 'item',
       formatter: (p) => {
         const pct = (p.value / total * 100).toFixed(2);
-        const link = poolMeta[p.name]?.link;
+        const prof = profileByName.get((p.name || '').toLowerCase());
+        const link = poolMeta[p.name]?.link || prof?.website;
         const nameStr = link
           ? `<a href="${link}" target="_blank" style="color:${THEME.accent}">${p.name}</a>`
           : p.name;
-        const poolInfo = poolsInfo.find(info => info.name === p.name);
-        let scoopLine = '';
-        if (poolInfo?.the_scoop) {
-          const short = poolInfo.the_scoop.length > 120
-            ? poolInfo.the_scoop.slice(0, 117) + '…'
-            : poolInfo.the_scoop;
-          scoopLine = `<br/><span style="display:block;margin-top:4px;font-size:11px;color:${THEME.muted}">${short}</span>`;
+        let descLine = '';
+        if (prof?.description) {
+          const short = prof.description.length > 120
+            ? prof.description.slice(0, 117) + '…'
+            : prof.description;
+          descLine = `<br/><span style="display:block;margin-top:4px;font-size:11px;color:${THEME.muted}">${short}</span>`;
         }
-        return `${nameStr}<br/><b>${p.value.toLocaleString()}</b> blocks · <b>${pct}%</b>${scoopLine}`;
+        return `${nameStr}<br/><b>${p.value.toLocaleString()}</b> blocks · <b>${pct}%</b>${descLine}`;
       },
     },
     series: [{
@@ -830,9 +841,11 @@ export function renderConcentrationChart({ months, top3, top5 }) {
 }
 
 // ── Top 30 Mining Pools Table ────────────────────────────────────────────────
-export function renderTopMinersTable(poolAgg, poolsInfo, forensics = null, slugToName = {}, topPoolsRange = '1M') {
+export function renderTopMinersTable(poolAgg, poolProfiles, forensics = null, slugToName = {}, topPoolsRange = '1M') {
   const el = document.getElementById('top-miners-table-container');
   if (!el) return;
+
+  const profileByName = buildProfileByNameMap(poolProfiles, slugToName);
 
   // Build maps keyed by *display name* so the lookup is a direct p.name match.
   // Resolving each forensics slug through slugToName (the same lookup used when
@@ -872,14 +885,11 @@ export function renderTopMinersTable(poolAgg, poolsInfo, forensics = null, slugT
   }
 
   const rows = poolAgg.slice(0, 30).map((p, i) => {
-    // Case-insensitive lookup for the pool metadata
-    const info = poolsInfo.find(info => info.name.toLowerCase() === p.name.toLowerCase());
+    const prof = profileByName.get((p.name || '').toLowerCase());
 
-    // Determine country - handle "Unknown" specifically
-    let country = info?.country;
+    let country = prof?.country;
     if (!country) {
-      if (p.name === 'Unknown') country = 'Decentralized / Anonymous';
-      else country = 'Unknown / Unmapped';
+      country = (p.name === 'Unknown') ? 'Unknown' : 'Unknown';
     }
 
     // Match forensics data by display name directly
