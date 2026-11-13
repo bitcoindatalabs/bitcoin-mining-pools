@@ -1,0 +1,136 @@
+{
+  "registry_version": "5bca37536b2d219f",
+  "conflicts": [
+    {
+      "kind": "tag",
+      "key": "GDPool",
+      "winner": "dpool",
+      "winner_source": "supplement",
+      "candidates": [
+        {
+          "source": "bitcoin-data",
+          "slug": "gdpool",
+          "name": "GDPool"
+        },
+        {
+          "source": "mempool",
+          "slug": "gdpool",
+          "name": "GDPool"
+        },
+        {
+          "source": "supplement",
+          "slug": "dpool",
+          "name": "DPOOL"
+        }
+      ]
+    },
+    {
+      "kind": "tag",
+      "key": "Validated with Clean Energy",
+      "winner": "terrapool",
+      "winner_source": "mempool",
+      "candidates": [
+        {
+          "source": "bitcoin-data",
+          "slug": "cleanincentive",
+          "name": "CleanIncentive"
+        },
+        {
+          "source": "mempool",
+          "slug": "terrapool",
+          "name": "Terra Pool"
+        }
+      ]
+    },
+    {
+      "kind": "address",
+      "key": "1ApE99VM5RJzMRRtwd2JMgmkGabtJqoMEz",
+      "winner": "miningkings",
+      "winner_source": "mempool",
+      "candidates": [
+        {
+          "source": "bitcoin-data",
+          "slug": "ckpool",
+          "name": "CKPool"
+        },
+        {
+          "source": "mempool",
+          "slug": "miningkings",
+          "name": "MiningKings"
+        }
+      ]
+    },
+    {
+      "kind": "address",
+      "key": "1EowSPumj9D9AMTpE64Jr7vT3PJDNopVcz",
+      "winner": "miningkings",
+      "winner_source": "mempool",
+      "candidates": [
+        {
+          "source": "bitcoin-data",
+          "slug": "ckpool",
+          "name": "CKPool"
+        },
+        {
+          "source": "mempool",
+          "slug": "miningkings",
+          "name": "MiningKings"
+        }
+      ]
+    },
+    {
+      "kind": "address",
+      "key": "1KGbsDDAgJN2HDNBjmMHp9828qATo5B9c9",
+      "winner": "miningkings",
+      "winner_source": "mempool",
+      "candidates": [
+        {
+          "source": "bitcoin-data",
+          "slug": "ckpool",
+          "name": "CKPool"
+        },
+        {
+          "source": "mempool",
+          "slug": "miningkings",
+          "name": "MiningKings"
+        }
+      ]
+    },
+    {
+      "kind": "address",
+      "key": "1M1Xw2rczxkF3p3wiNHaTmxvbpZZ7M6vaa",
+      "winner": "1m1x",
+      "winner_source": "mempool",
+      "candidates": [
+        {
+          "source": "bitcoin-data",
+          "slug": "poolin",
+          "name": "Poolin"
+        },
+        {
+          "source": "mempool",
+          "slug": "1m1x",
+          "name": "1M1X"
+        }
+      ]
+    },
+    {
+      "kind": "address",
+      "key": "bc1qwlrsvgtn99rqp3fgaxq6f6jkgms80rnej0a8tc",
+      "winner": "rawpool",
+      "winner_source": "mempool",
+      "candidates": [
+        {
+          "source": "bitcoin-data",
+          "slug": "togetherpool",
+          "name": "TogetherPool"
+        },
+        {
+          "source": "mempool",
+          "slug": "rawpool",
+          "name": "Rawpool"
+        }
+      ]
+    }
+  ]
+}

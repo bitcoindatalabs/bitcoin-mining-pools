@@ -30,7 +30,7 @@
     "the_scoop": "Managed by Fred Thiel, but the 'Peter Thiel' influence (via Founders Fund and institutional backers) gives it an aura of high-level political protection. They famously tried to mine 'Clean BTC' in 2021—blocks containing only non-criminal transactions—which miners called 'The Great Censure' before MARA pivot to 'Freedom Mining' after losing money on fees."
   },
   {
-    "name": "ocean",
+    "name": "OCEAN",
     "country": "El Salvador",
     "industry_reputation": "The Dorsey Disruptor",
     "centralization_risk": "Low (Template Control)",
@@ -65,7 +65,7 @@
     "the_scoop": "As the first pool ever (Slush Pool), they are the 'Old Guard.' They are currently the only major pool 100% committed to Stratum V2, which gives power back to individual miners. The gossip? They are the 'Final Boss' of decentralization, standing against the US and China pools."
   },
   {
-    "name": "BTC.com",
+    "name": "CloverPool",
     "country": "Global",
     "industry_reputation": "The Abandoned Heir",
     "centralization_risk": "Medium",
