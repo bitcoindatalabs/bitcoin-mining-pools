@@ -16,7 +16,7 @@
       "md5": "e723835350ee7303b5620c7ae31d64a9"
     },
     "supplement": {
-      "file": "data/raw/pools_supplement.json",
+      "file": "sources/pools_supplement.json",
       "md5": "de40e31059c0bfc9c22c0d9b509067d7"
     }
   },

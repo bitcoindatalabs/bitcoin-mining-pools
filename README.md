@@ -1,119 +1,51 @@
-# Bitcoin Mining Pools: Data & Dashboard
+# Bitcoin Mining Pools Dashboard (`bitcoin-mining-pools`)
 
-An open-source, full-stack data pipeline and interactive visualization suite for tracking the evolution of Bitcoin mining from Genesis to the present day. This repository serves two distinct products: a high-fidelity **Processed Dataset** and a zero-latency **Static Dashboard**.
+Static interactive dashboard hosted on GitHub Pages for tracking Bitcoin mining pool dominance,
+decentralization metrics (HHI, Top-N concentration), sourced pool profiles (182 pools), and post-2021
+mining forensics.
 
----
-
-## 🏗️ Two Products, One Repository
-
-### 1. The Dashboard (Interactive Visualization)
-A "no-build-step," fully static web application hosted on GitHub Pages. It leverages **hyparquet** to read multi-megabyte Parquet files directly in the browser, providing a buttery-smooth experience without a server.
-- **8 Interactive Charts**: From market share donuts to geographic footprint (country share).
-- **Miner Profiles**: Searchable, deep-dive profiles for over 150+ mining pools.
-- **Decentralization Lab**: Real-time HHI (Herfindahl-Hirschman Index) tracking and Top-3/Top-5 pool concentration benches.
-- **Ecosystem Growth**: A historical scatter-line visualization of every pool discovered since 2011.
-- **Mining Forensics & Reorg Risks**: Analyzes pool luck via Z-scores, propagation latency histograms, and timing entropy heatmaps to profile systemic network threats.
-
-### 2. The Data Pipeline (Processed Insights)
-A robust Python pipeline that transforms raw block-level data into high-performance, dictionary-encoded **Parquet** files.
-- **Dual-Era Storage**: Data is split into `blocks_pre_2021.parquet` and `blocks_post_2021.parquet`. This enables users to fetch only the modern industrial era (~3MB) for recent analysis without downloading the entire 17-year history.
-- **HHI Metrics**: Pre-calculated decentralization indices to track network health trends.
-
-### 📊 Data Schema
-Both parquet files use the following schema, optimized for size and speed:
-| Column | Type | Description |
-|---|---|---|
-| `height` | `int32` | Block height (0 to tip) |
-| `pool_slug`| `str (dict)` | Normalized pool ID (e.g. "foundryusa", "antpool") |
-| `date` | `timestamp` | Block creation time (µs precision) |
-
-### 🔄 Automated Updates
-This is a **living dataset**. The reports and data files are updated:
-- **Monthly**: A GitHub Action scheduled refresh ensures all monthly trend lines are finalized.
-- **Node-Synced**: block data is pushed monthly directly from our self-hosted Bitcoin node to keep the modern era current.
+- **Dashboard UI**: `dashboard/` (`index.html`, `css/`, `js/`), deployed to GitHub Pages via `.github/workflows/static.yml` (`path: './dashboard'`). Zero build step; reads `dashboard/data/` directly in the browser via **hyparquet** and renders with **ECharts**.
+- **Dataset & Pipeline**: Moved to the dedicated [**`mining-pools-data`**](https://github.com/bitcoindatalabs/mining-pools-data) repository (CC BY 4.0 data + MIT scripts). This repository receives synced dashboard artifacts (`dashboard/data/*.parquet`, `*.json`) via `mining-pools-data/scripts/sync_to_site.py`.
 
 ---
 
-## 📈 Data Insights: Beyond the Hashrate
-This project isn't just about who is winning today; it’s about the **narrative of Bitcoin’s centralisation**. 
-- Witness the **"Rise of the Industrial Era"** post-2020.
-- Track the **"Great Migration"** as hash power shifted across geographic borders.
-- Observe how the **network tip** reacts to halving events and the emergence of institutional-grade pools like Foundry and AntPool.
-- Experience the **"Long Tail"** of Bitcoin history by exploring extinct pools from the 2011–2014 era.
+## Repository Layout
 
----
-
-## 📂 Project Structure
-
-```bash
-├── dashboard/      # The web application (HTML/JS/CSS)
-│   └── data/       # Deploy artifacts (Parquet/JSON)
-├── data/           # The local data lake
-│   ├── raw/        # Source CSVs and Metadata
-│   └── processed/  # Output of the Python pipeline
-├── scripts/        # Python pipeline (Pandas/PyArrow)
-└── docs/           # Technical architecture & logic flow
+```
+├── .github/workflows/static.yml   GitHub Pages deploy (`./dashboard`)
+├── dashboard/                     Static web application
+│   ├── index.html                 Dashboard layout
+│   ├── css/                       Stylesheets
+│   ├── js/                        Data loader & ECharts visualizations
+│   ├── robots.txt                 Search crawler rules
+│   ├── sitemap.xml                Site map
+│   └── data/                      Synced dashboard payloads + static `lookup/timelines.json`
+│       ├── blocks_pre_2021.parquet   height < 664,063 (height, pool, host_pool, date)
+│       ├── blocks_post_2021.parquet  height >= 664,063 (height, pool, host_pool, date)
+│       ├── pool_metrics.json
+│       ├── pool_growth.json
+│       ├── forensics_data.json
+│       └── lookup/                pools_enriched, pool_profiles, pool_facts, pool_conflicts, ...
+├── docs/                          Dashboard & browser architecture documentation
+├── llms.txt                       LLM summary
+└── README.md
 ```
 
 ---
 
-## 🔌 Data Sources
+## Data Refresh & Attribution
 
-We stand on the shoulders of the community. Every block's pool comes from one resolver
-(`scripts/pool_resolver.py`), fed by these sources (pinned commits, licences and counts in
-[data/raw/SOURCES.md](./data/raw/SOURCES.md)):
+Block attribution, upstream list pinning (`bitcoin-data/mining-pools`, `mempool/mining-pools`, curated
+`pools_supplement.json`), co-occurrence inference, 182 sourced pool profiles, and pipeline scripts live in
+[`mining-pools-data`](https://github.com/bitcoindatalabs/mining-pools-data). Daily automation refreshes that
+dataset first and runs `sync_to_site.py` to publish updated static assets into `dashboard/data/`.
 
-1.  **Chain data**: each block's coinbase scriptSig and coinbase outputs, read from our own **self-hosted Bitcoin node**
-    (a local chain lake), for every block from Genesis to the tip.
-2.  **Pool lists** (refreshed, pinned in `data/raw/pool_sources.lock.json`): [mempool/mining-pools](https://github.com/mempool/mining-pools)
-    (the list behind mempool.space) and [bitcoin-data/mining-pools](https://github.com/bitcoin-data/mining-pools/tree/generated)
-    (0xB10C, generated branch), plus our cited additions in `data/raw/pools_supplement.json`. Both lists are MIT-licensed.
-3.  **Historical labels (0–869,305, frozen)**: [jlopp/bitcoin-blocks-by-mining-pool](https://github.com/jlopp/bitcoin-blocks-by-mining-pool),
-    used only as a fallback when a block has neither a known coinbase tag nor a known payout address. It is no longer
-    maintained and is not refreshed.
+## Local Preview
 
-**How a block is labelled** (`method` in `data/processed/block_attribution.parquet`):
-`tag` / `regex` (a known coinbase tag; the longest match wins), `payout` (a known payout address; it wins over a
-conflicting tag, because such a tag is a sub-account or worker name inside another pool's coinbase, except for pools
-that pay their miners in the coinbase, such as OCEAN or Eligius), `jlopp` (the frozen historical label), `unknown`.
-Tags that name pool *software* (`ckpool`, `BTCPool`) are used only as a last resort.
+Serve `dashboard/` over HTTP (required for Parquet range/fetch requests):
 
----
+```bash
+python3 -m http.server 8000 --directory dashboard
+```
 
-## 🚀 Getting Started
-
-- **View Live Dashboard**: [Visit the GitHub Pages site](https://bitcoindatalabs.github.io/bitcoin-mining-pools/) (or your repo's URL).
-
-### 🔄 Data Update Loop
-To refresh the dashboard with new blocks or a new pool list, run in order (on datalabs,
-`python/automation/miner_data_updater.py` runs this sequence every night):
-
-0. **`python scripts/refresh_pool_sources.py`**: checks the two upstream pool lists
-   ([mempool/mining-pools](https://github.com/mempool/mining-pools) and
-   [bitcoin-data/mining-pools](https://github.com/bitcoin-data/mining-pools)) for a newer commit, downloads the file
-   pinned to that commit, validates it (JSON and schema, every address decodes, every regex compiles in Python,
-   no drop of more than 10% against the last good snapshot), and merges it with `data/raw/pools_supplement.json`
-   into the registry with a new `registry_version`. A refused or unreachable list keeps the last good snapshot.
-   Pins are in `data/raw/pool_sources.lock.json`; when each list was last checked is in
-   `dashboard/data/lookup/pool_list_status.json` (the dashboard footer's "pool list as of").
-   `--dry-run` fetches into a temp dir and prints what would change, including how many blocks would be relabelled.
-1. **`python scripts/extract_coinbase.py`**: appends new blocks' coinbase data from the local chain lake
-   (`--chain-parts DIR`, default `/data/bitcoin/data/chain/parts`) to `data/raw/coinbase_blocks.parquet`.
-2. **`python scripts/resolve_blocks.py`**: rebuilds the pool registry (`build_pools_lookup.py`), labels every block,
-   and writes `data/processed/block_attribution.parquet` plus `blocks_pre_2021.parquet` and
-   `blocks_post_2021.parquet`. When the registry changes, every block is re-resolved; otherwise only new ones.
-3. **`python scripts/update_metrics.py`**: Recalculates all pool KPIs and ecosystem growth.
-4. **`python scripts/process_forensics.py`**: Calibrates the advanced forensics models (Z-Scores, Entropy, Streaks).
-5. **`python scripts/unknown_watch.py`**: clusters the last 7 days' unknown blocks by coinbase text and payout script
-   and writes `data/status/unknown_clusters.json`; a new cluster of 3+ blocks is a candidate for a cited supplement
-   entry (never added automatically).
-
-When a registry change relabels past blocks, `resolve_blocks.py` appends the changes (which heights, from which pool
-to which) to `data/status/relabel_log.json`. Every output records the `registry_version` and the source commits it
-was built from.
-
-> [!NOTE]
-> `scripts/merge_myrp.py` is deprecated and now just runs `resolve_blocks.py`. `scripts/prepare_data.py` is a legacy
-> importer from the original `blocks.csv` and is no longer part of the pipeline.
-
-- **Read the Docs**: Start with [docs/01-architecture.md](./docs/01-architecture.md) for a deep dive into how we handle 860k blocks in a browser.
+Then open `http://localhost:8000`.

@@ -1,17 +1,20 @@
 # Documentation Index
 
-This folder is the canonical reference for any LLM or developer working on this project.
-Read these documents **in order** before making any change.
+Architecture and client-side rendering notes for the `bitcoin-mining-pools` static dashboard.
+
+> **Note (`bdl-065` / `bdl-066`)**: Raw data inputs, upstream pool lists, attribution resolution, and Python
+> pipeline scripts have moved to the sibling **`mining-pools-data`** repository. `bitcoin-mining-pools` serves
+> the static frontend in `dashboard/` from data artifacts synced into `dashboard/data/` by
+> `mining-pools-data/scripts/sync_to_site.py`.
 
 | File | What it answers |
 |---|---|
-| [01-architecture.md](./01-architecture.md) | What the system is, what it does, folder layout, tech stack, constraints |
-| [02-data-flow.md](./02-data-flow.md) | How data moves from raw CSV → parquet → browser → charts, including every transform |
-| [03-logic-flow.md](./03-logic-flow.md) | Runtime execution order, state machine, function call graph, filter/render cycle |
-| [04-adding-features.md](./04-adding-features.md) | Step-by-step patterns for the most common extension tasks |
+| [01-architecture.md](./01-architecture.md) | Frontend architecture, dashboard layout, tech stack |
+| [02-data-flow.md](./02-data-flow.md) | Browser Parquet/JSON loading -> filters -> ECharts visuals |
+| [03-logic-flow.md](./03-logic-flow.md) | Runtime execution order, state machine, filter/render cycle |
+| [04-adding-features.md](./04-adding-features.md) | Step-by-step patterns for UI and chart extensions |
 
 ## Project in one sentence
-A static Bitcoin mining pool dashboard hosted on GitHub Pages that reads
-**dual-parquet** files in the browser via **hyparquet**, aggregates 869k+ blocks client-side,
-and renders eight **ECharts** visualisations including market share, decentralization indices,
-and geographic distributions — no backend, no build step.
+A static Bitcoin mining pool dashboard hosted on GitHub Pages that reads dual-era Parquet files synced from
+`mining-pools-data` in the browser via **hyparquet** and renders interactive **ECharts** visualizations — no
+backend, no build step.

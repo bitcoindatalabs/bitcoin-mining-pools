@@ -1,17 +1,15 @@
-# Bitcoin Mining Pools Data & Dashboard
+# Bitcoin Mining Pools Dashboard
 
-This repository contains a full-stack data pipeline and interactive static dashboard for tracking Bitcoin mining pool dominance, forensics, and decentralization metrics.
+Static no-build-step web dashboard hosted on GitHub Pages (`dashboard/`) visualizing Bitcoin mining pool dominance, HHI concentration, sourced pool profiles, and post-2021 forensics.
 
 ## Architecture
-1. **Pipeline (`scripts/`)**: Python RAG scripts (Pandas/PyArrow) read `data/raw/blocks.csv` and parquet files. It maps coinbase tags to pools, and computes metrics like Herfindahl-Hirschman Index (HHI), Z-scores for hashrate luck, and Consecutive Blocks latency.
-2. **Dashboard (`dashboard/`)**: A "no-build-step" static web application. It uses `hyparquet` to read the processed Parquet files directly in the browser and visualizes them using ECharts (`dashboard/js/charts.js`).
+1. **Upstream Dataset & Pipeline (`mining-pools-data`)**: Generates the versioned registry, yearly block attribution Parquets (`host_pool` and sub-pool `pool`), 182 sourced pool profiles (`pool_profiles.json`), and forensics metrics (`forensics_data.json`), then syncs site payloads into `dashboard/data/` via `scripts/sync_to_site.py`.
+2. **Static Dashboard (`dashboard/`)**: Reads `blocks_pre_2021.parquet`, `blocks_post_2021.parquet`, and `dashboard/data/*.json` directly in the browser via `hyparquet` and visualizes them using `ECharts` (`dashboard/js/charts.js`).
 
-## Key Forensics Metrics ("Reorg Risks")
-- **Consecutive Blocks**: Tracks pools mining 6+ blocks in a row. Short latency intervals (< 30s) increase risk of forks and 2-block reorgs.
-- **Luck & Z-Score**: Expected block production vs actual production. High positive Z-scores (Z > 3) signal hidden/ghost hashrate.
-- **Entropy Heatmap**: Differentiates corporate mining (hyper-stable latency) from retail operations (high variance).
-
-## Useful File References
-- `/dashboard/index.html`: The core UI layout.
-- `/dashboard/js/charts.js`: The ECharts rendering logic.
-- `/scripts/process_forensics.py`: The mathematical modeling for the mining forensics metrics.
+## Key Files
+- `/dashboard/index.html`: Core UI layout
+- `/dashboard/js/data-loader.js`: Client-side Parquet & JSON loader
+- `/dashboard/js/charts.js`: ECharts visualization logic
+- `/dashboard/js/main.js`: Filter & profile interaction controller
+- `/dashboard/data/lookup/pool_profiles.json`: 182 sourced pool profiles (synced from `mining-pools-data`)
+- `/dashboard/data/lookup/timelines.json`: Editorial Bitcoin mining historical milestones

@@ -33302,13 +33302,13 @@
       "pool": "foundryusa",
       "avg_density": 0.4167,
       "avg_tx_count": 3066.71,
-      "avg_bytes": 1576456.56
+      "avg_bytes": 1576456.57
     },
     {
       "pool": "luxor",
       "avg_density": 0.4164,
       "avg_tx_count": 3116.79,
-      "avg_bytes": 1569519.4
+      "avg_bytes": 1569519.53
     },
     {
       "pool": "ultimuspool",
@@ -33332,7 +33332,7 @@
       "pool": "antpool",
       "avg_density": 0.4095,
       "avg_tx_count": 2989.69,
-      "avg_bytes": 1541346.2
+      "avg_bytes": 1541346.22
     },
     {
       "pool": "kucoinpool",
@@ -61716,37 +61716,37 @@
       {
         "block_height": 975387,
         "tx_count": 6671,
-        "bytes_total": 1593488,
+        "bytes_total": 1594042,
         "pool_name": "antpool"
       },
       {
         "block_height": 975388,
         "tx_count": 7041,
-        "bytes_total": 1585989,
+        "bytes_total": 1586461,
         "pool_name": "luxor"
       },
       {
         "block_height": 975389,
         "tx_count": 4118,
-        "bytes_total": 1634947,
+        "bytes_total": 1635503,
         "pool_name": "antpool"
       },
       {
         "block_height": 975390,
         "tx_count": 5455,
-        "bytes_total": 1582797,
+        "bytes_total": 1583107,
         "pool_name": "foundryusa"
       },
       {
         "block_height": 975391,
         "tx_count": 2937,
-        "bytes_total": 1715043,
+        "bytes_total": 1715353,
         "pool_name": "foundryusa"
       },
       {
         "block_height": 975392,
         "tx_count": 2612,
-        "bytes_total": 1637401,
+        "bytes_total": 1637873,
         "pool_name": "luxor"
       },
       {
@@ -63108,49 +63108,49 @@
     ],
     "overhead_bar": [
       {
-        "pool": "braiinspool",
-        "avg_overhead": 53.06,
-        "max_overhead": 1187.34
-      },
-      {
         "pool": "antpool",
-        "avg_overhead": 48.4,
-        "max_overhead": 2716.31
-      },
-      {
-        "pool": "spiderpool",
-        "avg_overhead": 43.24,
-        "max_overhead": 1018.59
-      },
-      {
-        "pool": "viabtc",
-        "avg_overhead": 41.69,
-        "max_overhead": 1109.73
-      },
-      {
-        "pool": "marapool",
-        "avg_overhead": 41.03,
-        "max_overhead": 718.92
-      },
-      {
-        "pool": "luxor",
-        "avg_overhead": 39.94,
-        "max_overhead": 2357.59
-      },
-      {
-        "pool": "foundryusa",
-        "avg_overhead": 37.83,
-        "max_overhead": 2971.49
-      },
-      {
-        "pool": "secpool",
-        "avg_overhead": 34.53,
-        "max_overhead": 701.66
+        "avg_overhead": 401.57,
+        "max_overhead": 59119.94
       },
       {
         "pool": "f2pool",
-        "avg_overhead": 33.13,
-        "max_overhead": 447.18
+        "avg_overhead": 353.9,
+        "max_overhead": 69552.05
+      },
+      {
+        "pool": "luxor",
+        "avg_overhead": 320.07,
+        "max_overhead": 5414.7
+      },
+      {
+        "pool": "foundryusa",
+        "avg_overhead": 319.21,
+        "max_overhead": 22572.13
+      },
+      {
+        "pool": "secpool",
+        "avg_overhead": 310.28,
+        "max_overhead": 6063.4
+      },
+      {
+        "pool": "viabtc",
+        "avg_overhead": 303.48,
+        "max_overhead": 6635.3
+      },
+      {
+        "pool": "spiderpool",
+        "avg_overhead": 279.75,
+        "max_overhead": 9360.09
+      },
+      {
+        "pool": "marapool",
+        "avg_overhead": 265.74,
+        "max_overhead": 1969.49
+      },
+      {
+        "pool": "braiinspool",
+        "avg_overhead": 264.36,
+        "max_overhead": 1441.07
       }
     ]
   },
@@ -63946,7 +63946,7 @@
       }
     ]
   },
-  "last_updated": "2026-11-13T11:18:58.305889",
+  "last_updated": "2026-11-13T11:27:52.609645",
   "registry_version": "5fed73568dacbed3",
   "pool_sources": {
     "bitcoin-data": "0158b59ac47ac1b6f1df2704c98f2576f6d5391d",

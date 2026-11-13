@@ -1,29 +1,8 @@
-# Local data files
-blocks.csv
-block.csv
-data/raw/blocks.csv
-data/raw/*.csv
-bitcoin_blocks_pool*
-
-# Environment
+# Environments & OS
 .venv/
 __pycache__/
 *.pyc
-
-# IDEs
-.vscode/
 .DS_Store
-
-# Product reference
-forref/
-
-# Social-media sharing data and charts (temp)
-social/
-
-# Experimental lab folder
-lab/
-.vscode
-data/raw/coinbase_blocks*.parquet
-
-# Local pipeline outputs (bdl-060): block_attribution.parquet is rebuilt from the chain lake
-data/processed/
+.vscode/
+*.tmp
+*.tmp.parquet
