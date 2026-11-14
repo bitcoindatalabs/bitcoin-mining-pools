@@ -6,19 +6,19 @@
       "branch": "generated",
       "sha": "0158b59ac47ac1b6f1df2704c98f2576f6d5391d",
       "commit_date": "2026-06-30T21:00:31Z",
-      "checked_at": "2026-11-12T23:20:00-06:00",
-      "head_sha": null,
-      "head_md5": null
+      "checked_at": "2026-11-14T05:15:03+00:00",
+      "head_sha": "0158b59ac47ac1b6f1df2704c98f2576f6d5391d",
+      "head_md5": "6bef0927cc10e6ef23aa7538322d48e4"
     },
     "mempool": {
       "repo": "mempool/mining-pools",
       "branch": "master",
       "sha": "d2ddbfa37da1d260225b74db04f939871f78e17b",
       "commit_date": "2026-11-12T03:29:30Z",
-      "checked_at": "2026-11-12T23:20:00-06:00",
-      "head_sha": null,
-      "head_md5": null
+      "checked_at": "2026-11-14T05:15:03+00:00",
+      "head_sha": "0a285e241f8a4187d442730ddc167c62fc8085d7",
+      "head_md5": "e723835350ee7303b5620c7ae31d64a9"
     }
   },
-  "checked_at": "2026-11-12"
+  "checked_at": "2026-11-14"
 }
