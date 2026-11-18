@@ -561,7 +561,7 @@
       "total_events": 1,
       "max_streak": 7,
       "pool_share": 12.68,
-      "propensity": 8.23,
+      "propensity": 8.2,
       "distribution": {
         "7": 1
       },
@@ -576,7 +576,7 @@
           "duration_sec": 2966.0,
           "pool_share": 14.39,
           "expected_1_in_years": 17.42,
-          "propensity_score": 8.23
+          "propensity_score": 8.2
         }
       ]
     }
@@ -584,43 +584,123 @@
   "kpi2_funnel": [
     {
       "pool": "foundryusa",
-      "share": 24.95,
-      "luck": 105.77,
-      "z": 0.35,
-      "blocks": 38,
-      "timestamp": "2026-11-17T02:10:32"
+      "share": 25.3,
+      "luck": 96.08,
+      "z": -0.24,
+      "blocks": 35,
+      "timestamp": "2026-11-18T02:22:46"
     },
     {
       "pool": "antpool",
-      "share": 19.44,
-      "luck": 103.57,
-      "z": 0.19,
+      "share": 19.79,
+      "luck": 101.75,
+      "z": 0.09,
       "blocks": 29,
-      "timestamp": "2026-11-17T02:10:32"
+      "timestamp": "2026-11-18T02:22:46"
     },
     {
       "pool": "f2pool",
-      "share": 17.51,
-      "luck": 103.12,
-      "z": 0.16,
-      "blocks": 26,
-      "timestamp": "2026-11-17T02:10:32"
+      "share": 17.26,
+      "luck": 144.83,
+      "z": 2.23,
+      "blocks": 36,
+      "timestamp": "2026-11-18T02:22:46"
     },
     {
       "pool": "viabtc",
-      "share": 9.62,
-      "luck": 115.46,
-      "z": 0.58,
-      "blocks": 16,
-      "timestamp": "2026-11-17T02:10:32"
+      "share": 9.42,
+      "luck": 110.53,
+      "z": 0.39,
+      "blocks": 15,
+      "timestamp": "2026-11-18T02:22:46"
     },
     {
       "pool": "spiderpool",
-      "share": 6.65,
-      "luck": 156.72,
-      "z": 1.75,
-      "blocks": 15,
-      "timestamp": "2026-11-17T02:10:32"
+      "share": 7.24,
+      "luck": 47.95,
+      "z": -1.68,
+      "blocks": 5,
+      "timestamp": "2026-11-18T02:22:46"
+    },
+    {
+      "pool": "marapool",
+      "share": 5.56,
+      "luck": 75.0,
+      "z": -0.71,
+      "blocks": 6,
+      "timestamp": "2026-11-18T02:22:46"
+    },
+    {
+      "pool": "luxor",
+      "share": 4.51,
+      "luck": 15.38,
+      "z": -2.16,
+      "blocks": 1,
+      "timestamp": "2026-11-18T02:22:46"
+    },
+    {
+      "pool": "oceanxyz",
+      "share": 3.87,
+      "luck": 107.69,
+      "z": 0.18,
+      "blocks": 6,
+      "timestamp": "2026-11-18T02:22:46"
+    },
+    {
+      "pool": "secpool",
+      "share": 3.82,
+      "luck": 90.91,
+      "z": -0.21,
+      "blocks": 5,
+      "timestamp": "2026-11-18T02:22:46"
+    },
+    {
+      "pool": "braiinspool",
+      "share": 1.84,
+      "luck": 113.51,
+      "z": 0.22,
+      "blocks": 3,
+      "timestamp": "2026-11-18T02:22:46"
+    },
+    {
+      "pool": "foundryusa",
+      "share": 24.9,
+      "luck": 114.34,
+      "z": 0.86,
+      "blocks": 41,
+      "timestamp": "2026-11-17T04:19:35"
+    },
+    {
+      "pool": "antpool",
+      "share": 19.35,
+      "luck": 114.87,
+      "z": 0.78,
+      "blocks": 32,
+      "timestamp": "2026-11-17T04:19:35"
+    },
+    {
+      "pool": "f2pool",
+      "share": 17.71,
+      "luck": 90.2,
+      "z": -0.5,
+      "blocks": 23,
+      "timestamp": "2026-11-17T04:19:35"
+    },
+    {
+      "pool": "viabtc",
+      "share": 9.47,
+      "luck": 117.28,
+      "z": 0.64,
+      "blocks": 16,
+      "timestamp": "2026-11-17T04:19:35"
+    },
+    {
+      "pool": "spiderpool",
+      "share": 6.85,
+      "luck": 121.74,
+      "z": 0.68,
+      "blocks": 12,
+      "timestamp": "2026-11-17T04:19:35"
     },
     {
       "pool": "marapool",
@@ -628,7 +708,7 @@
       "luck": 100.0,
       "z": 0.0,
       "blocks": 8,
-      "timestamp": "2026-11-17T02:10:32"
+      "timestamp": "2026-11-17T04:19:35"
     },
     {
       "pool": "luxor",
@@ -636,87 +716,87 @@
       "luck": 76.09,
       "z": -0.61,
       "blocks": 5,
-      "timestamp": "2026-11-17T02:10:32"
+      "timestamp": "2026-11-17T04:19:35"
     },
     {
       "pool": "oceanxyz",
-      "share": 4.27,
-      "luck": 32.56,
-      "z": -1.67,
+      "share": 4.22,
+      "luck": 32.94,
+      "z": -1.65,
       "blocks": 2,
-      "timestamp": "2026-11-17T02:10:32"
+      "timestamp": "2026-11-17T04:19:35"
     },
     {
       "pool": "secpool",
-      "share": 3.92,
-      "luck": 35.44,
-      "z": -1.53,
+      "share": 3.97,
+      "luck": 35.0,
+      "z": -1.55,
       "blocks": 2,
-      "timestamp": "2026-11-17T02:10:32"
+      "timestamp": "2026-11-17T04:19:35"
     },
     {
       "pool": "braiinspool",
-      "share": 1.93,
-      "luck": 35.9,
-      "z": -1.07,
+      "share": 1.88,
+      "luck": 36.84,
+      "z": -1.04,
       "blocks": 1,
-      "timestamp": "2026-11-17T02:10:32"
+      "timestamp": "2026-11-17T04:19:35"
     },
     {
       "pool": "foundryusa",
-      "share": 24.11,
-      "luck": 146.91,
-      "z": 2.76,
-      "blocks": 51,
-      "timestamp": "2026-11-16T03:02:53"
+      "share": 24.16,
+      "luck": 140.86,
+      "z": 2.41,
+      "blocks": 49,
+      "timestamp": "2026-11-16T05:40:06"
     },
     {
       "pool": "antpool",
-      "share": 19.35,
-      "luck": 107.69,
-      "z": 0.41,
-      "blocks": 30,
-      "timestamp": "2026-11-16T03:02:53"
+      "share": 19.39,
+      "luck": 100.26,
+      "z": 0.01,
+      "blocks": 28,
+      "timestamp": "2026-11-16T05:40:06"
     },
     {
       "pool": "f2pool",
-      "share": 16.96,
-      "luck": 98.25,
-      "z": -0.09,
-      "blocks": 24,
-      "timestamp": "2026-11-16T03:02:53"
+      "share": 17.06,
+      "luck": 101.74,
+      "z": 0.09,
+      "blocks": 25,
+      "timestamp": "2026-11-16T05:40:06"
     },
     {
       "pool": "viabtc",
-      "share": 10.27,
-      "luck": 47.34,
-      "z": -2.02,
+      "share": 10.17,
+      "luck": 47.8,
+      "z": -2.0,
       "blocks": 7,
-      "timestamp": "2026-11-16T03:02:53"
+      "timestamp": "2026-11-16T05:40:06"
     },
     {
       "pool": "spiderpool",
       "share": 6.65,
-      "luck": 83.58,
-      "z": -0.51,
-      "blocks": 8,
-      "timestamp": "2026-11-16T03:02:53"
+      "luck": 125.37,
+      "z": 0.78,
+      "blocks": 12,
+      "timestamp": "2026-11-16T05:40:06"
     },
     {
       "pool": "marapool",
       "share": 5.65,
-      "luck": 73.68,
-      "z": -0.75,
-      "blocks": 6,
-      "timestamp": "2026-11-16T03:02:53"
+      "luck": 61.4,
+      "z": -1.1,
+      "blocks": 5,
+      "timestamp": "2026-11-16T05:40:06"
     },
     {
       "pool": "luxor",
-      "share": 4.86,
-      "luck": 57.14,
-      "z": -1.13,
+      "share": 4.76,
+      "luck": 58.33,
+      "z": -1.09,
       "blocks": 4,
-      "timestamp": "2026-11-16T03:02:53"
+      "timestamp": "2026-11-16T05:40:06"
     },
     {
       "pool": "oceanxyz",
@@ -724,7 +804,7 @@
       "luck": 30.77,
       "z": -1.77,
       "blocks": 2,
-      "timestamp": "2026-11-16T03:02:53"
+      "timestamp": "2026-11-16T05:40:06"
     },
     {
       "pool": "secpool",
@@ -732,7 +812,7 @@
       "luck": 48.84,
       "z": -1.27,
       "blocks": 3,
-      "timestamp": "2026-11-16T03:02:53"
+      "timestamp": "2026-11-16T05:40:06"
     },
     {
       "pool": "braiinspool",
@@ -740,15 +820,15 @@
       "luck": 240.0,
       "z": 2.21,
       "blocks": 6,
-      "timestamp": "2026-11-16T03:02:53"
+      "timestamp": "2026-11-16T05:40:06"
     },
     {
       "pool": "foundryusa",
-      "share": 24.4,
-      "luck": 110.98,
-      "z": 0.65,
-      "blocks": 39,
-      "timestamp": "2026-11-15T06:54:57"
+      "share": 24.31,
+      "luck": 114.29,
+      "z": 0.85,
+      "blocks": 40,
+      "timestamp": "2026-11-15T09:28:47"
     },
     {
       "pool": "antpool",
@@ -756,15 +836,15 @@
       "luck": 100.0,
       "z": 0.0,
       "blocks": 28,
-      "timestamp": "2026-11-15T06:54:57"
+      "timestamp": "2026-11-15T09:28:47"
     },
     {
       "pool": "f2pool",
-      "share": 16.52,
-      "luck": 117.72,
-      "z": 0.86,
-      "blocks": 28,
-      "timestamp": "2026-11-15T06:54:57"
+      "share": 16.57,
+      "luck": 121.56,
+      "z": 1.05,
+      "blocks": 29,
+      "timestamp": "2026-11-15T09:28:47"
     },
     {
       "pool": "viabtc",
@@ -772,47 +852,47 @@
       "luck": 52.09,
       "z": -1.88,
       "blocks": 8,
-      "timestamp": "2026-11-15T06:54:57"
+      "timestamp": "2026-11-15T09:28:47"
     },
     {
       "pool": "spiderpool",
-      "share": 6.55,
-      "luck": 95.45,
-      "z": -0.14,
+      "share": 6.5,
+      "luck": 96.18,
+      "z": -0.12,
       "blocks": 9,
-      "timestamp": "2026-11-15T06:54:57"
+      "timestamp": "2026-11-15T09:28:47"
     },
     {
       "pool": "marapool",
-      "share": 5.36,
-      "luck": 155.56,
-      "z": 1.54,
+      "share": 5.41,
+      "luck": 154.13,
+      "z": 1.51,
       "blocks": 12,
-      "timestamp": "2026-11-15T06:54:57"
+      "timestamp": "2026-11-15T09:28:47"
     },
     {
       "pool": "luxor",
       "share": 4.71,
-      "luck": 132.63,
-      "z": 0.85,
-      "blocks": 9,
-      "timestamp": "2026-11-15T06:54:57"
+      "luck": 117.89,
+      "z": 0.47,
+      "blocks": 8,
+      "timestamp": "2026-11-15T09:28:47"
     },
     {
       "pool": "oceanxyz",
-      "share": 4.71,
-      "luck": 29.47,
-      "z": -1.84,
+      "share": 4.66,
+      "luck": 29.79,
+      "z": -1.82,
       "blocks": 2,
-      "timestamp": "2026-11-15T06:54:57"
+      "timestamp": "2026-11-15T09:28:47"
     },
     {
       "pool": "secpool",
-      "share": 4.17,
-      "luck": 83.33,
-      "z": -0.41,
-      "blocks": 5,
-      "timestamp": "2026-11-15T06:54:57"
+      "share": 4.27,
+      "luck": 65.12,
+      "z": -0.86,
+      "blocks": 4,
+      "timestamp": "2026-11-15T09:28:47"
     },
     {
       "pool": "braiinspool",
@@ -820,79 +900,79 @@
       "luck": 38.89,
       "z": -0.98,
       "blocks": 1,
-      "timestamp": "2026-11-15T06:54:57"
+      "timestamp": "2026-11-15T09:28:47"
     },
     {
       "pool": "foundryusa",
-      "share": 24.6,
-      "luck": 93.15,
-      "z": -0.41,
-      "blocks": 33,
-      "timestamp": "2026-11-14T09:02:52"
+      "share": 24.45,
+      "luck": 107.91,
+      "z": 0.47,
+      "blocks": 38,
+      "timestamp": "2026-11-14T12:04:55"
     },
     {
       "pool": "antpool",
-      "share": 19.69,
-      "luck": 98.74,
-      "z": -0.07,
-      "blocks": 28,
-      "timestamp": "2026-11-14T09:02:52"
+      "share": 19.64,
+      "luck": 95.45,
+      "z": -0.24,
+      "blocks": 27,
+      "timestamp": "2026-11-14T12:04:55"
     },
     {
       "pool": "f2pool",
-      "share": 16.47,
-      "luck": 109.64,
-      "z": 0.47,
-      "blocks": 26,
-      "timestamp": "2026-11-14T09:02:52"
+      "share": 16.57,
+      "luck": 104.79,
+      "z": 0.23,
+      "blocks": 25,
+      "timestamp": "2026-11-14T12:04:55"
     },
     {
       "pool": "viabtc",
       "share": 10.42,
-      "luck": 113.33,
-      "z": 0.52,
-      "blocks": 17,
-      "timestamp": "2026-11-14T09:02:52"
+      "luck": 100.0,
+      "z": 0.0,
+      "blocks": 15,
+      "timestamp": "2026-11-14T12:04:55"
     },
     {
       "pool": "spiderpool",
-      "share": 6.4,
-      "luck": 130.23,
-      "z": 0.92,
-      "blocks": 12,
-      "timestamp": "2026-11-14T09:02:52"
+      "share": 6.45,
+      "luck": 107.69,
+      "z": 0.23,
+      "blocks": 10,
+      "timestamp": "2026-11-14T12:04:55"
     },
     {
       "pool": "marapool",
       "share": 5.7,
-      "luck": 12.17,
-      "z": -2.52,
-      "blocks": 1,
-      "timestamp": "2026-11-14T09:02:52"
+      "luck": 24.35,
+      "z": -2.17,
+      "blocks": 2,
+      "timestamp": "2026-11-14T12:04:55"
     },
     {
       "pool": "oceanxyz",
       "share": 4.86,
-      "luck": 85.71,
-      "z": -0.38,
-      "blocks": 6,
-      "timestamp": "2026-11-14T09:02:52"
+      "luck": 71.43,
+      "z": -0.76,
+      "blocks": 5,
+      "timestamp": "2026-11-14T12:04:55"
     },
     {
       "pool": "luxor",
-      "share": 4.51,
-      "luck": 138.46,
-      "z": 0.98,
-      "blocks": 9,
-      "timestamp": "2026-11-14T09:02:52"
+      "share": 4.56,
+      "luck": 121.74,
+      "z": 0.56,
+      "blocks": 8,
+      "timestamp": "2026-11-14T12:04:55"
     },
     {
       "pool": "secpool",
       "share": 3.92,
-      "luck": 141.77,
-      "z": 0.99,
-      "blocks": 8,
-      "timestamp": "2026-11-14T09:02:52"
+      "luck": 177.22,
+      "z": 1.83,
+      "blocks": 10,
+      "timestamp": "2026-11-14T12:04:55"
     },
     {
       "pool": "braiinspool",
@@ -900,127 +980,127 @@
       "luck": 40.0,
       "z": -0.95,
       "blocks": 1,
-      "timestamp": "2026-11-14T09:02:52"
+      "timestamp": "2026-11-14T12:04:55"
     },
     {
       "pool": "foundryusa",
-      "share": 25.35,
-      "luck": 79.45,
-      "z": -1.24,
-      "blocks": 29,
-      "timestamp": "2026-11-13T04:13:29"
+      "share": 25.3,
+      "luck": 68.63,
+      "z": -1.89,
+      "blocks": 25,
+      "timestamp": "2026-11-13T08:02:20"
     },
     {
       "pool": "antpool",
-      "share": 19.84,
-      "luck": 77.0,
-      "z": -1.23,
-      "blocks": 22,
-      "timestamp": "2026-11-13T04:13:29"
+      "share": 19.79,
+      "luck": 87.72,
+      "z": -0.66,
+      "blocks": 25,
+      "timestamp": "2026-11-13T08:02:20"
     },
     {
       "pool": "f2pool",
       "share": 16.37,
-      "luck": 101.82,
-      "z": 0.09,
-      "blocks": 24,
-      "timestamp": "2026-11-13T04:13:29"
+      "luck": 106.06,
+      "z": 0.29,
+      "blocks": 25,
+      "timestamp": "2026-11-13T08:02:20"
     },
     {
       "pool": "viabtc",
-      "share": 10.02,
-      "luck": 138.61,
-      "z": 1.47,
-      "blocks": 20,
-      "timestamp": "2026-11-13T04:13:29"
+      "share": 10.17,
+      "luck": 122.93,
+      "z": 0.88,
+      "blocks": 18,
+      "timestamp": "2026-11-13T08:02:20"
     },
     {
       "pool": "spiderpool",
       "share": 6.15,
-      "luck": 124.19,
-      "z": 0.72,
-      "blocks": 11,
-      "timestamp": "2026-11-13T04:13:29"
+      "luck": 146.77,
+      "z": 1.39,
+      "blocks": 13,
+      "timestamp": "2026-11-13T08:02:20"
     },
     {
       "pool": "marapool",
-      "share": 5.36,
-      "luck": 155.56,
-      "z": 1.54,
-      "blocks": 12,
-      "timestamp": "2026-11-13T04:13:29"
+      "share": 5.41,
+      "luck": 141.28,
+      "z": 1.15,
+      "blocks": 11,
+      "timestamp": "2026-11-13T08:02:20"
     },
     {
       "pool": "oceanxyz",
       "share": 4.91,
-      "luck": 42.42,
-      "z": -1.53,
-      "blocks": 3,
-      "timestamp": "2026-11-13T04:13:29"
+      "luck": 56.57,
+      "z": -1.16,
+      "blocks": 4,
+      "timestamp": "2026-11-13T08:02:20"
     },
     {
       "pool": "luxor",
       "share": 4.32,
-      "luck": 177.01,
-      "z": 1.92,
-      "blocks": 11,
-      "timestamp": "2026-11-13T04:13:29"
+      "luck": 193.1,
+      "z": 2.32,
+      "blocks": 12,
+      "timestamp": "2026-11-13T08:02:20"
     },
     {
       "pool": "secpool",
-      "share": 4.17,
-      "luck": 50.0,
-      "z": -1.22,
+      "share": 4.12,
+      "luck": 50.6,
+      "z": -1.2,
       "blocks": 3,
-      "timestamp": "2026-11-13T04:13:29"
+      "timestamp": "2026-11-13T08:02:20"
     },
     {
       "pool": "braiinspool",
-      "share": 1.79,
-      "luck": 194.44,
-      "z": 1.51,
-      "blocks": 5,
-      "timestamp": "2026-11-13T04:13:29"
+      "share": 1.74,
+      "luck": 160.0,
+      "z": 0.95,
+      "blocks": 4,
+      "timestamp": "2026-11-13T08:02:20"
     },
     {
       "pool": "foundryusa",
       "share": 25.55,
-      "luck": 92.43,
-      "z": -0.46,
-      "blocks": 34,
-      "timestamp": "2026-11-11T23:03:28"
+      "luck": 95.15,
+      "z": -0.29,
+      "blocks": 35,
+      "timestamp": "2026-11-12T01:09:30"
     },
     {
       "pool": "antpool",
-      "share": 19.89,
-      "luck": 101.25,
-      "z": 0.07,
+      "share": 19.69,
+      "luck": 102.27,
+      "z": 0.12,
       "blocks": 29,
-      "timestamp": "2026-11-11T23:03:28"
+      "timestamp": "2026-11-12T01:09:30"
     },
     {
       "pool": "f2pool",
-      "share": 16.52,
-      "luck": 100.9,
-      "z": 0.04,
-      "blocks": 24,
-      "timestamp": "2026-11-11T23:03:28"
+      "share": 16.67,
+      "luck": 83.33,
+      "z": -0.82,
+      "blocks": 20,
+      "timestamp": "2026-11-12T01:09:30"
     },
     {
       "pool": "viabtc",
-      "share": 10.07,
-      "luck": 62.07,
-      "z": -1.44,
-      "blocks": 9,
-      "timestamp": "2026-11-11T23:03:28"
+      "share": 10.17,
+      "luck": 75.12,
+      "z": -0.95,
+      "blocks": 11,
+      "timestamp": "2026-11-12T01:09:30"
     },
     {
       "pool": "spiderpool",
-      "share": 5.85,
-      "luck": 166.1,
-      "z": 1.92,
-      "blocks": 14,
-      "timestamp": "2026-11-11T23:03:28"
+      "share": 5.95,
+      "luck": 140.0,
+      "z": 1.17,
+      "blocks": 12,
+      "timestamp": "2026-11-12T01:09:30"
     },
     {
       "pool": "oceanxyz",
@@ -1028,143 +1108,63 @@
       "luck": 68.63,
       "z": -0.85,
       "blocks": 5,
-      "timestamp": "2026-11-11T23:03:28"
+      "timestamp": "2026-11-12T01:09:30"
     },
     {
       "pool": "marapool",
       "share": 5.01,
-      "luck": 152.48,
-      "z": 1.41,
-      "blocks": 11,
-      "timestamp": "2026-11-11T23:03:28"
+      "luck": 166.34,
+      "z": 1.78,
+      "blocks": 12,
+      "timestamp": "2026-11-12T01:09:30"
     },
     {
       "pool": "luxor",
-      "share": 4.37,
-      "luck": 111.36,
-      "z": 0.28,
-      "blocks": 7,
-      "timestamp": "2026-11-11T23:03:28"
+      "share": 4.32,
+      "luck": 128.74,
+      "z": 0.72,
+      "blocks": 8,
+      "timestamp": "2026-11-12T01:09:30"
     },
     {
       "pool": "secpool",
-      "share": 4.12,
-      "luck": 101.2,
-      "z": 0.03,
+      "share": 4.07,
+      "luck": 102.44,
+      "z": 0.06,
       "blocks": 6,
-      "timestamp": "2026-11-11T23:03:28"
+      "timestamp": "2026-11-12T01:09:30"
     },
     {
       "pool": "braiinspool",
       "share": 1.74,
-      "luck": 120.0,
-      "z": 0.32,
-      "blocks": 3,
-      "timestamp": "2026-11-11T23:03:28"
+      "luck": 160.0,
+      "z": 0.95,
+      "blocks": 4,
+      "timestamp": "2026-11-12T01:09:30"
     },
     {
       "pool": "foundryusa",
-      "share": 25.89,
-      "luck": 75.1,
-      "z": -1.52,
+      "share": 25.79,
+      "luck": 75.38,
+      "z": -1.5,
       "blocks": 28,
-      "timestamp": "2026-11-10T20:18:20"
+      "timestamp": "2026-11-10T23:40:30"
     },
     {
       "pool": "antpool",
-      "share": 19.39,
-      "luck": 146.8,
-      "z": 2.47,
-      "blocks": 41,
-      "timestamp": "2026-11-10T20:18:20"
+      "share": 19.44,
+      "luck": 142.86,
+      "z": 2.27,
+      "blocks": 40,
+      "timestamp": "2026-11-10T23:40:30"
     },
     {
       "pool": "f2pool",
       "share": 16.72,
-      "luck": 87.24,
-      "z": -0.63,
-      "blocks": 21,
-      "timestamp": "2026-11-10T20:18:20"
-    },
-    {
-      "pool": "viabtc",
-      "share": 9.97,
-      "luck": 97.51,
-      "z": -0.09,
-      "blocks": 14,
-      "timestamp": "2026-11-10T20:18:20"
-    },
-    {
-      "pool": "spiderpool",
-      "share": 5.65,
-      "luck": 135.09,
-      "z": 1.0,
-      "blocks": 11,
-      "timestamp": "2026-11-10T20:18:20"
-    },
-    {
-      "pool": "marapool",
-      "share": 4.86,
-      "luck": 100.0,
-      "z": 0.0,
-      "blocks": 7,
-      "timestamp": "2026-11-10T20:18:20"
-    },
-    {
-      "pool": "oceanxyz",
-      "share": 4.76,
-      "luck": 102.08,
-      "z": 0.05,
-      "blocks": 7,
-      "timestamp": "2026-11-10T20:18:20"
-    },
-    {
-      "pool": "luxor",
-      "share": 4.51,
-      "luck": 61.54,
-      "z": -0.98,
-      "blocks": 4,
-      "timestamp": "2026-11-10T20:18:20"
-    },
-    {
-      "pool": "secpool",
-      "share": 4.51,
-      "luck": 61.54,
-      "z": -0.98,
-      "blocks": 4,
-      "timestamp": "2026-11-10T20:18:20"
-    },
-    {
-      "pool": "braiinspool",
-      "share": 1.59,
-      "luck": 262.5,
-      "z": 2.46,
-      "blocks": 6,
-      "timestamp": "2026-11-10T20:18:20"
-    },
-    {
-      "pool": "foundryusa",
-      "share": 25.5,
-      "luck": 119.84,
-      "z": 1.2,
-      "blocks": 44,
-      "timestamp": "2026-11-09T17:18:51"
-    },
-    {
-      "pool": "antpool",
-      "share": 19.79,
-      "luck": 80.7,
-      "z": -1.03,
-      "blocks": 23,
-      "timestamp": "2026-11-09T17:18:51"
-    },
-    {
-      "pool": "f2pool",
-      "share": 17.36,
-      "luck": 80.0,
-      "z": -1.0,
-      "blocks": 20,
-      "timestamp": "2026-11-09T17:18:51"
+      "luck": 112.17,
+      "z": 0.6,
+      "blocks": 27,
+      "timestamp": "2026-11-10T23:40:30"
     },
     {
       "pool": "viabtc",
@@ -1172,47 +1172,127 @@
       "luck": 105.0,
       "z": 0.19,
       "blocks": 15,
-      "timestamp": "2026-11-09T17:18:51"
+      "timestamp": "2026-11-10T23:40:30"
     },
     {
       "pool": "spiderpool",
-      "share": 5.21,
-      "luck": 146.67,
-      "z": 1.28,
-      "blocks": 11,
-      "timestamp": "2026-11-09T17:18:51"
+      "share": 5.75,
+      "luck": 120.69,
+      "z": 0.6,
+      "blocks": 10,
+      "timestamp": "2026-11-10T23:40:30"
     },
     {
       "pool": "marapool",
-      "share": 4.81,
-      "luck": 129.9,
-      "z": 0.79,
-      "blocks": 9,
-      "timestamp": "2026-11-09T17:18:51"
-    },
-    {
-      "pool": "luxor",
-      "share": 4.71,
-      "luck": 88.42,
-      "z": -0.3,
-      "blocks": 6,
-      "timestamp": "2026-11-09T17:18:51"
+      "share": 4.96,
+      "luck": 70.0,
+      "z": -0.8,
+      "blocks": 5,
+      "timestamp": "2026-11-10T23:40:30"
     },
     {
       "pool": "oceanxyz",
-      "share": 4.51,
-      "luck": 123.08,
-      "z": 0.59,
-      "blocks": 8,
-      "timestamp": "2026-11-09T17:18:51"
+      "share": 4.81,
+      "luck": 86.6,
+      "z": -0.35,
+      "blocks": 6,
+      "timestamp": "2026-11-10T23:40:30"
+    },
+    {
+      "pool": "luxor",
+      "share": 4.46,
+      "luck": 62.22,
+      "z": -0.96,
+      "blocks": 4,
+      "timestamp": "2026-11-10T23:40:30"
     },
     {
       "pool": "secpool",
-      "share": 4.37,
-      "luck": 95.45,
+      "share": 4.46,
+      "luck": 62.22,
+      "z": -0.96,
+      "blocks": 4,
+      "timestamp": "2026-11-10T23:40:30"
+    },
+    {
+      "pool": "braiinspool",
+      "share": 1.59,
+      "luck": 218.75,
+      "z": 1.8,
+      "blocks": 5,
+      "timestamp": "2026-11-10T23:40:30"
+    },
+    {
+      "pool": "foundryusa",
+      "share": 25.3,
+      "luck": 120.78,
+      "z": 1.25,
+      "blocks": 44,
+      "timestamp": "2026-11-09T20:25:26"
+    },
+    {
+      "pool": "antpool",
+      "share": 19.59,
+      "luck": 92.15,
+      "z": -0.42,
+      "blocks": 26,
+      "timestamp": "2026-11-09T20:25:26"
+    },
+    {
+      "pool": "f2pool",
+      "share": 17.41,
+      "luck": 71.79,
+      "z": -1.41,
+      "blocks": 18,
+      "timestamp": "2026-11-09T20:25:26"
+    },
+    {
+      "pool": "viabtc",
+      "share": 10.02,
+      "luck": 97.03,
       "z": -0.11,
+      "blocks": 14,
+      "timestamp": "2026-11-09T20:25:26"
+    },
+    {
+      "pool": "spiderpool",
+      "share": 5.26,
+      "luck": 171.7,
+      "z": 1.97,
+      "blocks": 13,
+      "timestamp": "2026-11-09T20:25:26"
+    },
+    {
+      "pool": "marapool",
+      "share": 4.91,
+      "luck": 127.27,
+      "z": 0.73,
+      "blocks": 9,
+      "timestamp": "2026-11-09T20:25:26"
+    },
+    {
+      "pool": "luxor",
+      "share": 4.81,
+      "luck": 57.73,
+      "z": -1.11,
+      "blocks": 4,
+      "timestamp": "2026-11-09T20:25:26"
+    },
+    {
+      "pool": "oceanxyz",
+      "share": 4.56,
+      "luck": 106.52,
+      "z": 0.17,
+      "blocks": 7,
+      "timestamp": "2026-11-09T20:25:26"
+    },
+    {
+      "pool": "secpool",
+      "share": 4.32,
+      "luck": 96.55,
+      "z": -0.09,
       "blocks": 6,
-      "timestamp": "2026-11-09T17:18:51"
+      "timestamp": "2026-11-09T20:25:26"
     },
     {
       "pool": "braiinspool",
@@ -1220,87 +1300,87 @@
       "luck": 42.42,
       "z": -0.88,
       "blocks": 1,
-      "timestamp": "2026-11-09T17:18:51"
+      "timestamp": "2026-11-09T20:25:26"
     },
     {
       "pool": "foundryusa",
-      "share": 24.95,
-      "luck": 119.68,
-      "z": 1.18,
-      "blocks": 43,
-      "timestamp": "2026-11-08T11:15:30"
+      "share": 25.1,
+      "luck": 116.21,
+      "z": 0.97,
+      "blocks": 42,
+      "timestamp": "2026-11-08T13:42:38"
     },
     {
       "pool": "antpool",
-      "share": 19.99,
-      "luck": 83.37,
-      "z": -0.89,
-      "blocks": 24,
-      "timestamp": "2026-11-08T11:15:30"
+      "share": 19.84,
+      "luck": 70.0,
+      "z": -1.6,
+      "blocks": 20,
+      "timestamp": "2026-11-08T13:42:38"
     },
     {
       "pool": "f2pool",
-      "share": 17.21,
-      "luck": 100.86,
-      "z": 0.04,
-      "blocks": 25,
-      "timestamp": "2026-11-08T11:15:30"
+      "share": 17.16,
+      "luck": 109.25,
+      "z": 0.46,
+      "blocks": 27,
+      "timestamp": "2026-11-08T13:42:38"
     },
     {
       "pool": "viabtc",
-      "share": 10.22,
-      "luck": 88.35,
-      "z": -0.45,
-      "blocks": 13,
-      "timestamp": "2026-11-08T11:15:30"
+      "share": 10.27,
+      "luck": 94.69,
+      "z": -0.2,
+      "blocks": 14,
+      "timestamp": "2026-11-08T13:42:38"
     },
     {
       "pool": "spiderpool",
-      "share": 5.31,
-      "luck": 104.67,
-      "z": 0.13,
-      "blocks": 8,
-      "timestamp": "2026-11-08T11:15:30"
+      "share": 5.26,
+      "luck": 118.87,
+      "z": 0.52,
+      "blocks": 9,
+      "timestamp": "2026-11-08T13:42:38"
     },
     {
       "pool": "luxor",
-      "share": 5.16,
-      "luck": 26.92,
-      "z": -1.99,
-      "blocks": 2,
-      "timestamp": "2026-11-08T11:15:30"
+      "share": 5.06,
+      "luck": 41.18,
+      "z": -1.59,
+      "blocks": 3,
+      "timestamp": "2026-11-08T13:42:38"
     },
     {
       "pool": "marapool",
-      "share": 4.76,
-      "luck": 131.25,
-      "z": 0.82,
-      "blocks": 9,
-      "timestamp": "2026-11-08T11:15:30"
+      "share": 4.86,
+      "luck": 114.29,
+      "z": 0.38,
+      "blocks": 8,
+      "timestamp": "2026-11-08T13:42:38"
     },
     {
       "pool": "oceanxyz",
       "share": 4.41,
-      "luck": 94.38,
-      "z": -0.14,
-      "blocks": 6,
-      "timestamp": "2026-11-08T11:15:30"
+      "luck": 125.84,
+      "z": 0.65,
+      "blocks": 8,
+      "timestamp": "2026-11-08T13:42:38"
     },
     {
       "pool": "secpool",
-      "share": 4.02,
-      "luck": 172.84,
-      "z": 1.75,
-      "blocks": 10,
-      "timestamp": "2026-11-08T11:15:30"
+      "share": 4.12,
+      "luck": 134.94,
+      "z": 0.85,
+      "blocks": 8,
+      "timestamp": "2026-11-08T13:42:38"
     },
     {
       "pool": "braiinspool",
-      "share": 1.59,
-      "luck": 131.25,
-      "z": 0.47,
-      "blocks": 3,
-      "timestamp": "2026-11-08T11:15:30"
+      "share": 1.54,
+      "luck": 180.65,
+      "z": 1.2,
+      "blocks": 4,
+      "timestamp": "2026-11-08T13:42:38"
     },
     {
       "pool": "cloverpool",
@@ -1308,95 +1388,7 @@
       "luck": 0.0,
       "z": -1.28,
       "blocks": 0,
-      "timestamp": "2026-11-08T11:15:30"
-    },
-    {
-      "pool": "foundryusa",
-      "share": 25.55,
-      "luck": 89.71,
-      "z": -0.62,
-      "blocks": 33,
-      "timestamp": "2026-11-07T08:32:09"
-    },
-    {
-      "pool": "antpool",
-      "share": 19.94,
-      "luck": 107.96,
-      "z": 0.43,
-      "blocks": 31,
-      "timestamp": "2026-11-07T08:32:09"
-    },
-    {
-      "pool": "f2pool",
-      "share": 17.11,
-      "luck": 85.22,
-      "z": -0.73,
-      "blocks": 21,
-      "timestamp": "2026-11-07T08:32:09"
-    },
-    {
-      "pool": "viabtc",
-      "share": 10.22,
-      "luck": 95.15,
-      "z": -0.19,
-      "blocks": 14,
-      "timestamp": "2026-11-07T08:32:09"
-    },
-    {
-      "pool": "luxor",
-      "share": 5.26,
-      "luck": 92.45,
-      "z": -0.21,
-      "blocks": 7,
-      "timestamp": "2026-11-07T08:32:09"
-    },
-    {
-      "pool": "marapool",
-      "share": 4.86,
-      "luck": 85.71,
-      "z": -0.38,
-      "blocks": 6,
-      "timestamp": "2026-11-07T08:32:09"
-    },
-    {
-      "pool": "spiderpool",
-      "share": 4.86,
-      "luck": 157.14,
-      "z": 1.51,
-      "blocks": 11,
-      "timestamp": "2026-11-07T08:32:09"
-    },
-    {
-      "pool": "oceanxyz",
-      "share": 4.41,
-      "luck": 110.11,
-      "z": 0.25,
-      "blocks": 7,
-      "timestamp": "2026-11-07T08:32:09"
-    },
-    {
-      "pool": "secpool",
-      "share": 3.77,
-      "luck": 147.37,
-      "z": 1.1,
-      "blocks": 8,
-      "timestamp": "2026-11-07T08:32:09"
-    },
-    {
-      "pool": "braiinspool",
-      "share": 1.49,
-      "luck": 140.0,
-      "z": 0.59,
-      "blocks": 3,
-      "timestamp": "2026-11-07T08:32:09"
-    },
-    {
-      "pool": "cloverpool",
-      "share": 1.14,
-      "luck": 121.74,
-      "z": 0.28,
-      "blocks": 2,
-      "timestamp": "2026-11-07T08:32:09"
+      "timestamp": "2026-11-08T13:42:38"
     }
   ],
   "kpi3_entropy": [
@@ -3197,8 +3189,8 @@
     {
       "date": "2026-11-15",
       "pool": "foundryusa",
-      "cv": 0.968,
-      "blocks": 105
+      "cv": 1.026,
+      "blocks": 147
     },
     {
       "date": "2021-01-02",
@@ -5039,8 +5031,8 @@
     {
       "date": "2026-11-14",
       "pool": "antpool",
-      "cv": 1.015,
-      "blocks": 95
+      "cv": 1.032,
+      "blocks": 129
     },
     {
       "date": "2021-01-02",
@@ -6881,8 +6873,8 @@
     {
       "date": "2026-11-14",
       "pool": "f2pool",
-      "cv": 1.083,
-      "blocks": 89
+      "cv": 1.047,
+      "blocks": 127
     },
     {
       "date": "2021-01-02",
@@ -8723,8 +8715,8 @@
     {
       "date": "2026-11-14",
       "pool": "viabtc",
-      "cv": 0.992,
-      "blocks": 36
+      "cv": 1.021,
+      "blocks": 51
     },
     {
       "date": "2021-01-02",
@@ -13091,8 +13083,8 @@
     {
       "date": "2026-11-12",
       "pool": "marapool",
-      "cv": 0.807,
-      "blocks": 38
+      "cv": 0.811,
+      "blocks": 44
     },
     {
       "date": "2021-01-02",
@@ -15221,8 +15213,8 @@
     {
       "date": "2026-11-16",
       "pool": "spiderpool",
-      "cv": 1.149,
-      "blocks": 18
+      "cv": 1.351,
+      "blocks": 24
     },
     {
       "date": "2021-01-02",
@@ -16965,6 +16957,12 @@
       "blocks": 19
     },
     {
+      "date": "2026-11-14",
+      "pool": "braiinspool",
+      "cv": 0.941,
+      "blocks": 12
+    },
+    {
       "date": "2021-09-24",
       "pool": "luxor",
       "cv": 0.993,
@@ -18515,8 +18513,8 @@
     {
       "date": "2026-11-13",
       "pool": "luxor",
-      "cv": 1.154,
-      "blocks": 28
+      "cv": 1.148,
+      "blocks": 29
     },
     {
       "date": "2023-12-24",
@@ -19417,6 +19415,12 @@
       "pool": "secpool",
       "cv": 1.183,
       "blocks": 37
+    },
+    {
+      "date": "2026-11-15",
+      "pool": "secpool",
+      "cv": 0.731,
+      "blocks": 13
     },
     {
       "date": "2021-01-10",
@@ -20808,14 +20812,14 @@
   "kpi4_sync": [
     {
       "pool": "foundryusa",
-      "avg_strike_delta": 597.65,
+      "avg_strike_delta": 597.55,
       "median_strike_delta": 418.0,
       "buckets": {
         "sub_30s": 787,
-        "sub_60s": 1083,
-        "sub_2m": 1867,
-        "sub_5m": 4537,
-        "slow": 12943
+        "sub_60s": 1085,
+        "sub_2m": 1869,
+        "sub_5m": 4538,
+        "slow": 12950
       },
       "buckets_empty": {
         "sub_30s": 0,
@@ -20824,9 +20828,9 @@
         "sub_5m": 0,
         "slow": 0
       },
-      "total_consecutive": 21217,
-      "total_blocks": 76594,
-      "expected_consecutive": 21290.51,
+      "total_consecutive": 21229,
+      "total_blocks": 76636,
+      "expected_consecutive": 21301.52,
       "monthly_lift": [
         {
           "month": "2021-01",
@@ -21390,17 +21394,17 @@
         },
         {
           "month": "2026-11",
-          "pool_blocks": 541,
-          "monthly_share": 25.0,
-          "consec_pairs": 128,
-          "expected_consec": 135.25,
-          "lift": 0.946
+          "pool_blocks": 583,
+          "monthly_share": 25.09,
+          "consec_pairs": 140,
+          "expected_consec": 146.25,
+          "lift": 0.957
         }
       ],
       "consec_timing": {
         "median_delta_sec": 418.0,
         "pct_sub30s": 3.71,
-        "pct_sub60s": 8.81,
+        "pct_sub60s": 8.82,
         "fast_flag": false
       },
       "quarterly_lift": [
@@ -21590,24 +21594,24 @@
         },
         {
           "quarter": "2026Q4",
-          "pool_blocks": 1764,
-          "pool_consecutive": 448,
-          "window_share": 0.258,
-          "expected_consec": 455.13,
-          "lift": 0.984
+          "pool_blocks": 1806,
+          "pool_consecutive": 460,
+          "window_share": 0.2581,
+          "expected_consec": 466.15,
+          "lift": 0.987
         }
       ]
     },
     {
       "pool": "antpool",
-      "avg_strike_delta": 582.91,
+      "avg_strike_delta": 582.82,
       "median_strike_delta": 399.0,
       "buckets": {
         "sub_30s": 544,
         "sub_60s": 532,
-        "sub_2m": 1083,
-        "sub_5m": 2635,
-        "slow": 6977
+        "sub_2m": 1084,
+        "sub_5m": 2637,
+        "slow": 6980
       },
       "buckets_empty": {
         "sub_30s": 34,
@@ -21616,9 +21620,9 @@
         "sub_5m": 0,
         "slow": 3
       },
-      "total_consecutive": 11771,
-      "total_blocks": 59573,
-      "expected_consecutive": 11883.68,
+      "total_consecutive": 11777,
+      "total_blocks": 59607,
+      "expected_consecutive": 11890.86,
       "monthly_lift": [
         {
           "month": "2021-01",
@@ -22182,11 +22186,11 @@
         },
         {
           "month": "2026-11",
-          "pool_blocks": 422,
-          "monthly_share": 19.5,
-          "consec_pairs": 76,
-          "expected_consec": 82.29,
-          "lift": 0.924
+          "pool_blocks": 456,
+          "monthly_share": 19.62,
+          "consec_pairs": 82,
+          "expected_consec": 89.47,
+          "lift": 0.916
         }
       ],
       "consec_timing": {
@@ -22382,24 +22386,24 @@
         },
         {
           "quarter": "2026Q4",
-          "pool_blocks": 1384,
-          "pool_consecutive": 274,
-          "window_share": 0.2024,
-          "expected_consec": 280.16,
-          "lift": 0.978
+          "pool_blocks": 1418,
+          "pool_consecutive": 280,
+          "window_share": 0.2027,
+          "expected_consec": 287.37,
+          "lift": 0.974
         }
       ]
     },
     {
       "pool": "f2pool",
-      "avg_strike_delta": 592.44,
-      "median_strike_delta": 403.5,
+      "avg_strike_delta": 592.47,
+      "median_strike_delta": 404.0,
       "buckets": {
-        "sub_30s": 211,
+        "sub_30s": 212,
         "sub_60s": 303,
         "sub_2m": 509,
-        "sub_5m": 1285,
-        "slow": 3404
+        "sub_5m": 1286,
+        "slow": 3410
       },
       "buckets_empty": {
         "sub_30s": 14,
@@ -22408,9 +22412,9 @@
         "sub_5m": 0,
         "slow": 2
       },
-      "total_consecutive": 5712,
-      "total_blocks": 41528,
-      "expected_consecutive": 5702.91,
+      "total_consecutive": 5720,
+      "total_blocks": 41566,
+      "expected_consecutive": 5711.35,
       "monthly_lift": [
         {
           "month": "2021-01",
@@ -22974,16 +22978,16 @@
         },
         {
           "month": "2026-11",
-          "pool_blocks": 379,
-          "monthly_share": 17.51,
-          "consec_pairs": 68,
-          "expected_consec": 66.38,
-          "lift": 1.024
+          "pool_blocks": 417,
+          "monthly_share": 17.94,
+          "consec_pairs": 76,
+          "expected_consec": 74.82,
+          "lift": 1.016
         }
       ],
       "consec_timing": {
-        "median_delta_sec": 403.5,
-        "pct_sub30s": 3.69,
+        "median_delta_sec": 404.0,
+        "pct_sub30s": 3.71,
         "pct_sub60s": 9.0,
         "fast_flag": false
       },
@@ -23174,11 +23178,11 @@
         },
         {
           "quarter": "2026Q4",
-          "pool_blocks": 1151,
-          "pool_consecutive": 197,
-          "window_share": 0.1683,
-          "expected_consec": 193.77,
-          "lift": 1.017
+          "pool_blocks": 1189,
+          "pool_consecutive": 205,
+          "window_share": 0.1699,
+          "expected_consec": 202.05,
+          "lift": 1.015
         }
       ]
     },
@@ -23201,8 +23205,8 @@
         "slow": 0
       },
       "total_consecutive": 3671,
-      "total_blocks": 34132,
-      "expected_consecutive": 3851.6,
+      "total_blocks": 34147,
+      "expected_consecutive": 3853.0,
       "monthly_lift": [
         {
           "month": "2021-01",
@@ -23766,11 +23770,11 @@
         },
         {
           "month": "2026-11",
-          "pool_blocks": 210,
-          "monthly_share": 9.7,
+          "pool_blocks": 225,
+          "monthly_share": 9.68,
           "consec_pairs": 16,
-          "expected_consec": 20.38,
-          "lift": 0.785
+          "expected_consec": 21.78,
+          "lift": 0.734
         }
       ],
       "consec_timing": {
@@ -23966,11 +23970,11 @@
         },
         {
           "quarter": "2026Q4",
-          "pool_blocks": 665,
+          "pool_blocks": 680,
           "pool_consecutive": 71,
-          "window_share": 0.0973,
-          "expected_consec": 64.68,
-          "lift": 1.098
+          "window_share": 0.0972,
+          "expected_consec": 66.09,
+          "lift": 1.074
         }
       ]
     },
@@ -24752,7 +24756,7 @@
           "quarter": "2026Q4",
           "pool_blocks": 38,
           "pool_consecutive": 0,
-          "window_share": 0.0056,
+          "window_share": 0.0054,
           "expected_consec": 0.21,
           "lift": 0.0
         }
@@ -25497,8 +25501,8 @@
         "slow": 0
       },
       "total_consecutive": 411,
-      "total_blocks": 9864,
-      "expected_consecutive": 414.72,
+      "total_blocks": 9870,
+      "expected_consecutive": 414.89,
       "monthly_lift": [
         {
           "month": "2021-05",
@@ -26022,11 +26026,11 @@
         },
         {
           "month": "2026-11",
-          "pool_blocks": 120,
-          "monthly_share": 5.55,
+          "pool_blocks": 126,
+          "monthly_share": 5.42,
           "consec_pairs": 4,
-          "expected_consec": 6.65,
-          "lift": 0.601
+          "expected_consec": 6.83,
+          "lift": 0.586
         }
       ],
       "consec_timing": {
@@ -26214,11 +26218,11 @@
         },
         {
           "quarter": "2026Q4",
-          "pool_blocks": 348,
+          "pool_blocks": 354,
           "pool_consecutive": 14,
-          "window_share": 0.0509,
-          "expected_consec": 17.71,
-          "lift": 0.79
+          "window_share": 0.0506,
+          "expected_consec": 17.91,
+          "lift": 0.782
         }
       ]
     },
@@ -26241,8 +26245,8 @@
         "slow": 0
       },
       "total_consecutive": 621,
-      "total_blocks": 9455,
-      "expected_consecutive": 611.98,
+      "total_blocks": 9457,
+      "expected_consecutive": 612.01,
       "monthly_lift": [
         {
           "month": "2021-01",
@@ -26806,10 +26810,10 @@
         },
         {
           "month": "2026-11",
-          "pool_blocks": 17,
-          "monthly_share": 0.79,
+          "pool_blocks": 19,
+          "monthly_share": 0.82,
           "consec_pairs": 0,
-          "expected_consec": 0.13,
+          "expected_consec": 0.16,
           "lift": 0.0
         }
       ],
@@ -27006,11 +27010,11 @@
         },
         {
           "quarter": "2026Q4",
-          "pool_blocks": 62,
+          "pool_blocks": 64,
           "pool_consecutive": 1,
           "window_share": 0.0091,
-          "expected_consec": 0.56,
-          "lift": 1.779
+          "expected_consec": 0.59,
+          "lift": 1.708
         }
       ]
     },
@@ -27033,8 +27037,8 @@
         "slow": 0
       },
       "total_consecutive": 602,
-      "total_blocks": 8827,
-      "expected_consecutive": 634.98,
+      "total_blocks": 8833,
+      "expected_consecutive": 635.05,
       "monthly_lift": [
         {
           "month": "2021-01",
@@ -27350,11 +27354,11 @@
         },
         {
           "month": "2026-11",
-          "pool_blocks": 150,
-          "monthly_share": 6.93,
+          "pool_blocks": 156,
+          "monthly_share": 6.71,
           "consec_pairs": 15,
-          "expected_consec": 10.4,
-          "lift": 1.443
+          "expected_consec": 10.47,
+          "lift": 1.432
         }
       ],
       "consec_timing": {
@@ -27478,11 +27482,11 @@
         },
         {
           "quarter": "2026Q4",
-          "pool_blocks": 418,
+          "pool_blocks": 424,
           "pool_consecutive": 27,
-          "window_share": 0.0611,
-          "expected_consec": 25.56,
-          "lift": 1.057
+          "window_share": 0.0606,
+          "expected_consec": 25.69,
+          "lift": 1.051
         }
       ]
     },
@@ -27505,8 +27509,8 @@
         "slow": 0
       },
       "total_consecutive": 316,
-      "total_blocks": 8252,
-      "expected_consecutive": 304.43,
+      "total_blocks": 8255,
+      "expected_consecutive": 304.48,
       "monthly_lift": [
         {
           "month": "2021-01",
@@ -28070,10 +28074,10 @@
         },
         {
           "month": "2026-11",
-          "pool_blocks": 40,
+          "pool_blocks": 43,
           "monthly_share": 1.85,
           "consec_pairs": 0,
-          "expected_consec": 0.74,
+          "expected_consec": 0.8,
           "lift": 0.0
         }
       ],
@@ -28270,11 +28274,11 @@
         },
         {
           "quarter": "2026Q4",
-          "pool_blocks": 113,
+          "pool_blocks": 116,
           "pool_consecutive": 1,
-          "window_share": 0.0165,
-          "expected_consec": 1.87,
-          "lift": 0.535
+          "window_share": 0.0166,
+          "expected_consec": 1.92,
+          "lift": 0.52
         }
       ]
     },
@@ -28297,8 +28301,8 @@
         "slow": 0
       },
       "total_consecutive": 245,
-      "total_blocks": 7364,
-      "expected_consecutive": 217.41,
+      "total_blocks": 7365,
+      "expected_consecutive": 217.19,
       "monthly_lift": [
         {
           "month": "2021-09",
@@ -28798,11 +28802,11 @@
         },
         {
           "month": "2026-11",
-          "pool_blocks": 97,
-          "monthly_share": 4.48,
+          "pool_blocks": 98,
+          "monthly_share": 4.22,
           "consec_pairs": 3,
-          "expected_consec": 4.35,
-          "lift": 0.69
+          "expected_consec": 4.13,
+          "lift": 0.726
         }
       ],
       "consec_timing": {
@@ -28982,11 +28986,11 @@
         },
         {
           "quarter": "2026Q4",
-          "pool_blocks": 306,
+          "pool_blocks": 307,
           "pool_consecutive": 16,
-          "window_share": 0.0448,
-          "expected_consec": 13.7,
-          "lift": 1.168
+          "window_share": 0.0439,
+          "expected_consec": 13.47,
+          "lift": 1.188
         }
       ]
     },
@@ -29009,8 +29013,8 @@
         "slow": 0
       },
       "total_consecutive": 205,
-      "total_blocks": 5005,
-      "expected_consecutive": 180.96,
+      "total_blocks": 5011,
+      "expected_consecutive": 181.18,
       "monthly_lift": [
         {
           "month": "2023-12",
@@ -29294,11 +29298,11 @@
         },
         {
           "month": "2026-11",
-          "pool_blocks": 81,
+          "pool_blocks": 87,
           "monthly_share": 3.74,
           "consec_pairs": 5,
-          "expected_consec": 3.03,
-          "lift": 1.649
+          "expected_consec": 3.26,
+          "lift": 1.535
         }
       ],
       "consec_timing": {
@@ -29406,11 +29410,11 @@
         },
         {
           "quarter": "2026Q4",
-          "pool_blocks": 277,
+          "pool_blocks": 283,
           "pool_consecutive": 16,
-          "window_share": 0.0405,
-          "expected_consec": 11.22,
-          "lift": 1.426
+          "window_share": 0.0404,
+          "expected_consec": 11.45,
+          "lift": 1.398
         }
       ]
     },
@@ -30171,10 +30175,10 @@
     "leaderboard": [
       {
         "pool": "spiderpool",
-        "total_all": 8827,
+        "total_all": 8833,
         "empty_all": 126,
         "ratio_all": 1.43,
-        "total_30d": 266,
+        "total_30d": 256,
         "empty_30d": 0,
         "ratio_30d": 0.0
       },
@@ -30207,10 +30211,10 @@
       },
       {
         "pool": "secpool",
-        "total_all": 5005,
+        "total_all": 5011,
         "empty_all": 26,
         "ratio_all": 0.52,
-        "total_30d": 170,
+        "total_30d": 171,
         "empty_30d": 0,
         "ratio_30d": 0.0
       },
@@ -30219,18 +30223,18 @@
         "total_all": 19810,
         "empty_all": 85,
         "ratio_all": 0.43,
-        "total_30d": 20,
+        "total_30d": 18,
         "empty_30d": 0,
         "ratio_30d": 0.0
       },
       {
         "pool": "oceanxyz",
-        "total_all": 1758,
+        "total_all": 1764,
         "empty_all": 7,
         "ratio_all": 0.4,
-        "total_30d": 162,
+        "total_30d": 160,
         "empty_30d": 2,
-        "ratio_30d": 1.23
+        "ratio_30d": 1.25
       },
       {
         "pool": "btctop",
@@ -30243,10 +30247,10 @@
       },
       {
         "pool": "antpool",
-        "total_all": 59573,
+        "total_all": 59607,
         "empty_all": 208,
         "ratio_all": 0.35,
-        "total_30d": 846,
+        "total_30d": 851,
         "empty_30d": 3,
         "ratio_30d": 0.35
       },
@@ -30255,22 +30259,22 @@
         "total_all": 12738,
         "empty_all": 43,
         "ratio_all": 0.34,
-        "total_30d": 10,
+        "total_30d": 9,
         "empty_30d": 0,
         "ratio_30d": 0.0
       },
       {
         "pool": "cloverpool",
-        "total_all": 9455,
+        "total_all": 9457,
         "empty_all": 31,
         "ratio_all": 0.33,
-        "total_30d": 37,
+        "total_30d": 38,
         "empty_30d": 0,
         "ratio_30d": 0.0
       },
       {
         "pool": "braiinspool",
-        "total_all": 8252,
+        "total_all": 8255,
         "empty_all": 27,
         "ratio_all": 0.33,
         "total_30d": 77,
@@ -30279,19 +30283,19 @@
       },
       {
         "pool": "viabtc",
-        "total_all": 34132,
+        "total_all": 34147,
         "empty_all": 108,
         "ratio_all": 0.32,
-        "total_30d": 405,
+        "total_30d": 408,
         "empty_30d": 2,
         "ratio_30d": 0.49
       },
       {
         "pool": "f2pool",
-        "total_all": 41528,
+        "total_all": 41566,
         "empty_all": 128,
         "ratio_all": 0.31,
-        "total_30d": 708,
+        "total_30d": 724,
         "empty_30d": 0,
         "ratio_30d": 0.0
       },
@@ -30306,10 +30310,10 @@
       },
       {
         "pool": "luxor",
-        "total_all": 7364,
+        "total_all": 7365,
         "empty_all": 20,
         "ratio_all": 0.27,
-        "total_30d": 203,
+        "total_30d": 195,
         "empty_30d": 0,
         "ratio_30d": 0.0
       },
@@ -30351,10 +30355,10 @@
       },
       {
         "pool": "marapool",
-        "total_all": 9864,
+        "total_all": 9870,
         "empty_all": 7,
         "ratio_all": 0.07,
-        "total_30d": 226,
+        "total_30d": 220,
         "empty_30d": 0,
         "ratio_30d": 0.0
       },
@@ -30396,10 +30400,10 @@
       },
       {
         "pool": "foundryusa",
-        "total_all": 76594,
+        "total_all": 76636,
         "empty_all": 0,
         "ratio_all": 0.0,
-        "total_30d": 1115,
+        "total_30d": 1112,
         "empty_30d": 0,
         "ratio_30d": 0.0
       },
@@ -30504,10 +30508,10 @@
       },
       {
         "pool": "uuidminer",
-        "total_all": 332,
+        "total_all": 333,
         "empty_all": 0,
         "ratio_all": 0.0,
-        "total_30d": 1,
+        "total_30d": 2,
         "empty_30d": 0,
         "ratio_30d": 0.0
       },
@@ -33210,9 +33214,9 @@
       {
         "month": "2026-11",
         "pool_name": "antpool",
-        "total": 422,
+        "total": 456,
         "empty": 2,
-        "ratio": 0.47
+        "ratio": 0.44
       },
       {
         "month": "2026-11",
@@ -33224,9 +33228,9 @@
       {
         "month": "2026-11",
         "pool_name": "oceanxyz",
-        "total": 89,
+        "total": 95,
         "empty": 1,
-        "ratio": 1.12
+        "ratio": 1.05
       },
       {
         "month": "2026-11",
@@ -33238,14 +33242,14 @@
       {
         "month": "2026-11",
         "pool_name": "secpool",
-        "total": 81,
+        "total": 87,
         "empty": 0,
         "ratio": 0.0
       },
       {
         "month": "2026-11",
         "pool_name": "spiderpool",
-        "total": 150,
+        "total": 156,
         "empty": 0,
         "ratio": 0.0
       }
@@ -33267,14 +33271,14 @@
     {
       "pool": "uuidminer",
       "avg_density": 0.4299,
-      "avg_tx_count": 3230.17,
-      "avg_bytes": 1615221.12
+      "avg_tx_count": 3228.68,
+      "avg_bytes": 1615377.78
     },
     {
       "pool": "marapool",
       "avg_density": 0.4246,
-      "avg_tx_count": 3207.12,
-      "avg_bytes": 1615345.66
+      "avg_tx_count": 3208.28,
+      "avg_bytes": 1615359.77
     },
     {
       "pool": "nicehash",
@@ -33285,14 +33289,14 @@
     {
       "pool": "secpool",
       "avg_density": 0.4233,
-      "avg_tx_count": 3642.23,
-      "avg_bytes": 1664046.51
+      "avg_tx_count": 3643.16,
+      "avg_bytes": 1663983.41
     },
     {
       "pool": "spiderpool",
       "avg_density": 0.4202,
-      "avg_tx_count": 3747.26,
-      "avg_bytes": 1644310.29
+      "avg_tx_count": 3748.5,
+      "avg_bytes": 1644275.2
     },
     {
       "pool": "whitepool",
@@ -33303,14 +33307,14 @@
     {
       "pool": "foundryusa",
       "avg_density": 0.4168,
-      "avg_tx_count": 3069.95,
-      "avg_bytes": 1576721.89
+      "avg_tx_count": 3070.78,
+      "avg_bytes": 1576736.29
     },
     {
       "pool": "luxor",
       "avg_density": 0.4165,
-      "avg_tx_count": 3121.51,
-      "avg_bytes": 1570524.19
+      "avg_tx_count": 3121.87,
+      "avg_bytes": 1570528.71
     },
     {
       "pool": "ultimuspool",
@@ -33333,8 +33337,8 @@
     {
       "pool": "antpool",
       "avg_density": 0.4095,
-      "avg_tx_count": 2993.34,
-      "avg_bytes": 1541548.94
+      "avg_tx_count": 2994.51,
+      "avg_bytes": 1541519.07
     },
     {
       "pool": "kucoinpool",
@@ -33356,9 +33360,9 @@
     },
     {
       "pool": "oceanxyz",
-      "avg_density": 0.4035,
-      "avg_tx_count": 2509.02,
-      "avg_bytes": 1195529.86
+      "avg_density": 0.4034,
+      "avg_tx_count": 2509.58,
+      "avg_bytes": 1194683.69
     },
     {
       "pool": "sbicrypto",
@@ -33381,14 +33385,14 @@
     {
       "pool": "viabtc",
       "avg_density": 0.4005,
-      "avg_tx_count": 2660.63,
-      "avg_bytes": 1412298.6
+      "avg_tx_count": 2661.14,
+      "avg_bytes": 1412324.63
     },
     {
       "pool": "f2pool",
       "avg_density": 0.399,
-      "avg_tx_count": 2672.82,
-      "avg_bytes": 1427599.02
+      "avg_tx_count": 2674.28,
+      "avg_bytes": 1427743.52
     },
     {
       "pool": "binancepool",
@@ -33399,14 +33403,14 @@
     {
       "pool": "braiinspool",
       "avg_density": 0.3921,
-      "avg_tx_count": 2421.77,
-      "avg_bytes": 1383920.12
+      "avg_tx_count": 2423.25,
+      "avg_bytes": 1384004.71
     },
     {
       "pool": "cloverpool",
       "avg_density": 0.3767,
-      "avg_tx_count": 2129.12,
-      "avg_bytes": 1309097.49
+      "avg_tx_count": 2129.51,
+      "avg_bytes": 1309012.2
     },
     {
       "pool": "poolin",
@@ -33477,31 +33481,6 @@
   ],
   "kpi7_bip110": {
     "signaling_trend": [
-      {
-        "day": "2026-05-22",
-        "total_blocks": 156,
-        "pools_signaling": {
-          "oceanxyz": 1
-        },
-        "pools_total": {
-          "antpool": 30,
-          "binancepool": 2,
-          "braiinspool": 2,
-          "f2pool": 15,
-          "foundryusa": 53,
-          "luxor": 2,
-          "marapool": 10,
-          "oceanxyz": 8,
-          "sbicrypto": 2,
-          "secpool": 5,
-          "spiderpool": 12,
-          "ultimuspool": 1,
-          "uuidminer": 1,
-          "viabtc": 11,
-          "whitepool": 2
-        },
-        "global_rolling": 0.1
-      },
       {
         "day": "2026-05-23",
         "total_blocks": 164,
@@ -37395,1009 +37374,40 @@
       },
       {
         "day": "2026-11-17",
-        "total_blocks": 9,
+        "total_blocks": 149,
         "pools_signaling": {},
         "pools_total": {
-          "antpool": 2,
-          "foundryusa": 4,
-          "marapool": 1,
-          "spiderpool": 1,
-          "viabtc": 1
+          "antpool": 32,
+          "braiinspool": 3,
+          "cloverpool": 2,
+          "f2pool": 36,
+          "foundryusa": 39,
+          "luxor": 1,
+          "marapool": 7,
+          "oceanxyz": 4,
+          "secpool": 4,
+          "spiderpool": 7,
+          "uuidminer": 1,
+          "viabtc": 13
+        },
+        "global_rolling": 0.0
+      },
+      {
+        "day": "2026-11-18",
+        "total_blocks": 20,
+        "pools_signaling": {},
+        "pools_total": {
+          "antpool": 4,
+          "f2pool": 2,
+          "foundryusa": 7,
+          "oceanxyz": 2,
+          "secpool": 2,
+          "viabtc": 3
         },
         "global_rolling": 0.0
       }
     ],
     "efficiency_scatter": [
-      {
-        "block_height": 971932,
-        "tx_count": 3685,
-        "bytes_total": 1614421,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 971933,
-        "tx_count": 1424,
-        "bytes_total": 1271785,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971934,
-        "tx_count": 6162,
-        "bytes_total": 1586617,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971935,
-        "tx_count": 6460,
-        "bytes_total": 1520566,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971936,
-        "tx_count": 2805,
-        "bytes_total": 1427958,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971937,
-        "tx_count": 6278,
-        "bytes_total": 1581439,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971938,
-        "tx_count": 2904,
-        "bytes_total": 1495992,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 971939,
-        "tx_count": 3912,
-        "bytes_total": 1546443,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 971940,
-        "tx_count": 1271,
-        "bytes_total": 633786,
-        "pool_name": "oceanxyz"
-      },
-      {
-        "block_height": 971941,
-        "tx_count": 4864,
-        "bytes_total": 1594113,
-        "pool_name": "viabtc"
-      },
-      {
-        "block_height": 971942,
-        "tx_count": 6954,
-        "bytes_total": 1455902,
-        "pool_name": "viabtc"
-      },
-      {
-        "block_height": 971943,
-        "tx_count": 6487,
-        "bytes_total": 1499729,
-        "pool_name": "viabtc"
-      },
-      {
-        "block_height": 971944,
-        "tx_count": 3499,
-        "bytes_total": 1494002,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971945,
-        "tx_count": 3988,
-        "bytes_total": 1671221,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971946,
-        "tx_count": 4235,
-        "bytes_total": 1573600,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 971947,
-        "tx_count": 7187,
-        "bytes_total": 1460349,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 971948,
-        "tx_count": 6753,
-        "bytes_total": 1585445,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971949,
-        "tx_count": 3333,
-        "bytes_total": 1414512,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971950,
-        "tx_count": 5617,
-        "bytes_total": 1672255,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971951,
-        "tx_count": 6326,
-        "bytes_total": 1610451,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971952,
-        "tx_count": 5253,
-        "bytes_total": 1596858,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 971953,
-        "tx_count": 3904,
-        "bytes_total": 1465843,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971954,
-        "tx_count": 3474,
-        "bytes_total": 1569872,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971955,
-        "tx_count": 3176,
-        "bytes_total": 1500034,
-        "pool_name": "cloverpool"
-      },
-      {
-        "block_height": 971956,
-        "tx_count": 3785,
-        "bytes_total": 1530090,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 971957,
-        "tx_count": 2154,
-        "bytes_total": 1349052,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 971958,
-        "tx_count": 2553,
-        "bytes_total": 1325320,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971959,
-        "tx_count": 2730,
-        "bytes_total": 1347466,
-        "pool_name": "viabtc"
-      },
-      {
-        "block_height": 971960,
-        "tx_count": 4195,
-        "bytes_total": 1590280,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971961,
-        "tx_count": 3344,
-        "bytes_total": 1480832,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 971962,
-        "tx_count": 3875,
-        "bytes_total": 1593611,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971963,
-        "tx_count": 3669,
-        "bytes_total": 1903952,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971964,
-        "tx_count": 4137,
-        "bytes_total": 1703178,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971965,
-        "tx_count": 5351,
-        "bytes_total": 1883300,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971966,
-        "tx_count": 6052,
-        "bytes_total": 1514954,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 971967,
-        "tx_count": 6041,
-        "bytes_total": 1578964,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971968,
-        "tx_count": 6060,
-        "bytes_total": 1749460,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 971969,
-        "tx_count": 4925,
-        "bytes_total": 1581848,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971970,
-        "tx_count": 5987,
-        "bytes_total": 1744704,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 971971,
-        "tx_count": 5814,
-        "bytes_total": 1792870,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 971972,
-        "tx_count": 5346,
-        "bytes_total": 1796910,
-        "pool_name": "secpool"
-      },
-      {
-        "block_height": 971973,
-        "tx_count": 7093,
-        "bytes_total": 1549261,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971974,
-        "tx_count": 5249,
-        "bytes_total": 1810078,
-        "pool_name": "secpool"
-      },
-      {
-        "block_height": 971975,
-        "tx_count": 1690,
-        "bytes_total": 2005081,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971976,
-        "tx_count": 4596,
-        "bytes_total": 1631185,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971977,
-        "tx_count": 3988,
-        "bytes_total": 1433392,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971978,
-        "tx_count": 3705,
-        "bytes_total": 1301109,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 971979,
-        "tx_count": 4049,
-        "bytes_total": 1350554,
-        "pool_name": "viabtc"
-      },
-      {
-        "block_height": 971980,
-        "tx_count": 3179,
-        "bytes_total": 1587472,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 971981,
-        "tx_count": 7172,
-        "bytes_total": 1655028,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971982,
-        "tx_count": 3615,
-        "bytes_total": 1357691,
-        "pool_name": "binancepool"
-      },
-      {
-        "block_height": 971983,
-        "tx_count": 4566,
-        "bytes_total": 1466320,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971984,
-        "tx_count": 3968,
-        "bytes_total": 1588046,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 971985,
-        "tx_count": 3705,
-        "bytes_total": 1484811,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971986,
-        "tx_count": 4879,
-        "bytes_total": 1549638,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 971987,
-        "tx_count": 3941,
-        "bytes_total": 1405679,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971988,
-        "tx_count": 4476,
-        "bytes_total": 1479122,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 971989,
-        "tx_count": 2733,
-        "bytes_total": 1454913,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971990,
-        "tx_count": 5432,
-        "bytes_total": 1878571,
-        "pool_name": "oceanxyz"
-      },
-      {
-        "block_height": 971991,
-        "tx_count": 6538,
-        "bytes_total": 1809180,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 971992,
-        "tx_count": 7609,
-        "bytes_total": 1633922,
-        "pool_name": "poolin"
-      },
-      {
-        "block_height": 971993,
-        "tx_count": 4161,
-        "bytes_total": 1747746,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971994,
-        "tx_count": 3783,
-        "bytes_total": 1701899,
-        "pool_name": "braiinspool"
-      },
-      {
-        "block_height": 971995,
-        "tx_count": 4046,
-        "bytes_total": 1640862,
-        "pool_name": "braiinspool"
-      },
-      {
-        "block_height": 971996,
-        "tx_count": 4100,
-        "bytes_total": 1747063,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 971997,
-        "tx_count": 5233,
-        "bytes_total": 2001201,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 971998,
-        "tx_count": 5909,
-        "bytes_total": 1738541,
-        "pool_name": "secpool"
-      },
-      {
-        "block_height": 971999,
-        "tx_count": 4186,
-        "bytes_total": 1667129,
-        "pool_name": "luxor"
-      },
-      {
-        "block_height": 972000,
-        "tx_count": 4533,
-        "bytes_total": 1852685,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972001,
-        "tx_count": 3300,
-        "bytes_total": 1833636,
-        "pool_name": "luxor"
-      },
-      {
-        "block_height": 972002,
-        "tx_count": 4031,
-        "bytes_total": 1829698,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 972003,
-        "tx_count": 2582,
-        "bytes_total": 1863065,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 972004,
-        "tx_count": 2319,
-        "bytes_total": 2475755,
-        "pool_name": "viabtc"
-      },
-      {
-        "block_height": 972005,
-        "tx_count": 3082,
-        "bytes_total": 1996279,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972006,
-        "tx_count": 330,
-        "bytes_total": 3315045,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 972007,
-        "tx_count": 2701,
-        "bytes_total": 2932380,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972008,
-        "tx_count": 3344,
-        "bytes_total": 1827967,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972009,
-        "tx_count": 3183,
-        "bytes_total": 1549306,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972010,
-        "tx_count": 3203,
-        "bytes_total": 2137772,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 972011,
-        "tx_count": 2225,
-        "bytes_total": 2106020,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972012,
-        "tx_count": 3262,
-        "bytes_total": 1869459,
-        "pool_name": "oceanxyz"
-      },
-      {
-        "block_height": 972013,
-        "tx_count": 3949,
-        "bytes_total": 1866923,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 972014,
-        "tx_count": 3796,
-        "bytes_total": 1884954,
-        "pool_name": "luxor"
-      },
-      {
-        "block_height": 972015,
-        "tx_count": 3621,
-        "bytes_total": 1859627,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972016,
-        "tx_count": 2188,
-        "bytes_total": 1829156,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 972017,
-        "tx_count": 2038,
-        "bytes_total": 2074766,
-        "pool_name": "viabtc"
-      },
-      {
-        "block_height": 972018,
-        "tx_count": 5090,
-        "bytes_total": 1770627,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 972019,
-        "tx_count": 1966,
-        "bytes_total": 2170648,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972020,
-        "tx_count": 1174,
-        "bytes_total": 2023045,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972021,
-        "tx_count": 1402,
-        "bytes_total": 1985450,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972022,
-        "tx_count": 3644,
-        "bytes_total": 1654463,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972023,
-        "tx_count": 3522,
-        "bytes_total": 1689236,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972024,
-        "tx_count": 2577,
-        "bytes_total": 1929518,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972025,
-        "tx_count": 4500,
-        "bytes_total": 1934274,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972026,
-        "tx_count": 3638,
-        "bytes_total": 1644498,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972027,
-        "tx_count": 2105,
-        "bytes_total": 1788245,
-        "pool_name": "oceanxyz"
-      },
-      {
-        "block_height": 972028,
-        "tx_count": 2300,
-        "bytes_total": 1843652,
-        "pool_name": "viabtc"
-      },
-      {
-        "block_height": 972029,
-        "tx_count": 3851,
-        "bytes_total": 1726060,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972030,
-        "tx_count": 2971,
-        "bytes_total": 1925788,
-        "pool_name": "luxor"
-      },
-      {
-        "block_height": 972031,
-        "tx_count": 3952,
-        "bytes_total": 1646625,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972032,
-        "tx_count": 2269,
-        "bytes_total": 1984996,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972033,
-        "tx_count": 2909,
-        "bytes_total": 1938841,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972034,
-        "tx_count": 4078,
-        "bytes_total": 1598675,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972035,
-        "tx_count": 3640,
-        "bytes_total": 1689330,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972036,
-        "tx_count": 5191,
-        "bytes_total": 1877515,
-        "pool_name": "oceanxyz"
-      },
-      {
-        "block_height": 972037,
-        "tx_count": 2752,
-        "bytes_total": 1682922,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972038,
-        "tx_count": 5425,
-        "bytes_total": 1592963,
-        "pool_name": "luxor"
-      },
-      {
-        "block_height": 972039,
-        "tx_count": 3434,
-        "bytes_total": 1738543,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972040,
-        "tx_count": 6010,
-        "bytes_total": 1674878,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972041,
-        "tx_count": 4507,
-        "bytes_total": 1912017,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 972042,
-        "tx_count": 4096,
-        "bytes_total": 1866881,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972043,
-        "tx_count": 5620,
-        "bytes_total": 1738052,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972044,
-        "tx_count": 1562,
-        "bytes_total": 2056191,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972045,
-        "tx_count": 3741,
-        "bytes_total": 1826987,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972046,
-        "tx_count": 1931,
-        "bytes_total": 2028270,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972047,
-        "tx_count": 4759,
-        "bytes_total": 1731464,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972048,
-        "tx_count": 1831,
-        "bytes_total": 2042011,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972049,
-        "tx_count": 3515,
-        "bytes_total": 1904896,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972050,
-        "tx_count": 3226,
-        "bytes_total": 1956043,
-        "pool_name": "luxor"
-      },
-      {
-        "block_height": 972051,
-        "tx_count": 4174,
-        "bytes_total": 1791604,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 972052,
-        "tx_count": 3546,
-        "bytes_total": 1904849,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972053,
-        "tx_count": 3911,
-        "bytes_total": 1566544,
-        "pool_name": "spiderpool"
-      },
-      {
-        "block_height": 972054,
-        "tx_count": 2973,
-        "bytes_total": 1494724,
-        "pool_name": "secpool"
-      },
-      {
-        "block_height": 972055,
-        "tx_count": 3156,
-        "bytes_total": 1684162,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972056,
-        "tx_count": 3374,
-        "bytes_total": 1772570,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972057,
-        "tx_count": 4732,
-        "bytes_total": 1921036,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972058,
-        "tx_count": 941,
-        "bytes_total": 426864,
-        "pool_name": "oceanxyz"
-      },
-      {
-        "block_height": 972059,
-        "tx_count": 3115,
-        "bytes_total": 2111049,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972060,
-        "tx_count": 4160,
-        "bytes_total": 2152298,
-        "pool_name": "luxor"
-      },
-      {
-        "block_height": 972061,
-        "tx_count": 3587,
-        "bytes_total": 2613760,
-        "pool_name": "viabtc"
-      },
-      {
-        "block_height": 972062,
-        "tx_count": 560,
-        "bytes_total": 317250,
-        "pool_name": "oceanxyz"
-      },
-      {
-        "block_height": 972063,
-        "tx_count": 799,
-        "bytes_total": 359706,
-        "pool_name": "oceanxyz"
-      },
-      {
-        "block_height": 972064,
-        "tx_count": 4158,
-        "bytes_total": 2352839,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972065,
-        "tx_count": 4279,
-        "bytes_total": 2025785,
-        "pool_name": "viabtc"
-      },
-      {
-        "block_height": 972066,
-        "tx_count": 4454,
-        "bytes_total": 2047610,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972067,
-        "tx_count": 3559,
-        "bytes_total": 1860467,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972068,
-        "tx_count": 3697,
-        "bytes_total": 2568767,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 972069,
-        "tx_count": 4173,
-        "bytes_total": 2090909,
-        "pool_name": "braiinspool"
-      },
-      {
-        "block_height": 972070,
-        "tx_count": 4499,
-        "bytes_total": 1877139,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972071,
-        "tx_count": 3951,
-        "bytes_total": 2244255,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972072,
-        "tx_count": 4053,
-        "bytes_total": 1690043,
-        "pool_name": "marapool"
-      },
-      {
-        "block_height": 972073,
-        "tx_count": 4209,
-        "bytes_total": 2256599,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972074,
-        "tx_count": 4572,
-        "bytes_total": 1899045,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972075,
-        "tx_count": 4882,
-        "bytes_total": 2332862,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972076,
-        "tx_count": 2508,
-        "bytes_total": 3198065,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972077,
-        "tx_count": 4921,
-        "bytes_total": 2141816,
-        "pool_name": "viabtc"
-      },
-      {
-        "block_height": 972078,
-        "tx_count": 5685,
-        "bytes_total": 1661948,
-        "pool_name": "luxor"
-      },
-      {
-        "block_height": 972079,
-        "tx_count": 5264,
-        "bytes_total": 1689046,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972080,
-        "tx_count": 3268,
-        "bytes_total": 1636491,
-        "pool_name": "secpool"
-      },
-      {
-        "block_height": 972081,
-        "tx_count": 4502,
-        "bytes_total": 1693477,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972082,
-        "tx_count": 6873,
-        "bytes_total": 1826471,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972083,
-        "tx_count": 6472,
-        "bytes_total": 1674298,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972084,
-        "tx_count": 7477,
-        "bytes_total": 1652618,
-        "pool_name": "luxor"
-      },
-      {
-        "block_height": 972085,
-        "tx_count": 4418,
-        "bytes_total": 1711022,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972086,
-        "tx_count": 586,
-        "bytes_total": 219358,
-        "pool_name": "binancepool"
-      },
-      {
-        "block_height": 972087,
-        "tx_count": 7034,
-        "bytes_total": 1652173,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972088,
-        "tx_count": 3880,
-        "bytes_total": 2383652,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972089,
-        "tx_count": 6674,
-        "bytes_total": 1675451,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972090,
-        "tx_count": 6340,
-        "bytes_total": 1713441,
-        "pool_name": "f2pool"
-      },
-      {
-        "block_height": 972091,
-        "tx_count": 2834,
-        "bytes_total": 1736198,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972092,
-        "tx_count": 1832,
-        "bytes_total": 1685992,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972093,
-        "tx_count": 6256,
-        "bytes_total": 1683481,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972094,
-        "tx_count": 3753,
-        "bytes_total": 1739558,
-        "pool_name": "foundryusa"
-      },
-      {
-        "block_height": 972095,
-        "tx_count": 7292,
-        "bytes_total": 1650287,
-        "pool_name": "antpool"
-      },
-      {
-        "block_height": 972096,
-        "tx_count": 1306,
-        "bytes_total": 3153305,
-        "pool_name": "viabtc"
-      },
       {
         "block_height": 972097,
         "tx_count": 3190,
@@ -63057,52 +62067,1012 @@
         "tx_count": 2856,
         "bytes_total": 1796239,
         "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976207,
+        "tx_count": 6114,
+        "bytes_total": 1621468,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976208,
+        "tx_count": 2926,
+        "bytes_total": 1480935,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976209,
+        "tx_count": 2729,
+        "bytes_total": 1568641,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976210,
+        "tx_count": 3753,
+        "bytes_total": 1441310,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976211,
+        "tx_count": 7269,
+        "bytes_total": 1693397,
+        "pool_name": "spiderpool"
+      },
+      {
+        "block_height": 976212,
+        "tx_count": 10959,
+        "bytes_total": 1125644,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976213,
+        "tx_count": 2799,
+        "bytes_total": 1558642,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976214,
+        "tx_count": 3107,
+        "bytes_total": 1533690,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976215,
+        "tx_count": 5324,
+        "bytes_total": 1474223,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976216,
+        "tx_count": 5850,
+        "bytes_total": 1602255,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976217,
+        "tx_count": 7867,
+        "bytes_total": 1648854,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976218,
+        "tx_count": 6138,
+        "bytes_total": 1667234,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976219,
+        "tx_count": 7526,
+        "bytes_total": 1632688,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976220,
+        "tx_count": 5260,
+        "bytes_total": 1578686,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976221,
+        "tx_count": 6443,
+        "bytes_total": 1615810,
+        "pool_name": "secpool"
+      },
+      {
+        "block_height": 976222,
+        "tx_count": 6861,
+        "bytes_total": 1596498,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976223,
+        "tx_count": 3916,
+        "bytes_total": 1504508,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976224,
+        "tx_count": 7304,
+        "bytes_total": 1632209,
+        "pool_name": "marapool"
+      },
+      {
+        "block_height": 976225,
+        "tx_count": 7817,
+        "bytes_total": 1647078,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976226,
+        "tx_count": 7906,
+        "bytes_total": 1642818,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976227,
+        "tx_count": 7820,
+        "bytes_total": 1636094,
+        "pool_name": "spiderpool"
+      },
+      {
+        "block_height": 976228,
+        "tx_count": 3630,
+        "bytes_total": 1491471,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976229,
+        "tx_count": 2808,
+        "bytes_total": 1395443,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976230,
+        "tx_count": 7798,
+        "bytes_total": 1641659,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976231,
+        "tx_count": 3151,
+        "bytes_total": 1742730,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976232,
+        "tx_count": 5131,
+        "bytes_total": 1582243,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976233,
+        "tx_count": 7272,
+        "bytes_total": 1665703,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976234,
+        "tx_count": 1989,
+        "bytes_total": 1614880,
+        "pool_name": "secpool"
+      },
+      {
+        "block_height": 976235,
+        "tx_count": 4059,
+        "bytes_total": 1633512,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976236,
+        "tx_count": 6924,
+        "bytes_total": 1627878,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976237,
+        "tx_count": 7125,
+        "bytes_total": 1600677,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976238,
+        "tx_count": 2595,
+        "bytes_total": 1730458,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976239,
+        "tx_count": 5182,
+        "bytes_total": 1681508,
+        "pool_name": "secpool"
+      },
+      {
+        "block_height": 976240,
+        "tx_count": 6654,
+        "bytes_total": 1642655,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976241,
+        "tx_count": 282,
+        "bytes_total": 166900,
+        "pool_name": "cloverpool"
+      },
+      {
+        "block_height": 976242,
+        "tx_count": 4456,
+        "bytes_total": 1607506,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976243,
+        "tx_count": 3794,
+        "bytes_total": 1591518,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976244,
+        "tx_count": 3273,
+        "bytes_total": 1568722,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976245,
+        "tx_count": 1808,
+        "bytes_total": 1448380,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976246,
+        "tx_count": 1536,
+        "bytes_total": 1409616,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976247,
+        "tx_count": 2340,
+        "bytes_total": 1733351,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976248,
+        "tx_count": 7605,
+        "bytes_total": 1646780,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976249,
+        "tx_count": 3559,
+        "bytes_total": 1540490,
+        "pool_name": "oceanxyz"
+      },
+      {
+        "block_height": 976250,
+        "tx_count": 2623,
+        "bytes_total": 1662500,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976251,
+        "tx_count": 4985,
+        "bytes_total": 1704575,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976252,
+        "tx_count": 4130,
+        "bytes_total": 1669548,
+        "pool_name": "marapool"
+      },
+      {
+        "block_height": 976253,
+        "tx_count": 3778,
+        "bytes_total": 1524656,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976254,
+        "tx_count": 2374,
+        "bytes_total": 1809184,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976255,
+        "tx_count": 2845,
+        "bytes_total": 1626900,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976256,
+        "tx_count": 3386,
+        "bytes_total": 1569969,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976257,
+        "tx_count": 3426,
+        "bytes_total": 1692381,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976258,
+        "tx_count": 3473,
+        "bytes_total": 1516338,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976259,
+        "tx_count": 5709,
+        "bytes_total": 1306516,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976260,
+        "tx_count": 8973,
+        "bytes_total": 1209416,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976261,
+        "tx_count": 9895,
+        "bytes_total": 1261517,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976262,
+        "tx_count": 2801,
+        "bytes_total": 1440564,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976263,
+        "tx_count": 6758,
+        "bytes_total": 1622624,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976264,
+        "tx_count": 7667,
+        "bytes_total": 1629728,
+        "pool_name": "braiinspool"
+      },
+      {
+        "block_height": 976265,
+        "tx_count": 3515,
+        "bytes_total": 1514015,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976266,
+        "tx_count": 6310,
+        "bytes_total": 1620128,
+        "pool_name": "braiinspool"
+      },
+      {
+        "block_height": 976267,
+        "tx_count": 4661,
+        "bytes_total": 1500461,
+        "pool_name": "spiderpool"
+      },
+      {
+        "block_height": 976268,
+        "tx_count": 2603,
+        "bytes_total": 1612768,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976269,
+        "tx_count": 4577,
+        "bytes_total": 1551943,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976270,
+        "tx_count": 6141,
+        "bytes_total": 1632709,
+        "pool_name": "marapool"
+      },
+      {
+        "block_height": 976271,
+        "tx_count": 3534,
+        "bytes_total": 1629118,
+        "pool_name": "spiderpool"
+      },
+      {
+        "block_height": 976272,
+        "tx_count": 1281,
+        "bytes_total": 621576,
+        "pool_name": "oceanxyz"
+      },
+      {
+        "block_height": 976273,
+        "tx_count": 4651,
+        "bytes_total": 1606980,
+        "pool_name": "marapool"
+      },
+      {
+        "block_height": 976274,
+        "tx_count": 3059,
+        "bytes_total": 1582966,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976275,
+        "tx_count": 3822,
+        "bytes_total": 1624852,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976276,
+        "tx_count": 3039,
+        "bytes_total": 1545988,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976277,
+        "tx_count": 5768,
+        "bytes_total": 1743038,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976278,
+        "tx_count": 5456,
+        "bytes_total": 1655157,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976279,
+        "tx_count": 3853,
+        "bytes_total": 1573660,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976280,
+        "tx_count": 2985,
+        "bytes_total": 1739376,
+        "pool_name": "marapool"
+      },
+      {
+        "block_height": 976281,
+        "tx_count": 2468,
+        "bytes_total": 1541107,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976282,
+        "tx_count": 3198,
+        "bytes_total": 1632461,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976283,
+        "tx_count": 7582,
+        "bytes_total": 1363416,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976284,
+        "tx_count": 4244,
+        "bytes_total": 1518352,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976285,
+        "tx_count": 6234,
+        "bytes_total": 1583586,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976286,
+        "tx_count": 2936,
+        "bytes_total": 1503398,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976287,
+        "tx_count": 2731,
+        "bytes_total": 1667388,
+        "pool_name": "uuidminer"
+      },
+      {
+        "block_height": 976288,
+        "tx_count": 4410,
+        "bytes_total": 1496081,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976289,
+        "tx_count": 7740,
+        "bytes_total": 1644658,
+        "pool_name": "cloverpool"
+      },
+      {
+        "block_height": 976290,
+        "tx_count": 5507,
+        "bytes_total": 1727183,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976291,
+        "tx_count": 4245,
+        "bytes_total": 1563454,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976292,
+        "tx_count": 5578,
+        "bytes_total": 1582064,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976293,
+        "tx_count": 1294,
+        "bytes_total": 602331,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976294,
+        "tx_count": 5728,
+        "bytes_total": 1603829,
+        "pool_name": "luxor"
+      },
+      {
+        "block_height": 976295,
+        "tx_count": 5232,
+        "bytes_total": 1590030,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976296,
+        "tx_count": 6968,
+        "bytes_total": 1338204,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976297,
+        "tx_count": 3519,
+        "bytes_total": 1524515,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976298,
+        "tx_count": 3250,
+        "bytes_total": 1617996,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976299,
+        "tx_count": 6006,
+        "bytes_total": 1609159,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976300,
+        "tx_count": 3546,
+        "bytes_total": 1645227,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976301,
+        "tx_count": 6119,
+        "bytes_total": 1597778,
+        "pool_name": "spiderpool"
+      },
+      {
+        "block_height": 976302,
+        "tx_count": 2991,
+        "bytes_total": 1537063,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976303,
+        "tx_count": 5320,
+        "bytes_total": 1572805,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976304,
+        "tx_count": 1892,
+        "bytes_total": 1028999,
+        "pool_name": "oceanxyz"
+      },
+      {
+        "block_height": 976305,
+        "tx_count": 2851,
+        "bytes_total": 1416143,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976306,
+        "tx_count": 2612,
+        "bytes_total": 1552222,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976307,
+        "tx_count": 4041,
+        "bytes_total": 1499064,
+        "pool_name": "spiderpool"
+      },
+      {
+        "block_height": 976308,
+        "tx_count": 2191,
+        "bytes_total": 1784116,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976309,
+        "tx_count": 3143,
+        "bytes_total": 1609755,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976310,
+        "tx_count": 3020,
+        "bytes_total": 1588143,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976311,
+        "tx_count": 3023,
+        "bytes_total": 1534644,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976312,
+        "tx_count": 3561,
+        "bytes_total": 1494286,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976313,
+        "tx_count": 3614,
+        "bytes_total": 1574953,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976314,
+        "tx_count": 3741,
+        "bytes_total": 1493972,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976315,
+        "tx_count": 3377,
+        "bytes_total": 1643701,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976316,
+        "tx_count": 3373,
+        "bytes_total": 1687344,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976317,
+        "tx_count": 1719,
+        "bytes_total": 1350425,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976318,
+        "tx_count": 3108,
+        "bytes_total": 1519199,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976319,
+        "tx_count": 2857,
+        "bytes_total": 1503581,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976320,
+        "tx_count": 2798,
+        "bytes_total": 1432873,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976321,
+        "tx_count": 2404,
+        "bytes_total": 1444838,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976322,
+        "tx_count": 3065,
+        "bytes_total": 1537932,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976323,
+        "tx_count": 2551,
+        "bytes_total": 1481353,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976324,
+        "tx_count": 2302,
+        "bytes_total": 1542575,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976325,
+        "tx_count": 2790,
+        "bytes_total": 1629057,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976326,
+        "tx_count": 2146,
+        "bytes_total": 1598038,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976327,
+        "tx_count": 1803,
+        "bytes_total": 1437335,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976328,
+        "tx_count": 2369,
+        "bytes_total": 1757124,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976329,
+        "tx_count": 2342,
+        "bytes_total": 1709923,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976330,
+        "tx_count": 5505,
+        "bytes_total": 1600169,
+        "pool_name": "braiinspool"
+      },
+      {
+        "block_height": 976331,
+        "tx_count": 7274,
+        "bytes_total": 1666765,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976332,
+        "tx_count": 6702,
+        "bytes_total": 1599487,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976333,
+        "tx_count": 6547,
+        "bytes_total": 1618528,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976334,
+        "tx_count": 3832,
+        "bytes_total": 1570404,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976335,
+        "tx_count": 6160,
+        "bytes_total": 1663302,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976336,
+        "tx_count": 5731,
+        "bytes_total": 1539905,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976337,
+        "tx_count": 5542,
+        "bytes_total": 1550518,
+        "pool_name": "marapool"
+      },
+      {
+        "block_height": 976338,
+        "tx_count": 4245,
+        "bytes_total": 1475549,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976339,
+        "tx_count": 5843,
+        "bytes_total": 1524925,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976340,
+        "tx_count": 7697,
+        "bytes_total": 1629747,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976341,
+        "tx_count": 6186,
+        "bytes_total": 1568497,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976342,
+        "tx_count": 5357,
+        "bytes_total": 1620861,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976343,
+        "tx_count": 1313,
+        "bytes_total": 616531,
+        "pool_name": "oceanxyz"
+      },
+      {
+        "block_height": 976344,
+        "tx_count": 3384,
+        "bytes_total": 1492885,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976345,
+        "tx_count": 6650,
+        "bytes_total": 1298943,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976346,
+        "tx_count": 3713,
+        "bytes_total": 1524762,
+        "pool_name": "secpool"
+      },
+      {
+        "block_height": 976347,
+        "tx_count": 3687,
+        "bytes_total": 1556308,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976348,
+        "tx_count": 3117,
+        "bytes_total": 1594831,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976349,
+        "tx_count": 2744,
+        "bytes_total": 1509018,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976350,
+        "tx_count": 7617,
+        "bytes_total": 1636865,
+        "pool_name": "f2pool"
+      },
+      {
+        "block_height": 976351,
+        "tx_count": 7959,
+        "bytes_total": 1643197,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976352,
+        "tx_count": 7213,
+        "bytes_total": 1624465,
+        "pool_name": "secpool"
+      },
+      {
+        "block_height": 976353,
+        "tx_count": 383,
+        "bytes_total": 247262,
+        "pool_name": "oceanxyz"
+      },
+      {
+        "block_height": 976354,
+        "tx_count": 3100,
+        "bytes_total": 1497280,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976355,
+        "tx_count": 3696,
+        "bytes_total": 1464136,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976356,
+        "tx_count": 5198,
+        "bytes_total": 1594542,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976357,
+        "tx_count": 5805,
+        "bytes_total": 1553643,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976358,
+        "tx_count": 11281,
+        "bytes_total": 1079534,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976359,
+        "tx_count": 4387,
+        "bytes_total": 1516219,
+        "pool_name": "viabtc"
+      },
+      {
+        "block_height": 976360,
+        "tx_count": 1993,
+        "bytes_total": 1606632,
+        "pool_name": "secpool"
+      },
+      {
+        "block_height": 976361,
+        "tx_count": 2502,
+        "bytes_total": 1420510,
+        "pool_name": "antpool"
+      },
+      {
+        "block_height": 976362,
+        "tx_count": 3163,
+        "bytes_total": 1705871,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976363,
+        "tx_count": 7628,
+        "bytes_total": 1625678,
+        "pool_name": "oceanxyz"
+      },
+      {
+        "block_height": 976364,
+        "tx_count": 7173,
+        "bytes_total": 1617956,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976365,
+        "tx_count": 4960,
+        "bytes_total": 1713102,
+        "pool_name": "foundryusa"
+      },
+      {
+        "block_height": 976366,
+        "tx_count": 3904,
+        "bytes_total": 1605023,
+        "pool_name": "f2pool"
       }
     ],
     "overhead_bar": [
       {
         "pool": "antpool",
-        "avg_overhead": 412.02,
+        "avg_overhead": 407.36,
         "max_overhead": 59119.94
       },
       {
-        "pool": "f2pool",
-        "avg_overhead": 365.81,
-        "max_overhead": 69552.05
-      },
-      {
         "pool": "luxor",
-        "avg_overhead": 361.06,
+        "avg_overhead": 363.97,
         "max_overhead": 5728.87
       },
       {
+        "pool": "f2pool",
+        "avg_overhead": 359.92,
+        "max_overhead": 69552.05
+      },
+      {
         "pool": "braiinspool",
-        "avg_overhead": 350.19,
+        "avg_overhead": 344.71,
         "max_overhead": 6522.43
       },
       {
         "pool": "foundryusa",
-        "avg_overhead": 333.47,
+        "avg_overhead": 328.19,
         "max_overhead": 22572.13
       },
       {
-        "pool": "viabtc",
-        "avg_overhead": 328.74,
-        "max_overhead": 6635.3
-      },
-      {
         "pool": "secpool",
-        "avg_overhead": 324.58,
+        "avg_overhead": 324.87,
         "max_overhead": 6063.4
       },
       {
+        "pool": "viabtc",
+        "avg_overhead": 318.67,
+        "max_overhead": 6635.3
+      },
+      {
         "pool": "spiderpool",
-        "avg_overhead": 314.44,
-        "max_overhead": 9360.09
+        "avg_overhead": 278.98,
+        "max_overhead": 4670.3
       },
       {
         "pool": "marapool",
-        "avg_overhead": 267.09,
+        "avg_overhead": 266.95,
         "max_overhead": 1969.49
       }
     ]
@@ -63140,25 +63110,25 @@
       {
         "from": "foundryusa",
         "to": "foundryusa",
-        "n": 21322,
+        "n": 21335,
         "lift": 1.052
       },
       {
         "from": "foundryusa",
         "to": "antpool",
-        "n": 15176,
+        "n": 15190,
         "lift": 1.04
       },
       {
         "from": "foundryusa",
         "to": "f2pool",
-        "n": 9664,
+        "n": 9670,
         "lift": 1.046
       },
       {
         "from": "foundryusa",
         "to": "viabtc",
-        "n": 8550,
+        "n": 8551,
         "lift": 1.059
       },
       {
@@ -63176,7 +63146,7 @@
       {
         "from": "foundryusa",
         "to": "marapool",
-        "n": 2778,
+        "n": 2781,
         "lift": 1.054
       },
       {
@@ -63188,49 +63158,49 @@
       {
         "from": "foundryusa",
         "to": "spiderpool",
-        "n": 2536,
-        "lift": 1.069
+        "n": 2537,
+        "lift": 1.068
       },
       {
         "from": "foundryusa",
         "to": "braiinspool",
-        "n": 1755,
+        "n": 1756,
         "lift": 1.05
       },
       {
         "from": "foundryusa",
         "to": "luxor",
         "n": 2039,
-        "lift": 1.047
+        "lift": 1.046
       },
       {
         "from": "foundryusa",
         "to": "secpool",
-        "n": 1452,
+        "n": 1454,
         "lift": 1.044
       },
       {
         "from": "antpool",
         "to": "foundryusa",
-        "n": 15335,
+        "n": 15345,
         "lift": 1.05
       },
       {
         "from": "antpool",
         "to": "antpool",
-        "n": 11795,
+        "n": 11801,
         "lift": 1.047
       },
       {
         "from": "antpool",
         "to": "f2pool",
-        "n": 7794,
+        "n": 7803,
         "lift": 1.063
       },
       {
         "from": "antpool",
         "to": "viabtc",
-        "n": 6560,
+        "n": 6562,
         "lift": 1.052
       },
       {
@@ -63248,26 +63218,26 @@
       {
         "from": "antpool",
         "to": "marapool",
-        "n": 2016,
+        "n": 2017,
         "lift": 1.062
       },
       {
         "from": "antpool",
         "to": "cloverpool",
-        "n": 1539,
-        "lift": 1.08
+        "n": 1540,
+        "lift": 1.081
       },
       {
         "from": "antpool",
         "to": "spiderpool",
         "n": 1673,
-        "lift": 1.059
+        "lift": 1.058
       },
       {
         "from": "antpool",
         "to": "braiinspool",
-        "n": 1408,
-        "lift": 1.023
+        "n": 1410,
+        "lift": 1.024
       },
       {
         "from": "antpool",
@@ -63278,31 +63248,31 @@
       {
         "from": "antpool",
         "to": "secpool",
-        "n": 971,
-        "lift": 1.049
+        "n": 973,
+        "lift": 1.05
       },
       {
         "from": "f2pool",
         "to": "foundryusa",
-        "n": 9757,
+        "n": 9767,
         "lift": 1.056
       },
       {
         "from": "f2pool",
         "to": "antpool",
-        "n": 7839,
+        "n": 7845,
         "lift": 1.069
       },
       {
         "from": "f2pool",
         "to": "f2pool",
-        "n": 5769,
-        "lift": 1.085
+        "n": 5777,
+        "lift": 1.084
       },
       {
         "from": "f2pool",
         "to": "viabtc",
-        "n": 4576,
+        "n": 4582,
         "lift": 1.093
       },
       {
@@ -63320,56 +63290,56 @@
       {
         "from": "f2pool",
         "to": "marapool",
-        "n": 1138,
-        "lift": 0.987
+        "n": 1139,
+        "lift": 0.986
       },
       {
         "from": "f2pool",
         "to": "cloverpool",
-        "n": 1362,
-        "lift": 1.053
+        "n": 1363,
+        "lift": 1.054
       },
       {
         "from": "f2pool",
         "to": "spiderpool",
-        "n": 1043,
-        "lift": 1.05
+        "n": 1046,
+        "lift": 1.052
       },
       {
         "from": "f2pool",
         "to": "braiinspool",
         "n": 1144,
-        "lift": 1.043
+        "lift": 1.042
       },
       {
         "from": "f2pool",
         "to": "luxor",
         "n": 874,
-        "lift": 0.982
+        "lift": 0.981
       },
       {
         "from": "f2pool",
         "to": "secpool",
-        "n": 609,
-        "lift": 1.088
+        "n": 610,
+        "lift": 1.087
       },
       {
         "from": "viabtc",
         "to": "foundryusa",
-        "n": 8435,
+        "n": 8439,
         "lift": 1.044
       },
       {
         "from": "viabtc",
         "to": "antpool",
-        "n": 6718,
-        "lift": 1.077
+        "n": 6719,
+        "lift": 1.076
       },
       {
         "from": "viabtc",
         "to": "f2pool",
-        "n": 4533,
-        "lift": 1.081
+        "n": 4540,
+        "lift": 1.082
       },
       {
         "from": "viabtc",
@@ -63393,37 +63363,37 @@
         "from": "viabtc",
         "to": "marapool",
         "n": 1152,
-        "lift": 1.08
+        "lift": 1.079
       },
       {
         "from": "viabtc",
         "to": "cloverpool",
         "n": 983,
-        "lift": 1.08
+        "lift": 1.079
       },
       {
         "from": "viabtc",
         "to": "spiderpool",
         "n": 1024,
-        "lift": 1.088
+        "lift": 1.087
       },
       {
         "from": "viabtc",
         "to": "braiinspool",
         "n": 921,
-        "lift": 1.109
+        "lift": 1.108
       },
       {
         "from": "viabtc",
         "to": "luxor",
-        "n": 848,
-        "lift": 1.1
+        "n": 849,
+        "lift": 1.101
       },
       {
         "from": "viabtc",
         "to": "secpool",
-        "n": 596,
-        "lift": 1.072
+        "n": 597,
+        "lift": 1.073
       },
       {
         "from": "binancepool",
@@ -63578,20 +63548,20 @@
       {
         "from": "marapool",
         "to": "antpool",
-        "n": 2039,
+        "n": 2041,
         "lift": 1.072
       },
       {
         "from": "marapool",
         "to": "f2pool",
-        "n": 1230,
-        "lift": 1.062
+        "n": 1231,
+        "lift": 1.061
       },
       {
         "from": "marapool",
         "to": "viabtc",
-        "n": 1102,
-        "lift": 1.03
+        "n": 1104,
+        "lift": 1.031
       },
       {
         "from": "marapool",
@@ -63609,7 +63579,7 @@
         "from": "marapool",
         "to": "marapool",
         "n": 421,
-        "lift": 1.068
+        "lift": 1.067
       },
       {
         "from": "marapool",
@@ -63620,8 +63590,8 @@
       {
         "from": "marapool",
         "to": "spiderpool",
-        "n": 398,
-        "lift": 0.996
+        "n": 399,
+        "lift": 0.998
       },
       {
         "from": "marapool",
@@ -63639,19 +63609,19 @@
         "from": "marapool",
         "to": "secpool",
         "n": 240,
-        "lift": 1.046
+        "lift": 1.045
       },
       {
         "from": "cloverpool",
         "to": "foundryusa",
-        "n": 1495,
+        "n": 1496,
         "lift": 1.083
       },
       {
         "from": "cloverpool",
         "to": "antpool",
         "n": 1508,
-        "lift": 1.057
+        "lift": 1.056
       },
       {
         "from": "cloverpool",
@@ -63662,7 +63632,7 @@
       {
         "from": "cloverpool",
         "to": "viabtc",
-        "n": 980,
+        "n": 981,
         "lift": 1.078
       },
       {
@@ -63693,7 +63663,7 @@
         "from": "cloverpool",
         "to": "spiderpool",
         "n": 85,
-        "lift": 1.216
+        "lift": 1.215
       },
       {
         "from": "cloverpool",
@@ -63705,37 +63675,37 @@
         "from": "cloverpool",
         "to": "luxor",
         "n": 144,
-        "lift": 1.2
+        "lift": 1.199
       },
       {
         "from": "cloverpool",
         "to": "secpool",
         "n": 35,
-        "lift": 0.975
+        "lift": 0.973
       },
       {
         "from": "spiderpool",
         "to": "foundryusa",
-        "n": 2508,
-        "lift": 1.057
+        "n": 2509,
+        "lift": 1.056
       },
       {
         "from": "spiderpool",
         "to": "antpool",
-        "n": 1687,
+        "n": 1688,
         "lift": 1.068
       },
       {
         "from": "spiderpool",
         "to": "f2pool",
-        "n": 1021,
-        "lift": 1.024
+        "n": 1024,
+        "lift": 1.025
       },
       {
         "from": "spiderpool",
         "to": "viabtc",
         "n": 1010,
-        "lift": 1.072
+        "lift": 1.071
       },
       {
         "from": "spiderpool",
@@ -63753,13 +63723,13 @@
         "from": "spiderpool",
         "to": "marapool",
         "n": 434,
-        "lift": 1.082
+        "lift": 1.081
       },
       {
         "from": "spiderpool",
         "to": "cloverpool",
         "n": 75,
-        "lift": 1.066
+        "lift": 1.065
       },
       {
         "from": "spiderpool",
@@ -63771,36 +63741,36 @@
         "from": "spiderpool",
         "to": "braiinspool",
         "n": 130,
-        "lift": 1.047
+        "lift": 1.046
       },
       {
         "from": "spiderpool",
         "to": "luxor",
         "n": 276,
-        "lift": 1.055
+        "lift": 1.056
       },
       {
         "from": "spiderpool",
         "to": "secpool",
         "n": 312,
-        "lift": 1.037
+        "lift": 1.036
       },
       {
         "from": "braiinspool",
         "to": "foundryusa",
         "n": 1701,
-        "lift": 1.018
+        "lift": 1.017
       },
       {
         "from": "braiinspool",
         "to": "antpool",
-        "n": 1465,
-        "lift": 1.066
+        "n": 1466,
+        "lift": 1.067
       },
       {
         "from": "braiinspool",
         "to": "f2pool",
-        "n": 1168,
+        "n": 1169,
         "lift": 1.066
       },
       {
@@ -63825,7 +63795,7 @@
         "from": "braiinspool",
         "to": "marapool",
         "n": 179,
-        "lift": 1.006
+        "lift": 1.005
       },
       {
         "from": "braiinspool",
@@ -63836,14 +63806,14 @@
       {
         "from": "braiinspool",
         "to": "spiderpool",
-        "n": 128,
-        "lift": 1.03
+        "n": 129,
+        "lift": 1.037
       },
       {
         "from": "braiinspool",
         "to": "braiinspool",
         "n": 318,
-        "lift": 1.109
+        "lift": 1.108
       },
       {
         "from": "braiinspool",
@@ -63855,13 +63825,13 @@
         "from": "braiinspool",
         "to": "secpool",
         "n": 69,
-        "lift": 0.978
+        "lift": 0.977
       },
       {
         "from": "luxor",
         "to": "foundryusa",
         "n": 2052,
-        "lift": 1.053
+        "lift": 1.052
       },
       {
         "from": "luxor",
@@ -63872,7 +63842,7 @@
       {
         "from": "luxor",
         "to": "f2pool",
-        "n": 938,
+        "n": 939,
         "lift": 1.052
       },
       {
@@ -63921,7 +63891,7 @@
         "from": "luxor",
         "to": "luxor",
         "n": 246,
-        "lift": 1.188
+        "lift": 1.189
       },
       {
         "from": "luxor",
@@ -63932,26 +63902,26 @@
       {
         "from": "secpool",
         "to": "foundryusa",
-        "n": 1456,
+        "n": 1458,
         "lift": 1.048
       },
       {
         "from": "secpool",
         "to": "antpool",
-        "n": 996,
+        "n": 997,
         "lift": 1.077
       },
       {
         "from": "secpool",
         "to": "f2pool",
-        "n": 579,
+        "n": 580,
         "lift": 1.031
       },
       {
         "from": "secpool",
         "to": "viabtc",
-        "n": 556,
-        "lift": 1.001
+        "n": 557,
+        "lift": 1.002
       },
       {
         "from": "secpool",
@@ -63969,13 +63939,13 @@
         "from": "secpool",
         "to": "marapool",
         "n": 236,
-        "lift": 1.027
+        "lift": 1.026
       },
       {
         "from": "secpool",
         "to": "cloverpool",
         "n": 46,
-        "lift": 1.259
+        "lift": 1.257
       },
       {
         "from": "secpool",
@@ -63987,7 +63957,7 @@
         "from": "secpool",
         "to": "braiinspool",
         "n": 73,
-        "lift": 1.035
+        "lift": 1.033
       },
       {
         "from": "secpool",
@@ -63999,7 +63969,7 @@
         "from": "secpool",
         "to": "secpool",
         "n": 205,
-        "lift": 1.196
+        "lift": 1.195
       }
     ],
     "anomalies": [
@@ -64007,9 +63977,9 @@
         "from": "secpool",
         "to": "secpool",
         "n": 205,
-        "observed_rate": 0.0432,
+        "observed_rate": 0.0431,
         "expected_rate": 0.0361,
-        "lift": 1.196
+        "lift": 1.195
       },
       {
         "from": "luxor",
@@ -64017,7 +63987,7 @@
         "n": 246,
         "observed_rate": 0.0351,
         "expected_rate": 0.0295,
-        "lift": 1.188
+        "lift": 1.189
       },
       {
         "from": "cloverpool",
@@ -64039,7 +64009,7 @@
       }
     ]
   },
-  "last_updated": "2026-11-16T23:15:24.313621",
+  "last_updated": "2026-11-17T23:15:24.243117",
   "registry_version": "5fed73568dacbed3",
   "pool_sources": {
     "bitcoin-data": "0158b59ac47ac1b6f1df2704c98f2576f6d5391d",
